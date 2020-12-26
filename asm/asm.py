@@ -176,9 +176,77 @@ class Scanner:
                 print(f'{line+"|":20s} : {ret}, {val}, {mod} : NOT OK ({state}) NOT {expected_ret}, {expected_value}, {expected_mod}')
                 
     @staticmethod
+    def scan_for_org(line, pos):
+        collected = ''
+        state = 'seen_nothing'
+
+        for index, c in enumerate(line[pos:]):
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c.lower() == 'o':
+                    state = 'seen_o'
+                elif c in Scanner.whitespace:
+                    continue
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_o':
+                if c.lower() == 'r':
+                    state = 'seen_r'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_r':
+                if c.lower() == 'g':
+                    state = 'seen_g'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_g':
+                if c in Scanner.whitespace:
+                    state = 'seen_org_whitespace'
+                    continue
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_org_whitespace':
+                ok, value, _, _ = Scanner.scan_literal_value(line, index)
+                if not ok:
+                    state = 'abort'
+                    break
+                else:
+                    return True, value
+        return False, None
+
+    @staticmethod
+    def test_org():
+        lines = [
+                (" org $", False, None),
+                (" org  $1234 ", True, 0x1234),
+                (" org 1234 ", True, 1234),
+                ("org  12 ;  34", True, 12),
+                ("org  $ab;cd", True, 0xab),
+                ("org lda", False, None),
+                ("org   hello", False, None),
+                ("12ab", False, None),
+                ("org $12ab", True, 0x12ab),
+                ("org  < $12ab", True, 0xab),
+                ("org  >$12ab", True, 0x12),
+                ("org>$12ab", False, None),
+                ("org$ab;cd", False, None),
+                ]
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_org(line, 0)
+            if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+
+    @staticmethod
     def test():
         Scanner.test_scan_literal()
         Scanner.test_scan_identifier()
+        Scanner.test_org()
 
 
 

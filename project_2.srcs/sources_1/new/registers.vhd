@@ -11,6 +11,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity registers is
     port(
@@ -32,10 +33,10 @@ begin
             reg_value <= zero;
         elsif rising_edge(clk) then
             if reg_clock = '1' then
-                regs(unsigned(reg_sel - 1)) <= reg_ld_val;
+                regs(to_integer(reg_sel - 1)) <= reg_ld_val;
             end if;
         end if;
     end process regproc;
 
-    reg_value <= regs(unsigned(reg_sel));
+    reg_value <= regs(to_integer(reg_sel));
 end Behavioral;

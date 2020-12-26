@@ -12,7 +12,7 @@ class Scanner:
     alpha = [chr(c) for c in range(ord('A'), ord('Z') + 1)]
     alpha = alpha + [c.lower() for c in alpha]
     identifier_start = alpha + ['_']
-    identifier_mid = alpha + digits 
+    identifier_mid = alpha + ['_'] + digits 
     register = [chr(c) for c in range(ord('A'), ord('G') + 1)]
     register = register + [c.lower() for c in register]
 
@@ -92,6 +92,49 @@ class Scanner:
         return False, 0, pos + index, state
 
     @staticmethod
+    def scan_identifier(line, pos):
+        collected = ''
+        state = 'seen_nothing'
+        modifier = None
+
+        for index, c in enumerate(line[pos:]):
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing' or state == 'seen_modifier':
+                if c in Scanner.whitespace: continue
+                elif c in Scanner.identifier_start:
+                    collected += c
+                    state = 'collect'
+                elif c in Scanner.modifiers:
+                    if modifier:
+                        state = 'abort'
+                        break
+                    else:
+                        modifier = c
+                        state = 'seen_modifier'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'collect':
+                if c in Scanner.identifier_mid:
+                    collected += c
+                elif c in Scanner.commentlead:
+                    state = 'finished'
+                    break
+                elif c in Scanner.whitespace:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+        else:
+            state = 'finished'
+
+        if state == 'finished' and len(collected):
+            return True, collected, modifier, pos + index, state
+        return False, None, None, pos + index, state
+
+
+    @staticmethod
     def test_scan_literal():
         lines = [
                 ("  $", False, 0),
@@ -113,10 +156,29 @@ class Scanner:
             else:
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK ({state}) NOT {expected_ret}, {expected_value}')
 
-
+    @staticmethod
+    def test_scan_identifier():
+        lines = [
+                (' hello world', True, 'hello', None),
+                (' <hello world', True, 'hello', '<'),
+                ('   >_org', True, '_org', '>'),
+                ('kali_linux__1_24', True, 'kali_linux__1_24', None),
+                ('> love_caro; every day', True, 'love_caro', '>'),
+                ('  > >_org', False, None, None),
+                ('  < _org>', False, None, None),
+                ('  < _org$', False, None, None),
+                ]
+        for line, expected_ret, expected_value, expected_mod in lines:
+            ret, val, mod, _, state = Scanner.scan_identifier(line, 0)
+            if ret == expected_ret and val == expected_value and mod == expected_mod:
+                print(f'{line+"|":20s} : {ret}, {val}, {mod} : OK')
+            else:
+                print(f'{line+"|":20s} : {ret}, {val}, {mod} : NOT OK ({state}) NOT {expected_ret}, {expected_value}, {expected_mod}')
+                
     @staticmethod
     def test():
         Scanner.test_scan_literal()
+        Scanner.test_scan_identifier()
 
 
 

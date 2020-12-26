@@ -20,9 +20,9 @@ entity pmem is
 
     pc_load     :   IN    std_logic;
     pc_clock    :   IN    std_logic;
-    pc_ld_val   :   IN    std_logic;
+    pc_ld_val   :   IN    std_logic_vector (15 downto 0);
 
-    pc_addr     :   OUT   std_logic_vector (15 downto 0);
+    pc_addr     :   OUT   std_logic_vector (15 downto 0)
 );
 end pmem;
 
@@ -39,7 +39,8 @@ begin
                 counter <= counter + 1;
             elsif pc_load = '1' then
                 counter <= unsigned(pc_ld_val);
-        end if 
+            end if;
+        end if;
     end process pc;
 
     pc_addr <= std_logic_vector(counter);

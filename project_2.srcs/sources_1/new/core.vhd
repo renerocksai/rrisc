@@ -10,6 +10,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 
 entity core is
@@ -27,7 +28,7 @@ entity core is
     -- registers
     reg_ld_val    :   OUT   std_logic_vector (7 downto 0);
     reg_write     :   OUT   std_logic;
-    reg_sel       :   OUT   std_logic_vector (3 downto 0);
+    reg_sel       :   OUT   std_logic_vector (2 downto 0);
     reg_out       :   IN    std_logic_vector (7 downto 0);
     
     -- ALU status: UC, EQ, GR, SM
@@ -44,7 +45,7 @@ entity core is
     -- port bus
     port_ld_value :   OUT   std_logic_vector (7 downto 0);
     port_write    :   OUT   std_logic;
-    port_out      :   IN    std_logic_vector (7 downto 0);
+    port_out      :   IN    std_logic_vector (7 downto 0)
 
 );
 end core;
@@ -61,39 +62,14 @@ architecture Behavioral of core is
     signal the_addr : std_logic_vector (15 downto 0);
 
     -- signals without registers
-    addr_mode : std_logic_vector (1 downto 0);
-    condition : std_logic;
+    signal addr_mode : std_logic_vector (1 downto 0);
+    signal condition : std_logic;
+    signal selected_register : std_logic_vector(2 downto 0);
 
-    data : std_logic_vector (7 downto 0);
+    signal data : std_logic_vector (7 downto 0);
     
     constant zero  : unsigned (7 downto 0) := (others => '0');
 begin
-
-    -- for INRI2 with OE: instead of OE we must use an async multiplexer? or do a proper data bus
-    -- radu is not needed anymore
-    
-    -- bit 0 unit:
-    -- instead of OE, select via tmux
-    -- reg_clk possibly not needed, definitely not externally, probably only as an internal signal for later process
-    -- von RPI_CLK und RPI_OEN brauchen wir nurmehr die PORT varianten
-    
-    -- AMDU
-    -- ROED, IOED (not used, inri), POED
-    -- RCD, ICD (not used, inri), PCD 
-    
-    
-    -- data bus writers:
-    --     inri2
-    --     ram
-    --     port
-
-    -- data bus readers:
-    --     inri1
-    --     inri2
-    --     inri3
-    --     ram
-    --     port
-
     -- fsm state register
     fsm_reg: process(rst, clk)
     begin
@@ -122,19 +98,20 @@ begin
     -- fsm output decoder
     fsm_output : process(state, inr1)
     begin
-        pc_load <= '0';
+        pc_write <= '0';
         pc_clock <= '0';
-        reg_clock <= '0';
+        reg_write <= '0';
         addr_mode <= inr1(2 downto 1);
-        reg_sel <= inr1(5 downto 3);
-        data => 0;
+        selected_register <= inr1(5 downto 3);
+        data <= "00000000";
         ram_port_addr <= pc_addr;
 
         case inr1(7 downto 6) is 
-            when '00' => condition <= '1'; -- unconditional
-            when '01' => condition <= alu_eq;  -- equal
-            when '10' => condition <= alu_gr;  -- greater
-            when '11' => condition <= alu_sm;  -- smaller
+            when "00" => condition <= '1'; -- unconditional
+            when "01" => condition <= alu_eq;  -- equal
+            when "10" => condition <= alu_gr;  -- greater
+            when "11" => condition <= alu_sm;  -- smaller
+            when others => null;                -- Z and shit
         end case;
 
         case state is
@@ -169,20 +146,20 @@ begin
                         -- LD opearation (write to register, pc)
                         -- what to write
                         case addr_mode is 
-                            when '00' => data <= ram_out;   -- absolute
-                            when '01' => data <= inri2;     -- immediate
-                            when '10' => data <= port_value; -- extern
-                            others => null;
+                            when "00" => data <= ram_out;   -- absolute
+                            when "01" => data <= inr2;     -- immediate
+                            when "10" => data <= port_out; -- extern
+                            when others => null;
                         end case;
 
                         -- where to write
-                        case reg_sel is 
-                            when '000' => 
-                                pc_load_val(7 downto 0) <= data;
-                                pc_load <= '1';        -- jmp
-                            others => 
+                        case selected_register is 
+                            when "000" => 
+                                pc_ld_val(7 downto 0) <= data;
+                                pc_write <= '1';        -- jmp
+                            when others => 
                                 reg_ld_val <= data;
-                                reg_clock <= '1';
+                                reg_write <= '1';
                                 pc_clock <= '1';
                         end case;
                     else
@@ -190,23 +167,23 @@ begin
 
                         -- ST opearation 
                         -- what to store
-                        case reg_sel is 
-                            when '000' => 
+                        case selected_register is 
+                            when "000" => 
                                 null;          -- we cannot store PC value
-                            others => 
-                                data <= reg_value;
+                            when others => 
+                                data <= reg_out;
                         end case;
 
                         -- where to store
                         case addr_mode is 
-                            when '00' => 
+                            when "00" => 
                                 ram_ld_value <= data; -- absolute
-                                ram_write <= 1;
-                            when '01' => null;        -- immediate
-                            when '10' => 
+                                ram_write <= '1';
+                            when "01" => null;        -- immediate
+                            when "10" => 
                                 port_ld_value <= data;
-                                port_write <= 1;
-                            others => null;
+                                port_write <= '1';
+                            when others => null;
                         end case;
                     end if;
                 end if;
@@ -215,7 +192,7 @@ begin
 
 
     -- concurrent stuff
-    pc_load_val(15 downto 8) <= inr3;
-    pc_load_val(7 downto 0) <= inr2;
-
+    pc_ld_val(15 downto 8) <= inr3;
+    pc_ld_val(7 downto 0) <= inr2;
+    reg_sel <= selected_register;
 end Behavioral;

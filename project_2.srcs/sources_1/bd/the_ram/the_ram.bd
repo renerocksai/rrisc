@@ -2,12 +2,58 @@
   "design": {
     "design_info": {
       "boundary_crc": "0x0",
+      "device": "xc7s50csga324-1",
       "gen_directory": "../../../../project_2.gen/sources_1/bd/the_ram",
       "name": "the_ram",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2020.2"
     },
-    "design_tree": {}
+    "design_tree": {
+      "blk_mem_gen_0": ""
+    },
+    "components": {
+      "blk_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "the_ram_blk_mem_gen_0_0",
+        "xci_path": "ip/the_ram_blk_mem_gen_0_0/the_ram_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "blk_mem_gen_0",
+        "parameters": {
+          "Byte_Size": {
+            "value": "8"
+          },
+          "Coe_File": {
+            "value": "../../../../new/first_program.coe"
+          },
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Read_Width_A": {
+            "value": "8"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "true"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "true"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    }
   }
 }

@@ -8,6 +8,7 @@ class Scanner:
     hexleader = '$'
     whitespace = [' ', '\t']
     commentlead = ';'
+    labellead = ':'
     modifiers = ['<', '>']
     alpha = [chr(c) for c in range(ord('A'), ord('Z') + 1)]
     alpha = alpha + [c.lower() for c in alpha]
@@ -177,7 +178,6 @@ class Scanner:
                 
     @staticmethod
     def scan_for_org(line, pos):
-        collected = ''
         state = 'seen_nothing'
 
         for index, c in enumerate(line[pos:]):
@@ -242,11 +242,74 @@ class Scanner:
             else:
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
 
+
+    @staticmethod
+    def scan_for_label(line, pos):
+        state = 'seen_nothing'
+        identifier = None
+        afterpos = 0
+        for index, c in enumerate(line[pos:]):
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace: continue
+                elif c == Scanner.labellead:
+                    state = 'seen_colon'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_colon':
+                ok, identifier, modifier, afterpos, _ = Scanner.scan_identifier(line, index)
+                if not ok:
+                    state = 'abort'
+                    break
+                elif modifier is not None:
+                    state = 'abort'
+                    break
+                else:
+                    state = 'after_label'
+                    break
+        else:
+            state = 'finished'
+
+
+        if state == 'after_label':
+            for index, c in enumerate(line[afterpos+1:]):
+                print(state, f'>|{c}|')
+                if c in Scanner.whitespace: continue
+                elif c == Scanner.commentlead:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+            else:
+                state = 'finished'
+        if identifier and state == 'finished':
+            return True, identifier
+        return False, None
+
+
+    @staticmethod
+    def test_label():
+        lines = [
+                (":label   12 ;  34", False, None),
+                (":label", True, 'label'),
+                (":label ", True, 'label'),
+                (":label 1", False, None),
+                ]
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_label(line, 0)
+            if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+
     @staticmethod
     def test():
         Scanner.test_scan_literal()
         Scanner.test_scan_identifier()
         Scanner.test_org()
+        Scanner.test_label()
 
 
 

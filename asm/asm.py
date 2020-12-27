@@ -632,6 +632,7 @@ class Scanner:
                     state = 'abort'
                     break
 
+        # TODO : handle JMP HI[LO]
         if state == 'finished':
             return True, addr, modifier, condition
         return False, None, None, None
@@ -764,7 +765,6 @@ class Scanner:
         addrmode = None
         reg_pos = None
         condition = None
-        immipos = None
         for index, c in enumerate(line[pos:]):
             c = c.lower()
             #0 print(state, f'|{c}|')
@@ -844,12 +844,101 @@ class Scanner:
    
     @staticmethod
     def scan_for_in(line, pos):
-        pass
+        state = 'seen_nothing'
+        register = None
+        addr = None
+        modifier = None
+        addrmode = None
+        reg_pos = None
+        condition = None
+        commapos = None
+        for index, c in enumerate(line[pos:]):
+            c = c.lower()
+            #0 print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace: 
+                    continue
+                elif c == 'i':
+                    state = 'seen_i'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_i':
+                if c == 'n':
+                    state = 'seen_in'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_in':
+                ok, register, reg_pos, = Scanner.scan_for_reg(line, pos + index, True)
+                if ok:
+                    addrmode = 'absolute'
+                    reg_pos += 1
+                    ok, commapos = Scanner.scan_for_comma(line, reg_pos)
+                    if ok:
+                        commapos += 1
+                    # test for identifier
+                    ok, addr, modifier, addrpos, _ = Scanner.scan_identifier(line, commapos)
+                    if ok:
+                        state = 'got_address'
+                    else:
+                        # else test for literal
+                        ok, addr, addrpos, _ = Scanner.scan_literal_value(line, commapos)
+                        if ok:
+                            state = 'got_address'
+                        else:
+                            state = 'abort'
+                            break
+            elif state == 'got_address':
+                #0 print(f'addr={addr}')
+                #0 print(f'line[addrpos:]="{line[addrpos:]}"')
+                # test for condition
+                ok, condition = Scanner.scan_for_condition(line, addrpos)
+                #0 print('cond', ok, condition)
+                if ok:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+
+        if state == 'finished':
+            return True, register, addrmode, addr, modifier, condition
+        return False, None, None, None, None, None
+
+    @staticmethod
+    def test_in():
+        lines = [
+                (":label   12 ;  34", False, None, None, None, None, None),
+                ("in a, #0 :eq",  False, None, None, None, None, None),
+                ("in a, $0 :eq", True, 'a', 'absolute', 0, None, 'eq'),
+                ("in a, #0",  False, None, None, None, None, None),
+                ("in a, $0", True, 'a', 'absolute', 0, None, 'un'),
+                ("in a, #<addr",  False, None, None, None, None, None),
+                ("in a, $>addr",False, None, None, None, None, None),
+                ("in a, >addr", True, 'a', 'absolute', 'addr', '>', 'un'),
+                ("in a, #<addr :sm",  False, None, None, None, None, None),
+                ("in a, $>addr :sm", False, None, None, None, None, None),
+                ("in a, >addr :sm", True, 'a', 'absolute', 'addr', '>', 'sm'),
+                ]
+        error = False
+        for line, ea, eb, ec, ed, ee, ef in lines:
+            a, b, c, d, e, f = Scanner.scan_for_in(line, 0)
+            if a == ea and b == eb and c == ec and d == ed and e == ee and f == ef:
+                print(f'{line+"|":20s} : {a,b,c,d,e,f} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {a,b,c,d,e,f}, : NOT OK,  NOT {ea, eb, ec, ed, ee, ef}')
+        return error
+
 
     @staticmethod
     def scan_for_out(line, pos):
         pass
 
+    @staticmethod
+    def scan_for_jmpp(line, pos):
+        pass
 
     @staticmethod
     def test():
@@ -865,6 +954,7 @@ class Scanner:
         ret = ret or Scanner.test_jmp()
         ret = ret or Scanner.test_ld()
         ret = ret or Scanner.test_st()
+        ret = ret or Scanner.test_in()
         if ret:
             print('THERE WERE ERRORS')
         else:

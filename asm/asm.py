@@ -83,6 +83,7 @@ class Scanner:
         else:
             if state.startswith('collect'):
                 state = 'finished'
+                index += 1
         if state == 'finished' and len(collected):
             value = int(collected, radix)
             if modifier == '<':
@@ -322,6 +323,8 @@ class Scanner:
     def scan_for_condition(line, pos):
         state = 'seen_nothing'
         condition = 'un'
+        afterpos = None
+        index = 0
         for index, c in enumerate(line[pos:]):
             c = c.lower()
             # print(state, f'|{c}|')
@@ -376,8 +379,10 @@ class Scanner:
                     break
         else:
             state = 'finished'
-        afterpos = index + 1
+
         if state == 'after_condition':
+            # print('after', condition, ':', f'"{line[afterpos:]}"')
+            afterpos = pos + index + 1
             for index, c in enumerate(line[afterpos:]):
                 # print(state, f'>|{c}|')
                 if c in Scanner.whitespace: continue
@@ -399,6 +404,7 @@ class Scanner:
                 (":label   12 ;  34", False, None),
                 (":eq", True, 'eq'),
                 (" : eq ", True, 'eq'),
+                (" : eq", True, 'eq'),
                 (" : eq ; equal", True, 'eq'),
                 (":gt", True, 'gt'),
                 (" : gt ", True, 'gt'),
@@ -565,7 +571,94 @@ class Scanner:
 
     @staticmethod
     def scan_for_jmp(line, pos):
-        pass
+        state = 'seen_nothing'
+        addr = None
+        addrpos = None
+        condition = None
+        modifier = None
+        for index, c in enumerate(line[pos:]):
+            c = c.lower()
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace: 
+                    continue
+                elif c == 'j':
+                    state = 'seen_j'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_j':
+                if c == 'm':
+                    state = 'seen_jm'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_jm':
+                if c == 'p':
+                    state = 'seen_jmp'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_jmp':
+                if c in Scanner.whitespace:
+                    state = 'seen_jmp_white'
+                    # print(state)
+                    # test for identifier
+                    ok, addr, modifier, addrpos, _ = Scanner.scan_identifier(line, pos + index)
+                    if ok:
+                        state = 'got_address'
+                    else:
+                        # else test for literal
+                        ok, addr, addrpos, _ = Scanner.scan_literal_value(line, pos + index)
+                        if ok:
+                            state = 'got_address'
+                        else:
+                            state = 'abort'
+                            break
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'got_address':
+                # print(f'addr={addr}')
+                # print(f'line[addrpos:]="{line[addrpos:]}"')
+                # test for condition
+                ok, condition = Scanner.scan_for_condition(line, addrpos)
+                # print('cond', ok, condition)
+                if ok:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+
+        if state == 'finished':
+            return True, addr, modifier, condition
+        return False, None, None, None
+                
+
+    @staticmethod
+    def test_jmp():
+        lines = [
+                (":label   12 ;  34", False, None, None),
+                ("jmp 0 :eq", True, 0, 'eq'),
+                ("jmp $000a:eq", False, None, None),
+                ("jmp $000a : eq", True, 0xa, 'eq'),
+                ("jmp lbl : eq", True, 'lbl', 'eq'),
+                ("jmp $000a", True, 0xa, 'un'),
+                ("jmp label ; jump there : eq", True, 'label', 'un'),
+                ("jmp label man", False, None, None),
+                ("jmp $67 man : eq", False, None, None),
+                ("jmp $67 nan ", False, None, None),
+                ]
+        error = False
+        for line, expected_ret, expected_value, expected_cond in lines:
+            ret, val, _, cond = Scanner.scan_for_jmp(line, 0)
+            if ret == expected_ret and val == expected_value and cond == expected_cond:
+                print(f'{line+"|":20s} : {ret}, {val}, {cond} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val}, {cond} : NOT OK,  NOT {expected_ret}, {expected_value}, {expected_cond}')
+        return error
 
     @staticmethod
     def scan_for_ld(line, pos):
@@ -595,6 +688,7 @@ class Scanner:
         ret = ret or Scanner.test_reg_nolead()
         ret = ret or Scanner.test_reg_leading_spaces()
         ret = ret or Scanner.test_immediate()
+        ret = ret or Scanner.test_jmp()
         if ret:
             print('THERE WERE ERRORS')
         else:

@@ -14,8 +14,8 @@ class Scanner:
     alpha = alpha + [c.lower() for c in alpha]
     identifier_start = alpha + ['_']
     identifier_mid = alpha + ['_'] + digits 
-    register = [chr(c) for c in range(ord('A'), ord('G') + 1)]
-    register = register + [c.lower() for c in register]
+    registers = [chr(c) for c in range(ord('A'), ord('G') + 1)]
+    registers = registers + [c.lower() for c in registers]
 
     @staticmethod
     def scan_literal_value(line, pos):
@@ -432,7 +432,7 @@ class Scanner:
                     continue
                 elif c == ',':
                     state = 'finished'
-                    commapos = index
+                    commapos = pos + index
                     break
                 else:
                     state = 'abort'
@@ -455,6 +455,66 @@ class Scanner:
         for line, expected_ret, expected_value in lines:
             ret, val = Scanner.scan_for_comma(line, 0)
             if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+    @staticmethod
+    def scan_for_reg(line, pos, leading_whitespace=False):
+        state = 'seen_nothing'
+        reg_pos = None
+        register = None
+
+        for index, c in enumerate(line[pos:]):
+            c = c.lower()
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if leading_whitespace:
+                    if c in Scanner.whitespace: 
+                        continue
+                if c in Scanner.registers:
+                    register = c
+                    reg_pos = pos + index
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+        if state == 'finished':
+            return True, register, reg_pos
+        return False, None, None
+
+    @staticmethod
+    def test_reg_nolead():
+        lines = [
+                ("a asf", True, 'a', 0),
+                ("a", True, 'a', 0),
+                (" a", False, None, None),
+                ("xa", False, None, None),
+                ]
+        error = False
+        for line, expected_ret, expected_value, expected_pos in lines:
+            ret, val, pos = Scanner.scan_for_reg(line, 0, False)
+            if ret == expected_ret and val == expected_value and pos == expected_pos:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+    @staticmethod
+    def test_reg_leading_spaces():
+        lines = [
+                ("a asf", True, 'a', 0),
+                ("a", True, 'a', 0),
+                (" a", True, 'a', 1),
+                ("xa", False, None, None),
+                ]
+        error = False
+        for line, expected_ret, expected_value, expected_pos in lines:
+            ret, val, pos = Scanner.scan_for_reg(line, 0, True)
+            if ret == expected_ret and val == expected_value and pos == expected_pos:
                 print(f'{line+"|":20s} : {ret}, {val} : OK')
             else:
                 error = True
@@ -490,6 +550,8 @@ class Scanner:
         ret = ret or Scanner.test_label()
         ret = ret or Scanner.test_condition()
         ret = ret or Scanner.test_comma()
+        ret = ret or Scanner.test_reg_nolead()
+        ret = ret or Scanner.test_reg_leading_spaces()
         if ret:
             print('THERE WERE ERRORS')
         else:

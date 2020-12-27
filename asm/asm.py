@@ -1465,6 +1465,7 @@ class Asm:
                     print(f'line {index}: macro {macroname} not found!')
                     print(f'line {index}> {line}')
                 else:
+                    instance_count += 1
                     for mline in self.macros[macroname]:
                         cols = mline.split()
                         newcols = []

@@ -2,4 +2,4 @@ Symbol Table of test.asm
 K                    : 3838
 start                : 7
 loop                 : 13
-label_0              : 31
+label_1              : 31

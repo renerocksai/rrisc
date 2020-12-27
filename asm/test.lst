@@ -24,8 +24,8 @@ in g, $80
 db $A0 $a1 $a2
 db $b0 $b1 $b2
 
-:label_0
+:label_1
 lda # 1 ; load a with 1st passed in parameter
 sta $13ff ; store to addr defined by 2nd param
-jmp label_0 ; jump to local label
+jmp label_1 ; jump to local label
 

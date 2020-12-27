@@ -321,7 +321,7 @@ class Scanner:
     @staticmethod
     def scan_for_condition(line, pos):
         state = 'seen_nothing'
-        condition = None
+        condition = 'un'
         for index, c in enumerate(line[pos:]):
             c = c.lower()
             # print(state, f'|{c}|')
@@ -330,6 +330,11 @@ class Scanner:
                     continue
                 elif c == ':':
                     state = 'seen_colon'
+                    # if there is a colon, we expect an implicit condition
+                    condition = None
+                elif c == Scanner.commentlead:
+                    state = 'finished'
+                    break
                 else:
                     state = 'abort'
                     break
@@ -369,6 +374,8 @@ class Scanner:
                 else:
                     state = 'abort'
                     break
+        else:
+            state = 'finished'
         afterpos = index + 1
         if state == 'after_condition':
             for index, c in enumerate(line[afterpos:]):
@@ -382,7 +389,7 @@ class Scanner:
                     break
             else:
                 state = 'finished'
-        if state == 'finished':
+        if state == 'finished' and condition:
             return True, condition
         return False, None
 
@@ -399,7 +406,8 @@ class Scanner:
                 (":sm", True, 'sm'),
                 (" : sm ", True, 'sm'),
                 (" : sm ; smual", True, 'sm'),
-                (";", False, None),
+                (";", True, 'un'),  # implicit
+                (" ", True, 'un'),  # implicit
                 (" : eq_1", False, None),
                 (": eq 1", False, None),
                 ]

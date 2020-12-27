@@ -1,7 +1,7 @@
 - [x] macros 
     - with parameters
     - internal labels will be postfixed with instantiation counter
-- [ ] binary output
+- [x] binary output
 
 MACRODEF macroname
 text

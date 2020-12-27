@@ -1488,6 +1488,7 @@ class Asm:
                 newlines.append(line)
         self.lines = newlines
         lstfn = os.path.splitext(self.outfn)[0] + '.lst'
+        print(f'Generating: {lstfn}')
         with open(lstfn, 'wt') as f:
             for l in newlines:
                 f.write(f'{l}\n')
@@ -1509,12 +1510,29 @@ class Asm:
         print('Symbol Table:')
         for k, v in self.symboltable.symbols.items():
             print(f'{k:20} : {v}')
+
+        symfn = os.path.splitext(self.outfn)[0] + '.sym'
+        print(f'Generating: {symfn}')
+        with open(symfn, 'wt') as f:
+            f.write(f'Symbol Table of {self.infn}\n')
+            for k, v in self.symboltable.symbols.items():
+                f.write(f'{k:20} : {v}\n')
+
+
         print(f'Generating: {self.outfn}')
         with open(self.outfn, 'wt') as f:
             f.write('MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n')
             for pc in range(0, self.max_pc):
                 b = self.mem.get(pc, 0xff)
                 f.write(f'{b:02x}\n')
+        binfn = os.path.splitext(self.outfn)[0] + '.bin'
+        print(f'Generating: {binfn}')
+        buffer = []
+        for pc in range(0, self.max_pc):
+            b = self.mem.get(pc, 0xff)
+            buffer.append(b)
+        with open(binfn, 'wb') as f:
+            f.write(bytes(buffer))
         print('Done!')
 
 

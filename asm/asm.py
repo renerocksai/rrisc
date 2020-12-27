@@ -422,6 +422,46 @@ class Scanner:
         return error
 
     @staticmethod
+    def scan_for_comma(line, pos):
+        state = 'seen_nothing'
+        commapos = None
+        for index, c in enumerate(line[pos:]):
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace:
+                    continue
+                elif c == ',':
+                    state = 'finished'
+                    commapos = index
+                    break
+                else:
+                    state = 'abort'
+                    break
+        if state == 'finished':
+            return True, commapos
+        return False, None
+
+    @staticmethod
+    def test_comma():
+        lines = [
+                (":la$el", False, None),
+                ("", False, None),
+                ("   ", False, None),
+                ("  a", False, None),
+                (" , ", True, 1),
+                ("  ,", True, 2),
+                ]
+        error = False
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_comma(line, 0)
+            if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+    @staticmethod
     def scan_for_jmp(line, pos):
         pass
 
@@ -449,6 +489,7 @@ class Scanner:
         ret = ret or Scanner.test_org()
         ret = ret or Scanner.test_label()
         ret = ret or Scanner.test_condition()
+        ret = ret or Scanner.test_comma()
         if ret:
             print('THERE WERE ERRORS')
         else:

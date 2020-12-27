@@ -26,6 +26,7 @@ class Scanner:
         modifier = None
         index = 0
         for index, c in enumerate(line[pos:]):
+            c = c.lower()
             if state == 'seen_nothing' or state == 'seen_modifier':
                 if c in Scanner.whitespace: continue
                 elif c == Scanner.hexleader:
@@ -1440,11 +1441,12 @@ class Asm:
         self.lines = newlines
 
         if self.macros:
-            print('Macros:')
-            for k, v in self.macros.items():
-                print(f' {k}')
-#                for l in v:
-#                    print(f'  {l}')
+            if False:
+                print('Macros:')
+                for k, v in self.macros.items():
+                    print(f' {k}')
+    #                for l in v:
+    #                    print(f'  {l}')
 
     def run_macro_subst_pass(self):
         newlines = []
@@ -1478,14 +1480,15 @@ class Asm:
                                     col = paramval
                                 else:
                                     #label
-                                    col += f'_{instance_count}'
-                                newcols.append(col)
-                            newline = ' '.join(newcols)
-                            newlines.append(newline)
+                                    col = col[1:] + f'_{instance_count}'
+                            newcols.append(col)
+                        newline = ' '.join(newcols)
+                        newlines.append(newline)
             else:
                 newlines.append(line)
         self.lines = newlines
-        with open(self.outfn + 'expanded.asm', 'wt') as f:
+        lstfn = os.path.splitext(self.outfn)[0] + '.lst'
+        with open(lstfn, 'wt') as f:
             for l in newlines:
                 f.write(f'{l}\n')
 

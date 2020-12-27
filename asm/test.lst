@@ -1,0 +1,31 @@
+org 16
+lda #$cc
+
+
+
+
+
+org 0
+jmp start
+
+const K = $efe
+
+db $43 $41 $52 $4f   ; -- CARO
+
+:start
+lda #$00  ; clear accu
+ldb #K
+:loop
+sta $1300 : gt   ; if greater than
+jmp loop  : eq   ; if equal
+out b, $7f
+in g, $80
+
+db $A0 $a1 $a2
+db $b0 $b1 $b2
+
+:label_0
+lda # 1 ; load a with 1st passed in parameter
+sta $13ff ; store to addr defined by 2nd param
+jmp label_0 ; jump to local label
+

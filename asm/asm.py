@@ -19,6 +19,7 @@ class Scanner:
 
     @staticmethod
     def scan_literal_value(line, pos):
+        """-> ok: bool, value:int, posafter: int, state:str"""
         collected = ''
         state = 'seen_nothing'
         radix = 10
@@ -95,6 +96,7 @@ class Scanner:
 
     @staticmethod
     def scan_identifier(line, pos):
+        """-> ok: bool, identifier:str, modifier:str, posafter: int, state:str"""
         collected = ''
         state = 'seen_nothing'
         modifier = None
@@ -186,6 +188,7 @@ class Scanner:
                 
     @staticmethod
     def scan_for_org(line, pos):
+        """-> ok: bool, value:int"""
         state = 'seen_nothing'
 
         for index, c in enumerate(line[pos:]):
@@ -256,6 +259,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_label(line, pos):
+        """-> ok: bool, label:str"""
         state = 'seen_nothing'
         identifier = None
         afterpos = 0
@@ -322,6 +326,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_condition(line, pos):
+        """-> ok:bool, condition:str ('un', 'eq', 'gt', 'sm')"""
         state = 'seen_nothing'
         condition = 'un'
         afterpos = None
@@ -430,6 +435,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_comma(line, pos):
+        """-> ok:bool, commapos:int"""
         state = 'seen_nothing'
         commapos = None
         for index, c in enumerate(line[pos:]):
@@ -470,6 +476,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_reg(line, pos, leading_whitespace=False):
+        """-> ok:bool, register:str, reg_pos:int"""
         state = 'seen_nothing'
         reg_pos = None
         register = None
@@ -532,6 +539,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_immediate(line, pos):
+        """-> ok:bool, immpos:int (pos of # char)"""
         state = 'seen_nothing'
         immpos = None
         for index, c in enumerate(line[pos:]):
@@ -572,6 +580,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_jmp(line, pos):
+        """-> ok:bool, addr:str|int, modifier:str, condition:str"""
         state = 'seen_nothing'
         addr = None
         addrpos = None
@@ -664,6 +673,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_ld(line, pos):
+        """-> ok:bool, register:str, addrmode:str, addr:str|int, modifier:str, condition:str"""
         state = 'seen_nothing'
         register = None
         addr = None
@@ -758,6 +768,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_st(line, pos):
+        """-> ok:bool, register:str, addrmode:str, addr:str|int, modifier:str, condition:str"""
         state = 'seen_nothing'
         register = None
         addr = None
@@ -844,6 +855,7 @@ class Scanner:
    
     @staticmethod
     def scan_for_in(line, pos):
+        """-> ok:bool, register:str, addrmode:str, addr:str|int, modifier:str, condition:str"""
         state = 'seen_nothing'
         register = None
         addr = None
@@ -872,7 +884,7 @@ class Scanner:
             elif state == 'seen_in':
                 ok, register, reg_pos, = Scanner.scan_for_reg(line, pos + index, True)
                 if ok:
-                    addrmode = 'absolute'
+                    addrmode = 'extern'
                     reg_pos += 1
                     ok, commapos = Scanner.scan_for_comma(line, reg_pos)
                     if ok:
@@ -911,15 +923,15 @@ class Scanner:
         lines = [
                 (":label   12 ;  34", False, None, None, None, None, None),
                 ("in a, #0 :eq",  False, None, None, None, None, None),
-                ("in a, $0 :eq", True, 'a', 'absolute', 0, None, 'eq'),
+                ("in a, $0 :eq", True, 'a', 'extern', 0, None, 'eq'),
                 ("in a, #0",  False, None, None, None, None, None),
-                ("in a, $0", True, 'a', 'absolute', 0, None, 'un'),
+                ("in a, $0", True, 'a', 'extern', 0, None, 'un'),
                 ("in a, #<addr",  False, None, None, None, None, None),
                 ("in a, $>addr",False, None, None, None, None, None),
-                ("in a, >addr", True, 'a', 'absolute', 'addr', '>', 'un'),
+                ("in a, >addr", True, 'a', 'extern', 'addr', '>', 'un'),
                 ("in a, #<addr :sm",  False, None, None, None, None, None),
                 ("in a, $>addr :sm", False, None, None, None, None, None),
-                ("in a, >addr :sm", True, 'a', 'absolute', 'addr', '>', 'sm'),
+                ("in a, >addr :sm", True, 'a', 'extern', 'addr', '>', 'sm'),
                 ]
         error = False
         for line, ea, eb, ec, ed, ee, ef in lines:
@@ -934,6 +946,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_out(line, pos):
+        """-> ok:bool, register:str, addrmode:str, addr:str|int, modifier:str, condition:str"""
         state = 'seen_nothing'
         register = None
         addr = None
@@ -968,7 +981,7 @@ class Scanner:
             elif state == 'seen_out':
                 ok, register, reg_pos, = Scanner.scan_for_reg(line, pos + index, True)
                 if ok:
-                    addrmode = 'absolute'
+                    addrmode = 'extern'
                     reg_pos += 1
                     ok, commapos = Scanner.scan_for_comma(line, reg_pos)
                     if ok:
@@ -1007,15 +1020,15 @@ class Scanner:
         lines = [
                 (":label   12 ;  34", False, None, None, None, None, None),
                 ("out a, #0 :eq",  False, None, None, None, None, None),
-                ("out a, $0 :eq", True, 'a', 'absolute', 0, None, 'eq'),
+                ("out a, $0 :eq", True, 'a', 'extern', 0, None, 'eq'),
                 ("out a, #0",  False, None, None, None, None, None),
-                ("out a, $0", True, 'a', 'absolute', 0, None, 'un'),
+                ("out a, $0", True, 'a', 'extern', 0, None, 'un'),
                 ("out a, #<addr",  False, None, None, None, None, None),
                 ("out a, $>addr",False, None, None, None, None, None),
-                ("out a, >addr", True, 'a', 'absolute', 'addr', '>', 'un'),
+                ("out a, >addr", True, 'a', 'extern', 'addr', '>', 'un'),
                 ("out a, #<addr :sm",  False, None, None, None, None, None),
                 ("out a, $>addr :sm", False, None, None, None, None, None),
-                ("out a, >addr :sm", True, 'a', 'absolute', 'addr', '>', 'sm'),
+                ("out a, >addr :sm", True, 'a', 'extern', 'addr', '>', 'sm'),
                 ]
         error = False
         for line, ea, eb, ec, ed, ee, ef in lines:
@@ -1034,6 +1047,7 @@ class Scanner:
 
     @staticmethod
     def scan_for_skipline(line):
+        """-> ok:bool"""
         if len(line) == 0:
             return True
         state = 'seen_nothing'
@@ -1074,6 +1088,58 @@ class Scanner:
         return error
 
     @staticmethod
+    def scan_for_const(line):
+        """ -> ok:bool, identifier: str, literal: int """
+        identifier = None
+        literal = None
+        if line.startswith('const'):
+            cols = line.split()
+            if len(cols) < 4:
+               return False, None, None
+            if cols[0] != 'const':
+               return False, None, None
+            ok, identifier, _, _, _ = Scanner.scan_identifier(cols[1], 0)
+            if not ok:
+               return False
+            if cols[2] != '=':
+               return False, None, None
+            ok, literal, _, _ = Scanner.scan_literal_value(cols[3], 0)
+            if not ok:
+                return False, None, None
+            # check if rest of line is empty
+            remainder = ' '.join(cols[4:])
+            ok = Scanner.scan_for_skipline(remainder)
+            if not ok:
+                return False, None, None
+            return True, identifier, literal
+        return False, None, None
+
+
+    @staticmethod 
+    def test_const():
+        lines = [
+                ("const a = 10", True, 'a', 10),
+                ("const ", False, None, None),
+                ("", False, None, None),
+                ("const a", False, None, None),
+                ("const a=10", False, None, None),
+                ("const a = ", False, None, None),
+                ("const a = hello", False, None, None),
+                ("const a = $10", True, 'a', 16),
+                ]
+        error = False
+        for line, expected_ret, expected_value, expected_pos in lines:
+            ret, identifier, val = Scanner.scan_for_const(line)
+            if ret == expected_ret and identifier == expected_value and val == expected_pos:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+
+
+    @staticmethod
     def test():
         ret = Scanner.test_scan_literal()
         ret = ret or Scanner.test_scan_identifier()
@@ -1090,6 +1156,7 @@ class Scanner:
         ret = ret or Scanner.test_in()
         ret = ret or Scanner.test_out()
         ret = ret or Scanner.test_skiplines()
+        ret = ret or Scanner.test_const()
         if ret:
             print('THERE WERE ERRORS')
         else:
@@ -1144,8 +1211,6 @@ class Asm:
                 'sm': 3 << 6,
                 }
 
-    def set_asm(self, lines):
-        self.lines = lines
 
     def get_symbol_addr(self, addr, modifier):
         if isinstance(addr, str):
@@ -1193,6 +1258,12 @@ class Asm:
             ok, label = Scanner.scan_for_label(line, 0)
             if ok:
                 self.symboltable.put(label, self.pc)
+                continue
+
+            # const
+            ok, identifier, literal = Scanner.scan_for_const(line)
+            if ok:
+                self.symboltable.put(identifier, literal)
                 continue
 
             # JMP
@@ -1287,6 +1358,9 @@ class Asm:
 if __name__ == '__main__':
 
     infn = sys.argv[1]
+    if infn == '--test':
+        Scanner.test()
+        sys.exit()
     base, _ = os.path.splitext(infn)
     outfn = base + '.coe'
     a = Asm(infn, outfn)

@@ -137,6 +137,7 @@ class Scanner:
 
     @staticmethod
     def test_scan_literal():
+        error = False
         lines = [
                 ("  $", False, 0),
                 ("   $1234 ", True, 0x1234),
@@ -156,9 +157,12 @@ class Scanner:
                 print(f'{line+"|":20s} : {ret}, {val} : OK')
             else:
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK ({state}) NOT {expected_ret}, {expected_value}')
+                error = True
+        return error
 
     @staticmethod
     def test_scan_identifier():
+        error = False
         lines = [
                 (' hello world', True, 'hello', None),
                 (' <hello world', True, 'hello', '<'),
@@ -174,7 +178,9 @@ class Scanner:
             if ret == expected_ret and val == expected_value and mod == expected_mod:
                 print(f'{line+"|":20s} : {ret}, {val}, {mod} : OK')
             else:
+                error = True
                 print(f'{line+"|":20s} : {ret}, {val}, {mod} : NOT OK ({state}) NOT {expected_ret}, {expected_value}, {expected_mod}')
+        return error
                 
     @staticmethod
     def scan_for_org(line, pos):
@@ -220,6 +226,7 @@ class Scanner:
 
     @staticmethod
     def test_org():
+        error = False
         lines = [
                 (" org $", False, None),
                 (" org  $1234 ", True, 0x1234),
@@ -241,6 +248,8 @@ class Scanner:
                 print(f'{line+"|":20s} : {ret}, {val} : OK')
             else:
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+                error = True
+        return error
 
 
     @staticmethod
@@ -274,7 +283,7 @@ class Scanner:
 
         if state == 'after_label':
             for index, c in enumerate(line[afterpos+1:]):
-                print(state, f'>|{c}|')
+                # print(state, f'>|{c}|')
                 if c in Scanner.whitespace: continue
                 elif c == Scanner.commentlead:
                     state = 'finished'
@@ -296,28 +305,166 @@ class Scanner:
                 (":label", True, 'label'),
                 (":label ", True, 'label'),
                 (":label 1", False, None),
+                (":la$el", False, None),
                 ]
+        error = False
         for line, expected_ret, expected_value in lines:
             ret, val = Scanner.scan_for_label(line, 0)
             if ret == expected_ret and val == expected_value:
                 print(f'{line+"|":20s} : {ret}, {val} : OK')
             else:
+                error = True
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+
+    @staticmethod
+    def scan_for_condition(line, pos):
+        state = 'seen_nothing'
+        condition = None
+        for index, c in enumerate(line[pos:]):
+            c = c.lower()
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace: 
+                    continue
+                elif c == ':':
+                    state = 'seen_colon'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_colon':
+                if c == 'e':
+                    state = 'seen_e'
+                elif c == 'g':
+                    state = 'seen_g'
+                elif c == 's':
+                    state = 'seen_s'
+                elif c in Scanner.whitespace:
+                    continue
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_e':
+                if c == 'q':
+                    state = 'after_condition'
+                    condition = 'eq'
+                    break
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_g':
+                if c == 't':
+                    state = 'after_condition'
+                    condition = 'gt'
+                    break
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_s':
+                if c == 'm':
+                    state = 'after_condition'
+                    condition = 'sm'
+                    break
+                else:
+                    state = 'abort'
+                    break
+        afterpos = index + 1
+        if state == 'after_condition':
+            for index, c in enumerate(line[afterpos:]):
+                # print(state, f'>|{c}|')
+                if c in Scanner.whitespace: continue
+                elif c == Scanner.commentlead:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+            else:
+                state = 'finished'
+        if state == 'finished':
+            return True, condition
+        return False, None
+
+    @staticmethod
+    def test_condition():
+        lines = [
+                (":label   12 ;  34", False, None),
+                (":eq", True, 'eq'),
+                (" : eq ", True, 'eq'),
+                (" : eq ; equal", True, 'eq'),
+                (":gt", True, 'gt'),
+                (" : gt ", True, 'gt'),
+                (" : gt ; gtual", True, 'gt'),
+                (":sm", True, 'sm'),
+                (" : sm ", True, 'sm'),
+                (" : sm ; smual", True, 'sm'),
+                (";", False, None),
+                (" : eq_1", False, None),
+                (": eq 1", False, None),
+                ]
+        error = False
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_condition(line, 0)
+            if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+    @staticmethod
+    def scan_for_jmp(line, pos):
+        pass
+
+    @staticmethod
+    def scan_for_ld(line, pos):
+        pass
+
+    @staticmethod
+    def scan_for_st(line, pos):
+        pass
+   
+    @staticmethod
+    def scan_for_in(line, pos):
+        pass
+
+    @staticmethod
+    def scan_for_out(line, pos):
+        pass
+
 
     @staticmethod
     def test():
-        Scanner.test_scan_literal()
-        Scanner.test_scan_identifier()
-        Scanner.test_org()
-        Scanner.test_label()
+        ret = Scanner.test_scan_literal()
+        ret = ret or Scanner.test_scan_identifier()
+        ret = ret or Scanner.test_org()
+        ret = ret or Scanner.test_label()
+        ret = ret or Scanner.test_condition()
+        if ret:
+            print('THERE WERE ERRORS')
+        else:
+            print('NO ERRORS')
 
 
+class SymbolTable:
+    def __init__(self):
+        self.symbols = {}
+
+    def get(self, key):
+        if isinstance(str, key):
+            return self.symbols.get(key, 0)
+        else:
+            return key
+
+    def put(self, key, value):
+        self.symbols[key] = value
 
 
 
 class Asm:
     def __init__(self):
-        self.symbols = {}
+        self.symboltable = SymbolTable()
         self.mem = {}
         self.pc = 0
         self.max_pc = 0

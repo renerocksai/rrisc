@@ -1140,7 +1140,7 @@ class Asm:
         self.condition2bin = {
                 'un': 0,
                 'eq': 1 << 6,
-                'gr': 2 << 6,
+                'gt': 2 << 6,
                 'sm': 3 << 6,
                 }
 

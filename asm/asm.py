@@ -1227,17 +1227,41 @@ class Asm:
                 continue
 
             if pass_no == 1:
-                print(f'line {i}: cannot parse:\n  {line}')
+                print(f'line {i}: cannot parse:\nline {i}> {line}')
             self.has_errors = True
         return self.has_errors
+
 
     def get_unresolved_symbols(self):
         return self.requested_symbols - self.symboltable.symbols.keys()
 
-    def assemble(self):
-        with open(self.infn, 'rt') as f:
-            self.lines = [l.strip() for l in f.readlines()]
 
+    def run_include_pass(self):
+        with open(self.infn, 'rt') as f:
+            lines = [l.strip() for l in f.readlines()]
+
+        self.lines = []
+        for i, line in enumerate(lines):
+            if line.startswith('include'):
+                cols = line.split()
+                if len(cols) < 2:
+                    print(f'line {i}: missing include file name:\nline {i}> {line}')
+                    return
+                incfn = cols[1]
+                if not os.path.exists(incfn):
+                    print(f'line {i}: include file {incfn} not found:\nline {i}> {line}')
+                    return
+
+                with open(incfn, 'rt') as incf:
+                    ls = [l.strip() for l in incf.readlines()]
+                    self.lines.extend(ls)
+            else:
+                self.lines.append(line)
+        return
+
+
+    def assemble(self):
+        self.run_include_pass()
         if self.run_pass():
             self.run_pass(2)
         u = self.get_unresolved_symbols()

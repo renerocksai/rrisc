@@ -1,3 +1,5 @@
+include macros.inc
+
 org 0
 
 :start 

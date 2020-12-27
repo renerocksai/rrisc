@@ -16,3 +16,5 @@ jmp loop  : eq   ; if equal
 out b, $7f
 in g, $80
 
+macro testmacro 1 $13ff
+

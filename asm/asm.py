@@ -1260,6 +1260,7 @@ class Asm:
         self.lines = []
         self.has_errors = False
         self.requested_symbols = set()
+        self.macros = {}
         self.addrmode2bin = {
                 'absolute': 0x00,
                 'immediate': 0x02,
@@ -1415,8 +1416,84 @@ class Asm:
         return
 
 
+    def run_macro_read_pass(self):
+        state = 'seen_nothing'
+        macroname = None
+
+        newlines = []
+
+        for line in self.lines:
+            if state == 'seen_nothing':
+                if line.lower().startswith('macrodef'):
+                    state = 'in_macro'
+                    cols = line.split()
+                    macroname = cols[1]
+                    self.macros[macroname] = []
+                else:
+                    newlines.append(line)
+            elif state == 'in_macro':
+                if line.lower().startswith('endmacro'):
+                    state = 'seen_nothing'
+                else:
+                    self.macros[macroname].append(line)
+
+        self.lines = newlines
+
+        if self.macros:
+            print('Macros:')
+            for k, v in self.macros.items():
+                print(f' {k}')
+#                for l in v:
+#                    print(f'  {l}')
+
+    def run_macro_subst_pass(self):
+        newlines = []
+        instance_count = 0
+        for index, line in enumerate(self.lines):
+            if line.lower().startswith('macro'):
+                cols = line.split()
+                macroname = cols[1]
+                paramcols = cols[2:]
+                params = {}
+                for i, c in enumerate(paramcols):
+                    params[i+1] = c
+
+
+                if macroname not in self.macros:
+                    print(f'line {index}: macro {macroname} not found!')
+                    print(f'line {index}> {line}')
+                else:
+                    for mline in self.macros[macroname]:
+                        cols = mline.split()
+                        newcols = []
+                        for col in cols:
+                            if col.startswith(':@'):
+                                col = ':' + col[2:] + f'_{instance_count}'
+                            elif col.startswith('@'):
+                                # check if param or label
+                                if col[1] in Scanner.digits:
+                                    # param
+                                    paramcount = int(col[1:])
+                                    paramval = params.get(paramcount, 0)
+                                    col = paramval
+                                else:
+                                    #label
+                                    col += f'_{instance_count}'
+                                newcols.append(col)
+                            newline = ' '.join(newcols)
+                            newlines.append(newline)
+            else:
+                newlines.append(line)
+        self.lines = newlines
+        with open(self.outfn + 'expanded.asm', 'wt') as f:
+            for l in newlines:
+                f.write(f'{l}\n')
+
+                
     def assemble(self):
         self.run_include_pass()
+        self.run_macro_read_pass()
+        self.run_macro_subst_pass()
         has_errors = self.run_pass()
         if not has_errors:
             self.run_pass(2)
@@ -1450,5 +1527,4 @@ if __name__ == '__main__':
     outfn = base + '.coe'
     a = Asm(infn, outfn)
     a.assemble()
-#    Scanner.test()
 

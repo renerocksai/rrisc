@@ -1,5 +1,3 @@
-- immediate literal: check for > 0xff !!!!!
-- db
 - macros 
     - with parameters
     - internal labels will be postfixed with instantiation counter

@@ -24,6 +24,7 @@ class Scanner:
         state = 'seen_nothing'
         radix = 10
         modifier = None
+        index = 0
         for index, c in enumerate(line[pos:]):
             if state == 'seen_nothing' or state == 'seen_modifier':
                 if c in Scanner.whitespace: continue
@@ -1115,6 +1116,75 @@ class Scanner:
         return False, None, None
 
 
+    @staticmethod
+    def scan_for_db(line, pos=0):
+        """-> ok:bool, bytes: list[int]"""
+        state = 'seen_nothing'
+        buffer = []
+        posafter = None
+
+        for i, c in enumerate(line):
+            c = c.lower()
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace:
+                    continue
+                elif c == 'd':
+                    state = 'seen_d'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_d':
+                if c == 'b':
+                    state = 'seen_db'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_db':
+                if c in Scanner.whitespace:
+                    state = 'seen_db_white'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_db_white':
+                ok, value, posafter, _ = Scanner.scan_literal_value(line, pos + i)
+                if not ok:
+                    state = 'abort'
+                    break
+                buffer.append(value & 0xff)
+                state = 'parsing'
+            elif state == 'parsing':
+                ok, value, posafter, _ = Scanner.scan_literal_value(line, posafter + 1)
+                if not ok:
+                    state = 'finished'
+                    break
+                buffer.append(value & 0xff)
+
+        if state == 'finished':
+            return True, buffer
+        return False, None
+
+    @staticmethod
+    def test_db():
+        lines = [
+                ("db 00 01 02 03", True, [0,1,2,3]),
+                ("db 00 01 02 03;", True, [0,1,2,3]),
+                ("db 00 ", True, [0]),
+                ("db00, 01, 02, 03", False, None),
+                ("db 00, 01, 02, 03", False, None),
+                ("db", False, None),
+                ]
+        error = False
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_db(line)
+            if ret == expected_ret and val == expected_value:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+
+
     @staticmethod 
     def test_const():
         lines = [
@@ -1157,6 +1227,7 @@ class Scanner:
         ret = ret or Scanner.test_out()
         ret = ret or Scanner.test_skiplines()
         ret = ret or Scanner.test_const()
+        ret = ret or Scanner.test_db()
         if ret:
             print('THERE WERE ERRORS')
         else:
@@ -1266,6 +1337,14 @@ class Asm:
                 self.symboltable.put(identifier, literal)
                 continue
 
+            # const
+            ok, buffer = Scanner.scan_for_db(line)
+            if ok:
+                for b in buffer:
+                    self.mem[self.pc] = b
+                    self.pc += 1
+                continue
+
             # JMP
             ok, addr, modifier, condition = Scanner.scan_for_jmp(line, 0)
             if ok:
@@ -1277,7 +1356,7 @@ class Asm:
             if ok:
                 if addrmode == 'immediate':
                     value = self.get_symbol_addr(addr, modifier)
-                    if value > 0xff:
+                    if value > 0xff and pass_no == 2:
                         print(f'line {i}: WARNING: literal {addr}={value} > 0xff!')
                         print(f'line {i}> {line}')
                 self.emit(load=True, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
@@ -1338,7 +1417,8 @@ class Asm:
 
     def assemble(self):
         self.run_include_pass()
-        if self.run_pass():
+        has_errors = self.run_pass()
+        if not has_errors:
             self.run_pass(2)
         u = self.get_unresolved_symbols()
         if u:

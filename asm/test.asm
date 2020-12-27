@@ -1,8 +1,11 @@
 include macros.inc
 
 org 0
+jmp start
 
 const K = $efe
+
+db $43 $41 $52 $4f   ; -- CARO
 
 :start 
 lda #$00  ; clear accu

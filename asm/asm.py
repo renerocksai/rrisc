@@ -663,18 +663,17 @@ class Scanner:
 
     @staticmethod
     def scan_for_ld(line, pos):
-        pass
         state = 'seen_nothing'
         register = None
         addr = None
         modifier = None
         addrmode = None
-        regpos = None
+        reg_pos = None
         condition = None
         immipos = None
         for index, c in enumerate(line[pos:]):
             c = c.lower()
-            print(state, f'|{c}|')
+            #0 print(state, f'|{c}|')
             if state == 'seen_nothing':
                 if c in Scanner.whitespace: 
                     continue
@@ -715,11 +714,11 @@ class Scanner:
                             state = 'abort'
                             break
             elif state == 'got_address':
-                print(f'addr={addr}')
-                print(f'line[addrpos:]="{line[addrpos:]}"')
+                #0 print(f'addr={addr}')
+                #0 print(f'line[addrpos:]="{line[addrpos:]}"')
                 # test for condition
                 ok, condition = Scanner.scan_for_condition(line, addrpos)
-                print('cond', ok, condition)
+                #0 print('cond', ok, condition)
                 if ok:
                     state = 'finished'
                     break
@@ -758,7 +757,90 @@ class Scanner:
 
     @staticmethod
     def scan_for_st(line, pos):
-        pass
+        state = 'seen_nothing'
+        register = None
+        addr = None
+        modifier = None
+        addrmode = None
+        reg_pos = None
+        condition = None
+        immipos = None
+        for index, c in enumerate(line[pos:]):
+            c = c.lower()
+            #0 print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace: 
+                    continue
+                elif c == 's':
+                    state = 'seen_s'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_s':
+                if c == 't':
+                    state = 'seen_st'
+                else:
+                    state = 'abort'
+                    break
+            elif state == 'seen_st':
+                ok, register, reg_pos, = Scanner.scan_for_reg(line, pos + index)
+                if ok:
+                    addrmode = 'absolute'
+                    reg_pos += 1
+                    # test for identifier
+                    ok, addr, modifier, addrpos, _ = Scanner.scan_identifier(line, reg_pos)
+                    if ok:
+                        state = 'got_address'
+                    else:
+                        # else test for literal
+                        ok, addr, addrpos, _ = Scanner.scan_literal_value(line, reg_pos)
+                        if ok:
+                            state = 'got_address'
+                        else:
+                            state = 'abort'
+                            break
+            elif state == 'got_address':
+                #0 print(f'addr={addr}')
+                #0 print(f'line[addrpos:]="{line[addrpos:]}"')
+                # test for condition
+                ok, condition = Scanner.scan_for_condition(line, addrpos)
+                #0 print('cond', ok, condition)
+                if ok:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+
+        if state == 'finished':
+            return True, register, addrmode, addr, modifier, condition
+        return False, None, None, None, None, None
+
+    @staticmethod
+    def test_st():
+        lines = [
+                (":label   12 ;  34", False, None, None, None, None, None),
+                ("sta #0 :eq",  False, None, None, None, None, None),
+                ("sta $0 :eq", True, 'a', 'absolute', 0, None, 'eq'),
+                ("sta #0",  False, None, None, None, None, None),
+                ("sta $0", True, 'a', 'absolute', 0, None, 'un'),
+                ("sta #<addr",  False, None, None, None, None, None),
+                ("sta $>addr",False, None, None, None, None, None),
+                ("sta >addr", True, 'a', 'absolute', 'addr', '>', 'un'),
+                ("sta #<addr :sm",  False, None, None, None, None, None),
+                ("sta $>addr :sm", False, None, None, None, None, None),
+                ("sta >addr :sm", True, 'a', 'absolute', 'addr', '>', 'sm'),
+                ]
+        error = False
+        for line, ea, eb, ec, ed, ee, ef in lines:
+            a, b, c, d, e, f = Scanner.scan_for_st(line, 0)
+            if a == ea and b == eb and c == ec and d == ed and e == ee and f == ef:
+                print(f'{line+"|":20s} : {a,b,c,d,e,f} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {a,b,c,d,e,f}, : NOT OK,  NOT {ea, eb, ec, ed, ee, ef}')
+        return error
+
    
     @staticmethod
     def scan_for_in(line, pos):
@@ -782,6 +864,7 @@ class Scanner:
         ret = ret or Scanner.test_immediate()
         ret = ret or Scanner.test_jmp()
         ret = ret or Scanner.test_ld()
+        ret = ret or Scanner.test_st()
         if ret:
             print('THERE WERE ERRORS')
         else:

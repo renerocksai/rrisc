@@ -1275,6 +1275,11 @@ class Asm:
             # LD
             ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_ld(line, 0)
             if ok:
+                if addrmode == 'immediate':
+                    value = self.get_symbol_addr(addr, modifier)
+                    if value > 0xff:
+                        print(f'line {i}: WARNING: literal {addr}={value} > 0xff!')
+                        print(f'line {i}> {line}')
                 self.emit(load=True, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
                 continue
 

@@ -2,7 +2,7 @@ include macros.inc
 
 org 0
 
-const K = $ee
+const K = $efe
 
 :start 
 lda #$00  ; clear accu

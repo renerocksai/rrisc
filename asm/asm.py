@@ -503,6 +503,7 @@ class Scanner:
                 error = True
                 print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
         return error
+
     @staticmethod
     def test_reg_leading_spaces():
         lines = [
@@ -515,6 +516,47 @@ class Scanner:
         for line, expected_ret, expected_value, expected_pos in lines:
             ret, val, pos = Scanner.scan_for_reg(line, 0, True)
             if ret == expected_ret and val == expected_value and pos == expected_pos:
+                print(f'{line+"|":20s} : {ret}, {val} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret}, {val} : NOT OK,  NOT {expected_ret}, {expected_value}')
+        return error
+
+
+    @staticmethod
+    def scan_for_immediate(line, pos):
+        state = 'seen_nothing'
+        immpos = None
+        for index, c in enumerate(line[pos:]):
+            # print(state, f'|{c}|')
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace:
+                    continue
+                elif c == '#':
+                    state = 'finished'
+                    immpos = pos + index
+                    break
+                else:
+                    state = 'abort'
+                    break
+        if state == 'finished':
+            return True, immpos
+        return False, None
+
+    @staticmethod
+    def test_immediate():
+        lines = [
+                (":la$el", False, None),
+                ("", False, None),
+                ("   ", False, None),
+                ("  a", False, None),
+                (" # ", True, 1),
+                ("  #", True, 2),
+                ]
+        error = False
+        for line, expected_ret, expected_value in lines:
+            ret, val = Scanner.scan_for_immediate(line, 0)
+            if ret == expected_ret and val == expected_value:
                 print(f'{line+"|":20s} : {ret}, {val} : OK')
             else:
                 error = True
@@ -552,6 +594,7 @@ class Scanner:
         ret = ret or Scanner.test_comma()
         ret = ret or Scanner.test_reg_nolead()
         ret = ret or Scanner.test_reg_leading_spaces()
+        ret = ret or Scanner.test_immediate()
         if ret:
             print('THERE WERE ERRORS')
         else:

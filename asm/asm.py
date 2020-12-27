@@ -1033,6 +1033,47 @@ class Scanner:
         pass
 
     @staticmethod
+    def scan_for_skipline(line):
+        if len(line) == 0:
+            return True
+        state = 'seen_nothing'
+        for c in line:
+            if state == 'seen_nothing':
+                if c in Scanner.whitespace:
+                    continue
+                elif c == Scanner.commentlead:
+                    state = 'finished'
+                    break
+                else:
+                    state = 'abort'
+                    break
+        else:
+            state = 'finished'
+        if state == 'finished':
+            return True
+        return False
+
+    @staticmethod
+    def test_skiplines():
+        lines = [
+                (":label   12 ;  34", False),
+                ("", True),
+                ("   ", True),
+                ("   ; test ", True),
+                ("; test ", True),
+                ("\t\t; test ", True),
+                ]
+        error = False
+        for line, expected_ret in lines:
+            ret = Scanner.scan_for_skipline(line)
+            if ret == expected_ret:
+                print(f'{line+"|":20s} : {ret} : OK')
+            else:
+                error = True
+                print(f'{line+"|":20s} : {ret} : NOT OK,  NOT {expected_ret}')
+        return error
+
+    @staticmethod
     def test():
         ret = Scanner.test_scan_literal()
         ret = ret or Scanner.test_scan_identifier()
@@ -1048,6 +1089,7 @@ class Scanner:
         ret = ret or Scanner.test_st()
         ret = ret or Scanner.test_in()
         ret = ret or Scanner.test_out()
+        ret = ret or Scanner.test_skiplines()
         if ret:
             print('THERE WERE ERRORS')
         else:
@@ -1059,7 +1101,7 @@ class SymbolTable:
         self.symbols = {}
 
     def get(self, key):
-        if isinstance(str, key):
+        if isinstance(key, str):
             return self.symbols.get(key, 0)
         else:
             return key
@@ -1070,12 +1112,160 @@ class SymbolTable:
 
 
 class Asm:
-    def __init__(self):
+    def __init__(self, infn, outfn):
+        self.infn = infn
+        self.outfn = outfn
         self.symboltable = SymbolTable()
         self.mem = {}
         self.pc = 0
         self.max_pc = 0
+        self.lines = []
+        self.has_errors = False
+        self.requested_symbols = set()
+        self.addrmode2bin = {
+                'absolute': 0x00,
+                'immediate': 0x02,
+                'extern': 0x04,
+                }
+        self.register2bin = {
+                'pc': 0,
+                'a': 1 << 3,
+                'b': 2 << 3,
+                'c': 3 << 3,
+                'd': 4 << 3,
+                'e': 5 << 3,
+                'f': 6 << 3,
+                'g': 7 << 3,
+                }
+        self.condition2bin = {
+                'un': 0,
+                'eq': 1 << 6,
+                'gr': 2 << 6,
+                'sm': 3 << 6,
+                }
+
+    def set_asm(self, lines):
+        self.lines = lines
+
+    def get_symbol_addr(self, addr, modifier):
+        if isinstance(addr, str):
+            self.requested_symbols.add(addr)
+        value = self.symboltable.get(addr)
+        if modifier == '<':
+            value = value & 0xff
+        elif modifier == '>':
+            value = int(value / 256)
+        return value
+        
+    def emit(self, load=None, addrmode=None, register=None, condition=None, addr=0, modifier=None):
+        value = self.get_symbol_addr(addr, modifier)
+        inr2 = value & 0xff
+        inr3 = int(value / 256)
+
+        inr1 = 0
+        if not load:
+            inr1 |= 1
+
+        inr1 |= self.addrmode2bin[addrmode]
+        inr1 |= self.register2bin[register]
+        inr1 |= self.condition2bin[condition]
+
+        self.mem[self.pc] = inr1
+        self.mem[self.pc + 1] = inr2
+        self.mem[self.pc + 2] = inr3
+        self.pc += 3
+        self.max_pc = max(self.pc, self.max_pc)
+
+
+    def run_pass(self, pass_no=1):
+        self.pc = 0
+        for i, line in enumerate(self.lines):
+            if Scanner.scan_for_skipline(line):
+                continue
+
+            # ORG
+            ok, value = Scanner.scan_for_org(line, 0)
+            if ok:
+                self.pc = value
+                continue
+
+            # label
+            ok, label = Scanner.scan_for_label(line, 0)
+            if ok:
+                self.symboltable.put(label, self.pc)
+                continue
+
+            # JMP
+            ok, addr, modifier, condition = Scanner.scan_for_jmp(line, 0)
+            if ok:
+                self.emit(load=True, addrmode='immediate', register='pc', condition=condition, addr=addr, modifier=modifier)
+                continue
+
+            # LD
+            ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_ld(line, 0)
+            if ok:
+                self.emit(load=True, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                continue
+
+            # ST
+            ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_st(line, 0)
+            if ok:
+                self.emit(load=False, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                continue
+
+
+            # IN
+            ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_in(line, 0)
+            if ok:
+                self.emit(load=True, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                continue
+
+            # OUT
+            ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_out(line, 0)
+            if ok:
+                self.emit(load=False, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                continue
+
+            if pass_no == 1:
+                print(f'line {i}: cannot parse:\n  {line}')
+            self.has_errors = True
+        return self.has_errors
+
+    def get_unresolved_symbols(self):
+        return self.requested_symbols - self.symboltable.symbols.keys()
+
+    def assemble(self):
+        with open(self.infn, 'rt') as f:
+            self.lines = [l.strip() for l in f.readlines()]
+
+        if self.run_pass():
+            self.run_pass(2)
+        u = self.get_unresolved_symbols()
+        if u:
+            print('The following symbols are undefined:')
+            for x in u:
+                print('    ', x)
+        print()
+        print('Symbol Table:')
+        for k, v in self.symboltable.symbols.items():
+            print(f'{k:20} : {v}')
+        print(f'Generating: {self.outfn}')
+        with open(self.outfn, 'wt') as f:
+            f.write('MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n')
+            for pc in range(0, self.max_pc):
+                b = self.mem.get(pc, 0xff)
+                f.write(f'{b:02x}\n')
+        print('Done!')
+
+
+
 
 if __name__ == '__main__':
-    Scanner.test()
+
+    infn = sys.argv[1]
+    base, _ = os.path.splitext(infn)
+    outfn = base + '.coe'
+    a = Asm(infn, outfn)
+    a.assemble()
+#    Scanner.test()
 

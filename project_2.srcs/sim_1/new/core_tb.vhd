@@ -1,20 +1,9 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+--
+-- Engineer: Rene Schallner
 -- 
 -- Create Date: 12/26/2020 01:11:36 PM
--- Design Name: 
--- Module Name: core_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
 -- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
 

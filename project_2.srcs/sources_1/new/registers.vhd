@@ -1,4 +1,3 @@
-
 ----------------------------------------------------------------------------------
 -- 
 -- Engineer: Rene Schallner
@@ -27,22 +26,46 @@ entity registers is
 end registers;
 
 architecture Behavioral of registers is
-    -- signals
     type regs_t is array (0 to 6) of std_logic_vector (7 downto 0);
-    signal regs : regs_t;
+
+    -- signals
+    signal regs : regs_t := (
+        "10101010",
+        "10101010",
+        "10101010",
+        "10101010",
+        "10101010",
+        "10101010",
+        "10101010"
+    );
+    signal sel : std_logic_vector (2 downto 0) := "001";
+    signal myval : std_logic_vector (7 downto 0) := "11111111";
+
     constant zero : std_logic_vector(7 downto 0) := "00000000";
 
 begin
     regproc : process (rst, clk)
     begin
         if rst = '1' then
-            reg_value <= zero;
+            myval <= zero;
         elsif rising_edge(clk) then
             if reg_clock = '1' then
-                regs(to_integer(unsigned(reg_sel)-1)) <= reg_ld_val;
+                regs(to_integer(unsigned(sel)-1)) <= reg_ld_val;
+                myval <= reg_ld_val;
+            else
+                myval <= regs(to_integer(unsigned(sel)-1));
             end if;
         end if;
     end process regproc;
 
-    reg_value <= regs(to_integer(unsigned(reg_sel)-1));
+    selproc : process (reg_sel)
+    begin
+        case reg_sel is
+            when "000" => sel <= "001";
+            when others => sel <= reg_sel;
+        end case;
+    end process selproc;
+
+    reg_value <= myval;
+ 
 end Behavioral;

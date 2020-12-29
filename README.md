@@ -18,7 +18,15 @@ This is the progress I've made so far:
 3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
 4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)
 
-BTW, what's so special about RRISC:
+The code is organized as follows:
+
+- [asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) which is used for first tests of the CPU
+- [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [->ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
+- [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
+
+More info on the minimalistic RRISC CPU will follow as soon as I get to it. 
+
+#### BTW, what's so special about RRISC:
 
 - the instruction set is truly minimal:
   - load register from RAM / IO port / immediately
@@ -55,16 +63,12 @@ BTW, what's so special about RRISC:
 ```
 lda # $CA    ; load register A with immediate value 0xCA
 ```
+The thin red marker to the right in the image below is placed at ca. 90 nanoseconds, after the _execute_ phase of the instruction. In the last line you can see *cpureg_a* (register A) receiving the value `CA` at the end of _execute_. 
+
+If you look carefully, you can see that value travel from *ram_out* via *debug_inr2* (instruction register containing the operand, the value `CA` in our case) to register A.
 
 ![image](https://user-images.githubusercontent.com/30892199/103259340-3bfa1080-4999-11eb-84a3-6e24cd6d44a9.png)
 
----
-
-- [asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) which is used for first tests of the CPU
-- [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [->ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
-- [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
-
-More info on the minimalistic RRISC CPU will follow as soon as I get to it. 
 
 # Radical RISC from the early nineties
 

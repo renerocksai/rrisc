@@ -70,7 +70,7 @@ lda # $CA    ; load register A with immediate value 0xCA
 ```
 
 The instruction `lda # $CA` does the following:
-- it takes the value _$CA_ (_292_ in hexadecimal); the hexadecimal notation prefix `$` is taken from the good old 6502, C64 days
+- it takes the value _$CA_ (_202_ in hexadecimal); the hexadecimal notation prefix `$` is taken from the good old 6502, C64 days
 - it stores this value in register A
 
 The image below shows the CPU going out of reset and then executing its first instruction, the instruction above, in 8 clock cycles.

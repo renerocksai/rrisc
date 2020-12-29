@@ -20,7 +20,7 @@ This is the progress I've made so far:
 
 1. [It's executing its first instruction](https://github.com/renerocksai/rrisc#its-executing-its-first-instruction)
 2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
-3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
+3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
 4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)
 
 The code is organized as follows:

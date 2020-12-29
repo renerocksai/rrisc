@@ -1,7 +1,9 @@
 # rrisc
 VHDL implementation of my RRISC CPU
 
-I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the simulator. This Christmas I thought I would revive the 30 years old project, but implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
+I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and later doing it all again in P-CAD), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the selff-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. 
+
+This Christmas, I thought I would revive the 30 years old project, but this time implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
 This is the progress I've made so far:
 

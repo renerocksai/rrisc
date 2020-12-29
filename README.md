@@ -1,7 +1,7 @@
 # rrisc
 VHDL implementation of my RRISC CPU
 
-I developed the RRISC CPU in 1990/91, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the simulator. This Christmas I thought I would revive the 30 years old project, but implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
+I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the simulator. This Christmas I thought I would revive the 30 years old project, but implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
 This is the progress I've made so far:
 
@@ -23,12 +23,40 @@ lda # $CA    ; load register A with immediate value 0xCA
 
 More info on the minimalistic RRISC CPU will follow as soon as I get to it. 
 
----
+# Radical RISC from the early nineties
 
+Let's walk down memory lane. Here are a few design documents of the original RRISC CPU:
+
+![cpu1](https://user-images.githubusercontent.com/30892199/103261827-2a1d6b00-49a3-11eb-9059-535dd5146852.jpg)
+
+![cpu2](https://user-images.githubusercontent.com/30892199/103261847-39041d80-49a3-11eb-99c7-6f4847c922f6.jpg)
+
+![image](https://user-images.githubusercontent.com/30892199/103262039-fd1d8800-49a3-11eb-8059-327ff2c138cd.png)
+![image](https://user-images.githubusercontent.com/30892199/103262387-16730400-49a5-11eb-916a-6a68d457bb2c.png)
+
+![Screenshot 2020-12-29 at 07 04 55](https://user-images.githubusercontent.com/30892199/103262189-6d2c0e00-49a4-11eb-9b6d-87ae2d60443e.png)
+
+![Screenshot 2020-12-29 at 07 05 31](https://user-images.githubusercontent.com/30892199/103262201-73ba8580-49a4-11eb-8bb8-017ca3ad27c9.png)
+
+![image](https://user-images.githubusercontent.com/30892199/103261975-c8a9cc00-49a3-11eb-9f9a-d641bbe29d50.png)
+
+![Screenshot 2020-12-29 at 06 59 56](https://user-images.githubusercontent.com/30892199/103262046-07d81d00-49a4-11eb-8441-7309dff50104.png)
+
+![Screenshot 2020-12-29 at 07 05 15](https://user-images.githubusercontent.com/30892199/103262216-859c2880-49a4-11eb-9e29-5961f979d903.png)
+
+![load](https://user-images.githubusercontent.com/30892199/103262701-0f98c100-49a6-11eb-8735-f23eb3a40f4b.jpg)
+![store](https://user-images.githubusercontent.com/30892199/103262710-158ea200-49a6-11eb-8eb0-9b5ac150c8b0.jpg)
+![fetch](https://user-images.githubusercontent.com/30892199/103262716-19babf80-49a6-11eb-9e65-19c49d2f28c6.jpg)
+
+
+
+---
+<!--
 This is where it will run: my Xilinx Spartan-7 FPGA board :
 
 ![image](https://user-images.githubusercontent.com/30892199/103259761-0c4c0800-499b-11eb-9c5e-8fb334655b68.png)
 
+-->
 
 # vim, tmux, ghdl & gtkwave workflow
 

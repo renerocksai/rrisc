@@ -12,6 +12,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+-- debug stuff
+use work.debug.ALL;
+
 -- we will run the following program in our fake ram:
 --
 --    org 0
@@ -26,80 +29,101 @@ use IEEE.NUMERIC_STD.ALL;
 -- This translates to:
 --     0a ca 00 09 0c 00 10 0c  00 02 09 00 ff
 
--- debug stuff
-use work.debug.ALL;
-
-entity ram is
-    port(
-    -- reset and clock
-    rst         :   IN    std_logic;    -- RESET
-    clk         :   IN    std_logic;    -- clock
-
-    ram_ld_val  :   IN   std_logic_vector (7 downto 0);
-    write       :   IN   std_logic;
-    addr        :   IN   std_logic_vector (4 downto 0);
-    ram_out     :   OUT  std_logic_vector (7 downto 0)
-);
-end ram;
-
-architecture Behavioral of ram is
-    type mem_t is array (0 to 15) of std_logic_vector (7 downto 0);
-
-    -- signals
-    signal mem : mem_t := (
-        "00001010",
-        "11001010",
-        "00000000",
-        "00001001",
-        "00001100",
-        "00000000",
-        "00010000",
-        "00001100",
-        "00000000",
-        "00000010",
-        "00001001",
-        "00000000",
-        "11111111",
-        "11111111",
-        "11111111",
-        "11111111"
-    );
-    signal myval : std_logic_vector (7 downto 0) := "11111111";
-
-    constant zero : std_logic_vector(7 downto 0) := "00000000";
-
-begin
-    regproc : process (rst, clk)
-    begin
-        if rst = '1' then
-            myval <= zero;
-        elsif rising_edge(clk) then
-            if write = '1' then
-                mem(to_integer(unsigned(addr))) <= ram_ld_val;
-                myval <= ram_ld_val;
-                report "> ram " & integer'image(to_integer(unsigned(addr))) & " : " & integer'image(to_integer(unsigned(ram_ld_val))) ;
-            else
-                myval <= mem(to_integer(unsigned(addr)));
-            end if;
-        end if;
-    end process regproc;
-
-    -- concurrent stuff
-    ram_out <= myval;
-
-    -- debug
- 
-end Behavioral;
-
-
-
 entity core_tb is
 --  Port ( );
 end core_tb;
 
 architecture Behavioral of core_tb is
+    component ram is
+        port(
+        -- reset and clock
+        rst         :   IN    std_logic;    -- RESET
+        clk         :   IN    std_logic;    -- clock
+
+        ram_ld_val  :   IN   std_logic_vector (7 downto 0);
+        write       :   IN   std_logic;
+        addr        :   IN   std_logic_vector (4 downto 0);
+        ram_out     :   OUT  std_logic_vector (7 downto 0)
+    );
+    end component ram;
+    
+    component registers is 
+        port(
+        -- reset and clock
+        rst         :   IN    std_logic;    -- RESET
+        clk         :   IN    std_logic;    -- clock
+
+        reg_ld_val  :   IN   std_logic_vector (7 downto 0);
+        reg_clock   :   IN   std_logic;
+        reg_sel     :   IN   std_logic_vector (2 downto 0);
+        reg_value   :   OUT  std_logic_vector (7 downto 0)
+    );
+    end component registers;
+
+    component pmem is
+      port (
+        -- reset and clock
+        rst         :   IN    std_logic;    -- RESET
+        clk         :   IN    std_logic;    -- clock
+
+        pc_load     :   IN    std_logic;
+        pc_clock    :   IN    std_logic;
+        pc_ld_val   :   IN    std_logic_vector (15 downto 0);
+
+        pc_addr     :   OUT   std_logic_vector (15 downto 0)
+    );
+    end component pmem;
+
+    signal    rst           :  std_logic;    -- RESET
+    signal    clk           :  std_logic;    -- clock
+    signal    ram_ld_val    :  std_logic_vector (7 downto 0);
+    signal    ram_write     :  std_logic;
+    signal    ram_port_addr :  std_logic_vector (4 downto 0);
+    signal    ram_out       :  std_logic_vector (7 downto 0);
+
+    signal    reg_ld_val    :  std_logic_vector (7 downto 0);
+    signal    reg_write     :  std_logic;
+    signal    reg_sel       :  std_logic_vector (2 downto 0);
+    signal    reg_out       :  std_logic_vector (7 downto 0);
+
+    signal    pc_load       :  std_logic;
+    signal    pc_clock      :  std_logic;
+    signal    pc_ld_val     :  std_logic_vector (15 downto 0);
+    signal    pc_addr       :  std_logic_vector (15 downto 0);
 
 begin
 
+    iram : ram port map (
+        rst => rst,
+        clk => clk,
+        ram_ld_val => ram_ld_val,
+        write => ram_write,
+        addr => ram_port_addr,
+        ram_out => ram_out
+    );
 
+    iregs : registers port map (
+        rst => rst,
+        clk => clk,
+        reg_ld_val => reg_ld_val,
+        reg_clock => reg_write,
+        reg_sel => reg_sel,
+        reg_value => reg_out
+    );
+
+    ipc : pmem port map (
+        rst => rst, 
+        clk => clk,
+        pc_load => pc_load,
+        pc_clock => pc_clock,
+        pc_ld_val => pc_ld_val,
+        pc_addr => pc_addr
+    );
+
+    -- concurrent stuff
+    clk <= not clk after 5 ns ; -- gives us 10ns per cycle
+
+    rst <= '1' after 0 ns, 
+           '0' after 10 ns,
+           '1' after 100 ns;
 end Behavioral;

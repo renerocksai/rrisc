@@ -5,6 +5,10 @@ I developed the RRISC CPU in 1992/93, with the intention to build it using just 
 
 This is the progress I've made so far:
 
+1. [It's executing its first instruction](https://github.com/renerocksai/rrisc#its-executing-its-first-instruction)
+2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
+3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
+
 # It's executing its first instruction!!!
 
 ```

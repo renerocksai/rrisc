@@ -1,7 +1,7 @@
 # rrisc
-VHDL implementation of my RRISC CPU
+VHDL implementation of my [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU
 
-In the early nineties, when I finally figured out how to do sequential digital circuits, I used the momentum of that heureka-moment to develop the RRISC CPU (Radically Reduced Instruction Set Computer), with the intention to build it using just 74xx TTL logic circuits. It was meant both as an educational and also instructive endeavor, as I figured such a simple CPU would be ideal for teaching the basics of CPU design. Being able to make an actual CPU from just two easy-to-build printed circuit boards would also free the whole topic from being a merely abstract one. If you put a bit of extra work in, you could actually see the CPU work.
+In the early nineties, when I finally figured out how to do sequential digital circuits, I used the momentum of that heureka-moment to develop the [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU (Radically Reduced Instruction Set Computer), with the intention to build it using just 74xx TTL logic circuits. It was meant both as an educational and also instructive endeavor, as I figured such a simple CPU would be ideal for teaching the basics of CPU design. Being able to make an actual CPU from just two easy-to-build printed circuit boards would also free the whole topic from being a merely abstract one. If you put a bit of extra work in, you could actually see the CPU work.
 
 After having drawn schematics, printed circuit boards, (and done it all again in P-CAD later), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. 
 
@@ -24,7 +24,7 @@ The code is organized as follows:
 - [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [->ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
 - [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
 
-More info on the minimalistic RRISC CPU will follow as soon as I get to it. 
+More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU will follow as soon as I get to it. 
 
 #### BTW, what's so special about RRISC:
 

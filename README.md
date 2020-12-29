@@ -15,7 +15,7 @@ lda # $CA    ; load register A with immediate value 0xCA
 
 ---
 
-[asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and `simtest.asm` which is used for first tests of the CPU
+[asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) which is used for first tests of the CPU
 
 [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [->ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
 

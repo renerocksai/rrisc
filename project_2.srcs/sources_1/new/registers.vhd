@@ -52,6 +52,7 @@ begin
             if reg_clock = '1' then
                 regs(to_integer(unsigned(sel)-1)) <= reg_ld_val;
                 myval <= reg_ld_val;
+                report "> reg " & integer'image(to_integer(unsigned(sel))) & " : " & integer'image(to_integer(unsigned(reg_ld_val))) ;
             else
                 myval <= regs(to_integer(unsigned(sel)-1));
             end if;
@@ -62,7 +63,9 @@ begin
     begin
         case reg_sel is
             when "000" => sel <= "001";
-            when others => sel <= reg_sel;
+            when others => 
+                sel <= reg_sel;
+                report "< reg " & integer'image(to_integer(unsigned(sel))) & " : " & integer'image(to_integer(unsigned(regs(to_integer(unsigned(sel)-1))))) ;
         end case;
     end process selproc;
 

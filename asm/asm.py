@@ -1345,6 +1345,7 @@ class Asm:
                 for b in buffer:
                     self.mem[self.pc] = b
                     self.pc += 1
+                self.max_pc = max(self.pc, self.max_pc)
                 continue
 
             # JMP

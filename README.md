@@ -19,6 +19,7 @@ So, this Christmas, I thought I would revive the 30 years old project, but this 
 This is the progress I've made so far:
 
 1. [It's executing its first instruction](https://github.com/renerocksai/rrisc#its-executing-its-first-instruction)
+2. [It runs the whole test program](https://github.com/renerocksai/rrisc#its-executing-the-whole-test-program)
 2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
 3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
 4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)

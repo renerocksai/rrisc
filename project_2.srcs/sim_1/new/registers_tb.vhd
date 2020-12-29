@@ -11,6 +11,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+-- debug stuff
+use work.debug.ALL;
+
 entity registers_tb is
 --  Port ( );
 end registers_tb;
@@ -71,6 +74,8 @@ begin
         assert reg_value = "00001111" report "reg value not set after write, is " & integer'image(to_integer(unsigned(reg_value))) severity ERROR;
 
         wait for 10 ns;
+        show_regs;
+
         assert false report "FINISHED OK" severity ERROR;
         wait;
     end process;

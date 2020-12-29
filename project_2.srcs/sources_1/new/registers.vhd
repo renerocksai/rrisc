@@ -12,6 +12,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+-- debug stuff
+use work.debug.ALL;
+
 entity registers is
     port(
     -- reset and clock
@@ -69,6 +72,16 @@ begin
         end case;
     end process selproc;
 
+    -- concurrent stuff
     reg_value <= myval;
+
+    -- debug
+    debug_regs(0) <= regs(0);
+    debug_regs(1) <= regs(1);
+    debug_regs(2) <= regs(2);
+    debug_regs(3) <= regs(3);
+    debug_regs(4) <= regs(4);
+    debug_regs(5) <= regs(5);
+    debug_regs(6) <= regs(6);
  
 end Behavioral;

@@ -146,7 +146,9 @@ What we expect after running this:
   - hence, the instruction repeating itself
   - instead of the program counter incrementing past address $000B
 
-As you can see below, both registers contain the value $CA and the program counter falling back to $0009 after reaching $000B
+As you can see below, both registers contain the value $CA and the program counter falling back to $0009 after reaching $000B.
+
+The red vertical line marks the time of the first jump.
 
 ![image](https://user-images.githubusercontent.com/30892199/103299193-4699c180-49fc-11eb-9313-7a4d1407bb4b.png)
 

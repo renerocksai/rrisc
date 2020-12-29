@@ -79,7 +79,7 @@ The thin red vertical line to the right in the image is placed at ca. 90 nanosec
 
 If you look carefully, you can see that value travel from *ram_out* via *debug_inr2* (instruction register 2 containing the operand, the value `CA` in our case) to register A.
 
-![image](https://user-images.githubusercontent.com/30892199/103280722-5d76ee80-49d1-11eb-9d92-c3e3a15ac767.png)
+![image](https://user-images.githubusercontent.com/30892199/103280947-e4c46200-49d1-11eb-9e5f-1e69fb49baaf.png)
 
 
 Here is what's going on in the core of the CPU:

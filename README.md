@@ -1,7 +1,7 @@
 # rrisc
 VHDL implementation of my RRISC CPU
 
-I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and done it all again in P-CAD later), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. Despite all my intentions, I never got around to actually build it.
+In the early nineties, when I finally figured out how to do sequential digital circuits, I used the momentum of that heureka-moment to develop the RRISC CPU (Radically Reduced Instruction Set Computer), with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and done it all again in P-CAD later), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. Despite all my intentions, I never got around to actually build it.
 
 This Christmas, I thought I would revive the 30 years old project, but this time implement the CPU in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
@@ -11,6 +11,38 @@ This is the progress I've made so far:
 2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
 3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
 4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)
+
+BTW, what's so special about RRISC:
+
+- the instruction set is truly minimal:
+  - load register from RAM / IO port / immediately
+  - store register to RAM / IO port
+  - jump
+- an interesting indirect jump mode:
+  - `jmp HI[LO]`  will jump to HI * 256 + [HI * 256 + LO]
+  - HIGH byte is specified directly
+  - LOW byte is read from memory at address HI * 256 + LO
+  - this allows for jmp tables
+- above jumps can also be indirected by external port data:
+  - `jmpp HI[LO]` will take the LOW byte of the address from **port** HI*256+LO
+- ALL instructions can be executed conditionally
+    - e.g. `LDA #$00 : EQ` will clear register A only if the EQUAL flag is set
+    - this reduces the need for conditional jumps
+- the ALU is intended to be port mapped:
+  - making the CPU independent from a specific ALU allows for upgradability
+  - see example below for adding:
+
+```
+     lda #value1          ; first value to add
+     out a, ALU_OPERAND1  ; --> into ALU register
+     lda #value2          ; second value to add
+     out a, ALU_OPERAND2  ; --> into ALU
+     lda #ALU_ADD         ; add command
+     out a, ALU_CMD       ; --> into ALU
+     in a, ALU_RESULT     ; read result
+  ```
+  
+
 
 # It's executing its first instruction!!!
 

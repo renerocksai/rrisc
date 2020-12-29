@@ -12,6 +12,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+-- debug stuff
+use work.debug.ALL;
+
 
 entity core is
   Port (
@@ -55,9 +58,9 @@ architecture Behavioral of core is
     signal state, nxstate : state_t;
 
     -- instruction registers
-    signal inr1 : std_logic_vector (7 downto 0);
-    signal inr2 : std_logic_vector (7 downto 0);
-    signal inr3 : std_logic_vector (7 downto 0);
+    signal inr1 : std_logic_vector (7 downto 0) := "00000000";
+    signal inr2 : std_logic_vector (7 downto 0) := "00000000";
+    signal inr3 : std_logic_vector (7 downto 0) := "00000000";
 
     signal the_addr : std_logic_vector (15 downto 0);
 
@@ -195,4 +198,9 @@ begin
     pc_ld_val(15 downto 8) <= inr3;
     pc_ld_val(7 downto 0) <= inr2;
     reg_sel <= selected_register;
+
+    -- debug
+    debug_inr1 <= inr1;
+    debug_inr2 <= inr2;
+    debug_inr3 <= inr3;
 end Behavioral;

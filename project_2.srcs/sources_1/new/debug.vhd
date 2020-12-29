@@ -15,7 +15,12 @@ package debug is
     type regs_t is array (0 to 6) of std_logic_vector (7 downto 0);
     signal debug_regs : regs_t ;
 
+    signal debug_inr1 : std_logic_vector (7 downto 0);
+    signal debug_inr2 : std_logic_vector (7 downto 0);
+    signal debug_inr3 : std_logic_vector (7 downto 0);
+
     procedure show_regs;
+    procedure show_iregs;
 end package debug;
 
 package body debug is
@@ -30,5 +35,14 @@ package body debug is
         report "     F: " & integer'image(to_integer(unsigned(debug_regs(5)))) ;
         report "     G: " & integer'image(to_integer(unsigned(debug_regs(6)))) ;
     end show_regs;
+
+
+    procedure show_iregs is
+    begin
+        report "*** Instruction Registers: ***";
+        report "     INR1: " & integer'image(to_integer(unsigned(debug_inr1))) ;
+        report "     INR2: " & integer'image(to_integer(unsigned(debug_inr2))) ;
+        report "     INR3: " & integer'image(to_integer(unsigned(debug_inr3))) ;
+    end show_iregs;
 end package body;
 

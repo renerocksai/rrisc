@@ -1527,6 +1527,7 @@ class Asm:
             for pc in range(0, self.max_pc):
                 b = self.mem.get(pc, 0xff)
                 f.write(f'{b:02x}\n')
+
         binfn = os.path.splitext(self.outfn)[0] + '.bin'
         print(f'Generating: {binfn}')
         buffer = []
@@ -1535,6 +1536,18 @@ class Asm:
             buffer.append(b)
         with open(binfn, 'wb') as f:
             f.write(bytes(buffer))
+
+        binfn = os.path.splitext(self.outfn)[0] + '.bit'
+        print(f'Generating: {binfn}')
+        buffer = []
+        for pc in range(0, self.max_pc):
+            b = self.mem.get(pc, 0xff)
+            buffer.append(b)
+        with open(binfn, 'wt') as f:
+            for b in buffer:
+                f.write(f'{b:08b}\n')
+
+
         print('Done!')
 
 

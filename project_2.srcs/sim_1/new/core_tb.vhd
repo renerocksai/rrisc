@@ -110,8 +110,8 @@ architecture Behavioral of core_tb is
     );
     end component core;
 
-    signal    rst           :  std_logic;    -- RESET
-    signal    clk           :  std_logic;    -- clock
+    signal    rst           :  std_logic := '0';    -- RESET
+    signal    clk           :  std_logic := '0';    -- clock
     signal    ram_ld_val    :  std_logic_vector (7 downto 0);
     signal    ram_write     :  std_logic;
     signal    ram_port_addr :  std_logic_vector (15 downto 0);
@@ -134,6 +134,15 @@ architecture Behavioral of core_tb is
     signal    port_write : std_logic;
     signal    pc_write : std_logic;
 
+    signal cpustate : state_t;
+    signal helper : std_logic := '0';
+    signal cpureg_A : std_logic_vector (7 downto 0);
+    signal cpureg_B : std_logic_vector (7 downto 0);
+    signal cpureg_C : std_logic_vector (7 downto 0);
+    signal cpureg_D : std_logic_vector (7 downto 0);
+    signal cpureg_E : std_logic_vector (7 downto 0);
+    signal cpureg_F : std_logic_vector (7 downto 0);
+    signal cpureg_G : std_logic_vector (7 downto 0);
 begin
 
     iram : ram port map (
@@ -196,21 +205,45 @@ begin
            '0' after 10 ns,
            '1' after 100 ns;
 
+    cpustate <= debug_cpu_state;
+    cpureg_A <= debug_regs(0);
+    cpureg_B <= debug_regs(1);
+    cpureg_C <= debug_regs(2);
+    cpureg_D <= debug_regs(3);
+    cpureg_E <= debug_regs(4);
+    cpureg_F <= debug_regs(5);
+    cpureg_G <= debug_regs(6);
+
+    clkrst : process(rst, clk)
+    begin
+        if rst = '0' then
+            if rising_edge(clk) then
+                report "_______________ CLOCK";
+            end if;
+        end if;
+    end process clkrst;
+
     process
     begin
         wait for 5 ns;
 
-        wait for 10 ns;
+        wait for 10 ns; -- reset
+        wait for 10 ns; -- ram wait
+        wait for 10 ns; -- fetch 1 
         show_iregs;
+        helper <= '1';
+        wait for 10 ns; -- ram wait 2
+        wait for 10 ns; -- fetch 2 
+        show_iregs;
+
+        wait for 10 ns; -- ram wait 3
+        wait for 10 ns; -- fetch 3
+        show_iregs;
+        wait for 10 ns; -- decode 
+        wait for 10 ns; -- execute 
         assert debug_inr1 = "00001010" report "inr1 wrong" severity error;
-
-        wait for 10 ns;
-        show_iregs;
-        assert debug_inr2 = "11001010" report "inr1 wrong" severity error;
-
-        wait for 10 ns;
-        show_iregs;
-        assert debug_inr3 = "00000000" report "inr1 wrong" severity error;
+        assert debug_inr2 = "11001010" report "inr2 wrong" severity error;
+        assert debug_inr3 = "00000000" report "inr3 wrong" severity error;
 
         wait for 10 ns;
         assert false report "FINISHED OK" severity error;

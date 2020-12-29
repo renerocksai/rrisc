@@ -1,0 +1,3 @@
+Symbol Table of simtest.asm
+loop_forever         : 9
+data                 : 12

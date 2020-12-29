@@ -14,6 +14,8 @@ use IEEE.NUMERIC_STD.ALL;
 package debug is
     type regs_t is array (0 to 6) of std_logic_vector (7 downto 0);
     signal debug_regs : regs_t ;
+    type state_t is (ram_wait_1, fetch_1, ram_wait_2, fetch_2, ram_wait_3, fetch_3, decode, execute);
+    signal debug_cpu_state, debug_cpu_nxstate : state_t;
 
     signal debug_inr1 : std_logic_vector (7 downto 0);
     signal debug_inr2 : std_logic_vector (7 downto 0);

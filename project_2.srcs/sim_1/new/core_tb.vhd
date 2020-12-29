@@ -202,8 +202,7 @@ begin
     ram_addr <= ram_port_addr(4 downto 0);
 
     rst <= '1' after 0 ns, 
-           '0' after 10 ns,
-           '1' after 100 ns;
+           '0' after 10 ns;
 
     cpustate <= debug_cpu_state;
     cpureg_A <= debug_regs(0);
@@ -244,6 +243,17 @@ begin
         assert debug_inr1 = "00001010" report "inr1 wrong" severity error;
         assert debug_inr2 = "11001010" report "inr2 wrong" severity error;
         assert debug_inr3 = "00000000" report "inr3 wrong" severity error;
+
+        wait for 10 ns; -- past execute 
+        show_regs;
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
+        wait for 100 ns; -- execute 
 
         wait for 10 ns;
         assert false report "FINISHED OK" severity error;

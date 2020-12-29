@@ -70,14 +70,17 @@ architecture Behavioral of core is
     signal selected_register : std_logic_vector(2 downto 0);
 
     signal data : std_logic_vector (7 downto 0);
-    
+
+    signal s_addr : std_logic_vector(15 downto 0) := "0000000000000000";
+
     constant zero  : unsigned (7 downto 0) := (others => '0');
+
 begin
     -- fsm state register
     fsm_reg: process(rst, clk)
     begin
         if (rst='1') then
-            state <= ram_wait_1;
+            state <= wakeup;
         elsif rising_edge(clk) then
             state <= nxstate;
         end if;
@@ -87,6 +90,7 @@ begin
     fsm_next: process(state)
     begin
         case state is
+            when wakeup     => nxstate <= ram_wait_1;     -- go out of reset gently
             when ram_wait_1 => nxstate <= fetch_1;        -- wait for RAM to output byte
             when fetch_1    => nxstate <= ram_wait_2;     -- clock data bus / ram into inr1 and increment PC
             when ram_wait_2 => nxstate <= fetch_2;        -- wait for RAM to output 2nd byte
@@ -107,7 +111,7 @@ begin
         addr_mode <= inr1(2 downto 1);
         selected_register <= inr1(5 downto 3);
         data <= "00000000";
-        ram_port_addr <= pc_addr;
+        s_addr <= pc_addr;
 
         case inr1(7 downto 6) is 
             when "00" => condition <= '1'; -- unconditional
@@ -118,6 +122,7 @@ begin
         end case;
 
         case state is
+            when wakeup      => null;
             when ram_wait_1 => null;
 
             when fetch_1 => 
@@ -139,13 +144,13 @@ begin
             -- now work out what our source and destination should be
             when decode => 
                 -- for addr mode absolute and extern
-                ram_port_addr <= inr3 & inr2;
+                s_addr <= inr3 & inr2;
 
             when execute => 
                 if condition = '0' then 
                     pc_clock <= '1';  -- nop
                 else
-                    ram_port_addr <= inr3 & inr2;
+                    s_addr <= inr3 & inr2;
                     -- real exec
                     if inr1(0) = '0' then
                         -- LD opearation (write to register, pc)
@@ -200,6 +205,7 @@ begin
     pc_ld_val(15 downto 8) <= inr3;
     pc_ld_val(7 downto 0) <= inr2;
     reg_sel <= selected_register;
+    ram_port_addr <= s_addr;
 
     -- debug
     debug_inr1 <= inr1;

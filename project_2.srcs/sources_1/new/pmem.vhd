@@ -30,11 +30,11 @@ architecture Behavioral of pmem is
     signal counter : unsigned (15 downto 0);
     constant zero  : unsigned (15 downto 0) := (others => '0');
 begin
-    pc: process (rst, clk)
+    pc: process (rst, clk, pc_clock)
     begin
         if rst = '1' then 
             counter <= zero;
-        elsif rising_edge(clk) then
+        elsif rising_edge(pc_clock) then
             if pc_clock = '1' then
                 counter <= counter + 1;
             elsif pc_load = '1' then

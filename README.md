@@ -85,8 +85,6 @@ Microcode
 
 ![Screenshot 2020-12-29 at 07 05 31](https://user-images.githubusercontent.com/30892199/103262201-73ba8580-49a4-11eb-8bb8-017ca3ad27c9.png)
 
-![image](https://user-images.githubusercontent.com/30892199/103261975-c8a9cc00-49a3-11eb-9f9a-d641bbe29d50.png)
-
 ![Screenshot 2020-12-29 at 06 59 56](https://user-images.githubusercontent.com/30892199/103262046-07d81d00-49a4-11eb-8441-7309dff50104.png)
 
 ![Screenshot 2020-12-29 at 07 05 15](https://user-images.githubusercontent.com/30892199/103262216-859c2880-49a4-11eb-9e29-5961f979d903.png)

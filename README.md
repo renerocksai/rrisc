@@ -74,6 +74,9 @@ Let's walk down memory lane. Here are a few design documents of the original RRI
 
 ![cpu2](https://user-images.githubusercontent.com/30892199/103261847-39041d80-49a3-11eb-99c7-6f4847c922f6.jpg)
 
+Microcode
+![image](https://user-images.githubusercontent.com/30892199/103268856-918fe680-49b4-11eb-8e19-69d7a5e85080.png)
+
 ![image](https://user-images.githubusercontent.com/30892199/103262039-fd1d8800-49a3-11eb-8059-327ff2c138cd.png)
 
 ![image](https://user-images.githubusercontent.com/30892199/103262387-16730400-49a5-11eb-916a-6a68d457bb2c.png)

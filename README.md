@@ -1,9 +1,9 @@
 # rrisc
 VHDL implementation of my RRISC CPU
 
-I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and later doing it all again in P-CAD), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. 
+I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and done it all again in P-CAD later), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. Despite all my intentions, I never got around to actually build it.
 
-This Christmas, I thought I would revive the 30 years old project, but this time implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
+This Christmas, I thought I would revive the 30 years old project, but this time implement the CPU in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
 This is the progress I've made so far:
 
@@ -37,6 +37,7 @@ Let's walk down memory lane. Here are a few design documents of the original RRI
 ![cpu2](https://user-images.githubusercontent.com/30892199/103261847-39041d80-49a3-11eb-99c7-6f4847c922f6.jpg)
 
 ![image](https://user-images.githubusercontent.com/30892199/103262039-fd1d8800-49a3-11eb-8059-327ff2c138cd.png)
+
 ![image](https://user-images.githubusercontent.com/30892199/103262387-16730400-49a5-11eb-916a-6a68d457bb2c.png)
 
 ![Screenshot 2020-12-29 at 07 04 55](https://user-images.githubusercontent.com/30892199/103262189-6d2c0e00-49a4-11eb-9b6d-87ae2d60443e.png)
@@ -50,7 +51,9 @@ Let's walk down memory lane. Here are a few design documents of the original RRI
 ![Screenshot 2020-12-29 at 07 05 15](https://user-images.githubusercontent.com/30892199/103262216-859c2880-49a4-11eb-9e29-5961f979d903.png)
 
 ![load](https://user-images.githubusercontent.com/30892199/103262701-0f98c100-49a6-11eb-8735-f23eb3a40f4b.jpg)
+
 ![store](https://user-images.githubusercontent.com/30892199/103262710-158ea200-49a6-11eb-8eb0-9b5ac150c8b0.jpg)
+
 ![fetch](https://user-images.githubusercontent.com/30892199/103262716-19babf80-49a6-11eb-9e65-19c49d2f28c6.jpg)
 
 
@@ -61,7 +64,7 @@ Let's walk down memory lane. Here are a few design documents of the original RRI
 
 Via ssh :)
 
-It's super smooth, editing VHDL in vim, running ghdl in a separate tmux pane via vim-tmux, and using gtkwave to view the waveforms of the simulation. Textual simulaiton output and logging can be viewed as ghdl's output. I prefer this super quick 1-keystroke way of running my testbenches, compared to the Vivado workflow. Extra plus, vim and commandline work smoothly over ssh. 
+It's super smooth, editing VHDL in vim, running ghdl in a separate tmux pane via vim-tmux, and using gtkwave to view the waveforms of the simulation. Textual simulation output and logging can be viewed as ghdl's output. I prefer this super quick 1-keystroke way of running my testbenches, compared to the sluggish Vivado GUI workflow. As an extra plus, vim and commandline work smoothly over ssh. With X-forwarding enabled, gtkwave works via ssh, too.
 
 ![image](https://user-images.githubusercontent.com/30892199/103260189-22f35e80-499d-11eb-9a61-f724f4163be4.png)
 ![image](https://user-images.githubusercontent.com/30892199/103263325-d2353300-49a7-11eb-8fa0-b168ecc6ae0d.png)
@@ -80,7 +83,7 @@ The FPGA will contain:
 - a port mapped ALU
 - 8k of SRAM for code and data
 
-## 
+## Going independent
 
 As the Spartan-7 is far too under-utilized with just the RRISC CPU and RAM, I am contemplating putting a MicroBlaze CPU on there as well, running an microsd card boot loader. This will turn the board into a RRISC development board. Programs can then be run from SD-card, without having to re-program the FPGA.
 

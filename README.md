@@ -63,7 +63,9 @@ More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc#btw-w
 ```
 lda # $CA    ; load register A with immediate value 0xCA
 ```
-The thin red marker to the right in the image below is placed at ca. 90 nanoseconds, after the _execute_ phase of the instruction. In the last line you can see *cpureg_a* (register A) receiving the value `CA` at the end of _execute_. 
+The image below shows the CPU going out of reset and then executing its first instructions in 7 clock cycles.
+
+The thin red marker to the right in the image is placed at ca. 90 nanoseconds, after the _execute_ phase of the instruction. In the last line you can see *cpureg_a* (register A) receiving the value `CA` at the end of _execute_. 
 
 If you look carefully, you can see that value travel from *ram_out* via *debug_inr2* (instruction register containing the operand, the value `CA` in our case) to register A.
 

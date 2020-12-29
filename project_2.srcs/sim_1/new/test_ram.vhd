@@ -43,7 +43,7 @@ entity ram is
 end ram;
 
 architecture Behavioral of ram is
-    type mem_t is array (0 to 15) of std_logic_vector (7 downto 0);
+    -- type mem_t is array (0 to 15) of std_logic_vector (7 downto 0);
 
     -- signals
     signal mem : mem_t := (
@@ -85,5 +85,23 @@ begin
 
     -- concurrent stuff
     ram_out <= myval;
+
+    -- debug
+    debug_mem(0) <= mem(0);
+    debug_mem(1) <= mem(1);
+    debug_mem(2) <= mem(2);
+    debug_mem(3) <= mem(3);
+    debug_mem(4) <= mem(4);
+    debug_mem(5) <= mem(5);
+    debug_mem(6) <= mem(6);
+    debug_mem(7) <= mem(7);
+    debug_mem(8) <= mem(8);
+    debug_mem(9) <= mem(9);
+    debug_mem(10) <= mem(10);
+    debug_mem(11) <= mem(11);
+    debug_mem(12) <= mem(12);
+    debug_mem(13) <= mem(13);
+    debug_mem(14) <= mem(14);
+    debug_mem(15) <= mem(15);
 end Behavioral;
 

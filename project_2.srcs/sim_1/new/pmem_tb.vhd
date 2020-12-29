@@ -31,7 +31,7 @@ architecture Behavioral of pmem_tb is
     end component pmem;
 
     signal rst, clk, pc_load, pc_clock : std_logic := '0';
-    signal pc_ld_val, pc_addr : std_logic_vector (15 downto 0);
+    signal pc_ld_val, pc_addr : std_logic_vector (15 downto 0) := "0000000000000000";
 
     constant load_value : std_logic_vector(15 downto 0) := "1111111111111000";
 

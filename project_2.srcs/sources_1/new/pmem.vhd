@@ -27,18 +27,19 @@ entity pmem is
 end pmem;
 
 architecture Behavioral of pmem is
-    signal counter : unsigned (15 downto 0);
+    signal counter : unsigned (15 downto 0) := "0000000000000000";
     constant zero  : unsigned (15 downto 0) := (others => '0');
 begin
-    pc: process (rst, clk, pc_clock)
+    pc: process (rst, clk, pc_clock, pc_load)
     begin
         if rst = '1' then 
             counter <= zero;
-        elsif rising_edge(pc_clock) then
+        elsif rising_edge(clk) then
             if pc_clock = '1' then
                 counter <= counter + 1;
             elsif pc_load = '1' then
                 counter <= unsigned(pc_ld_val);
+                report " ************** PC LOADED";
             end if;
         end if;
     end process pc;

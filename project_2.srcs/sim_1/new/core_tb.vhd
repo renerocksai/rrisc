@@ -123,7 +123,7 @@ architecture Behavioral of core_tb is
     signal    reg_sel       :  std_logic_vector (2 downto 0);
     signal    reg_out       :  std_logic_vector (7 downto 0);
 
-    signal    pc_load       :  std_logic;
+    signal    pc_load       :  std_logic := '0';
     signal    pc_clock      :  std_logic;
     signal    pc_ld_val     :  std_logic_vector (15 downto 0);
     signal    pc_addr       :  std_logic_vector (15 downto 0);
@@ -132,7 +132,6 @@ architecture Behavioral of core_tb is
     signal    port_ld_value : std_logic_vector (7 downto 0) := "00000000";
     signal    port_out : std_logic_vector (7 downto 0) := "00000000";
     signal    port_write : std_logic;
-    signal    pc_write : std_logic;
 
     signal cpustate : state_t;
     signal helper : std_logic := '0';
@@ -143,6 +142,7 @@ architecture Behavioral of core_tb is
     signal cpureg_E : std_logic_vector (7 downto 0);
     signal cpureg_F : std_logic_vector (7 downto 0);
     signal cpureg_G : std_logic_vector (7 downto 0);
+    signal debug_ram : mem_t ;
 begin
 
     iram : ram port map (
@@ -175,7 +175,7 @@ begin
     icore : core port map (
         rst          => rst,
         clk          => clk,
-        pc_write     => pc_write,
+        pc_write     => pc_load,
         pc_clock     => pc_clock,
         pc_ld_val    => pc_ld_val   ,
         pc_addr      => pc_addr     ,
@@ -212,6 +212,23 @@ begin
     cpureg_E <= debug_regs(4);
     cpureg_F <= debug_regs(5);
     cpureg_G <= debug_regs(6);
+
+    debug_ram(0) <= debug_mem(0);
+    debug_ram(1) <= debug_mem(1);
+    debug_ram(2) <= debug_mem(2);
+    debug_ram(3) <= debug_mem(3);
+    debug_ram(4) <= debug_mem(4);
+    debug_ram(5) <= debug_mem(5);
+    debug_ram(6) <= debug_mem(6);
+    debug_ram(7) <= debug_mem(7);
+    debug_ram(8) <= debug_mem(8);
+    debug_ram(9) <= debug_mem(9);
+    debug_ram(10) <= debug_mem(10);
+    debug_ram(11) <= debug_mem(11);
+    debug_ram(12) <= debug_mem(12);
+    debug_ram(13) <= debug_mem(13);
+    debug_ram(14) <= debug_mem(14);
+    debug_ram(15) <= debug_mem(15);
 
     clkrst : process(rst, clk)
     begin

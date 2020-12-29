@@ -62,16 +62,17 @@ architecture Behavioral of core is
     signal inr2 : std_logic_vector (7 downto 0) := "00000000";
     signal inr3 : std_logic_vector (7 downto 0) := "00000000";
 
-    signal the_addr : std_logic_vector (15 downto 0);
-
     -- signals without registers
     signal addr_mode : std_logic_vector (1 downto 0);
     signal condition : std_logic;
     signal selected_register : std_logic_vector(2 downto 0);
 
-    signal data : std_logic_vector (7 downto 0);
+    signal data : std_logic_vector (7 downto 0) := "00000000";
 
     signal s_addr : std_logic_vector(15 downto 0) := "0000000000000000";
+    signal s_pc_ld_val : std_logic_vector(15 downto 0) := "0000000000000000";
+    signal s_ram_write : std_logic := '0';
+    signal s_port_write : std_logic := '0';
 
     constant zero  : unsigned (7 downto 0) := (others => '0');
 
@@ -112,6 +113,11 @@ begin
         selected_register <= inr1(5 downto 3);
         data <= "00000000";
         s_addr <= pc_addr;
+        s_pc_ld_val(15 downto 8) <= inr3;
+        s_pc_ld_val(7 downto 0) <= inr2;
+
+        s_ram_write <= '0';
+        s_port_write <= '0';
 
         case inr1(7 downto 6) is 
             when "00" => condition <= '1'; -- unconditional
@@ -154,21 +160,26 @@ begin
                     -- real exec
                     if inr1(0) = '0' then
                         -- LD opearation (write to register, pc)
-                        -- what to write
-                        case addr_mode is 
-                            when "00" => data <= ram_out;   -- absolute
-                            when "01" => data <= inr2;     -- immediate
-                            when "10" => data <= port_out; -- extern
-                            when others => null;
-                        end case;
 
                         -- where to write
                         case selected_register is 
                             when "000" => 
-                                pc_ld_val(7 downto 0) <= data;
+                                -- what to write
+                                case addr_mode is 
+                                    when "00" => s_pc_ld_val(7 downto 0) <= ram_out;   -- absolute
+                                    when "01" => s_pc_ld_val(7 downto 0) <= inr2;     -- immediate
+                                    when "10" => s_pc_ld_val(7 downto 0) <= port_out; -- extern
+                                    when others => null;
+                                end case;
                                 pc_write <= '1';        -- jmp
                             when others => 
-                                reg_ld_val <= data;
+                                -- what to write
+                                case addr_mode is 
+                                    when "00" => reg_ld_val <= ram_out;   -- absolute
+                                    when "01" => reg_ld_val <= inr2;     -- immediate
+                                    when "10" => reg_ld_val <= port_out; -- extern
+                                    when others => null;
+                                end case;
                                 reg_write <= '1';
                                 pc_clock <= '1';
                         end case;
@@ -176,23 +187,15 @@ begin
                         pc_clock <= '1';
 
                         -- ST opearation 
-                        -- what to store
-                        case selected_register is 
-                            when "000" => 
-                                null;          -- we cannot store PC value
-                            when others => 
-                                data <= reg_out;
-                        end case;
-
                         -- where to store
                         case addr_mode is 
                             when "00" => 
-                                ram_ld_value <= data; -- absolute
-                                ram_write <= '1';
+                                ram_ld_value <= reg_out; -- absolute
+                                s_ram_write <= '1';
                             when "01" => null;        -- immediate
                             when "10" => 
-                                port_ld_value <= data;
-                                port_write <= '1';
+                                port_ld_value <= reg_out;
+                                s_port_write <= '1';
                             when others => null;
                         end case;
                     end if;
@@ -202,10 +205,11 @@ begin
 
 
     -- concurrent stuff
-    pc_ld_val(15 downto 8) <= inr3;
-    pc_ld_val(7 downto 0) <= inr2;
+    pc_ld_val <= s_pc_ld_val;
     reg_sel <= selected_register;
     ram_port_addr <= s_addr;
+    ram_write <= s_ram_write;
+    port_write <= s_port_write;
 
     -- debug
     debug_inr1 <= inr1;

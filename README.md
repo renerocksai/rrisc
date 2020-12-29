@@ -1,7 +1,7 @@
 # rrisc
 VHDL implementation of my RRISC CPU
 
-I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and later doing it all again in P-CAD), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the selff-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. 
+I developed the RRISC CPU in 1992/93, with the intention to build it using just 74xx TTL logic circuits. After having drawn schematics, printed circuit boards, (and later doing it all again in P-CAD), timing diagrams, and implementing an assembler and simulator in Turbo Pascal, I got to play around with the CPU only in the self-written simulator, displaying all CPU states and fancy 7-segment displays in DOS. 
 
 This Christmas, I thought I would revive the 30 years old project, but this time implement it in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
@@ -10,6 +10,7 @@ This is the progress I've made so far:
 1. [It's executing its first instruction](https://github.com/renerocksai/rrisc#its-executing-its-first-instruction)
 2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
 3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
+4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)
 
 # It's executing its first instruction!!!
 
@@ -55,12 +56,6 @@ Let's walk down memory lane. Here are a few design documents of the original RRI
 
 
 ---
-<!--
-This is where it will run: my Xilinx Spartan-7 FPGA board :
-
-![image](https://user-images.githubusercontent.com/30892199/103259761-0c4c0800-499b-11eb-9c5e-8fb334655b68.png)
-
--->
 
 # vim, tmux, ghdl & gtkwave workflow
 
@@ -73,4 +68,23 @@ It's super smooth, editing VHDL in vim, running ghdl in a separate tmux pane via
 ![image](https://user-images.githubusercontent.com/30892199/103263490-55568900-49a8-11eb-9b65-84b423a1a7b3.png)
 
 
+# The FPGA
+
+This is where it will run: on my Xilinx Spartan-7 FPGA board "Arty S7":
+
+![image](https://user-images.githubusercontent.com/30892199/103259761-0c4c0800-499b-11eb-9c5e-8fb334655b68.png)
+
+The FPGA will contain:
+
+- the RRISC core
+- a port mapped ALU
+- 8k of SRAM for code and data
+
+## 
+
+As the Spartan-7 is far too under-utilized with just the RRISC CPU and RAM, I am contemplating putting a MicroBlaze CPU on there as well, running an microsd card boot loader. This will turn the board into a RRISC development board. Programs can then be run from SD-card, without having to re-program the FPGA.
+
+All it takes, is a little microSD card slot and a bit of code.
+
+![image](https://user-images.githubusercontent.com/30892199/103264497-24c41e80-49ab-11eb-956e-8f3ce4ea0793.png)
 

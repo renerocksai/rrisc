@@ -54,7 +54,7 @@ entity core is
 end core;
 
 architecture Behavioral of core is
-    type state_t is (ram_wait_1, fetch_1, ram_wait_2, fetch_2, ram_wait_3, fetch_3, decode, execute);
+    --type state_t is (ram_wait_1, fetch_1, ram_wait_2, fetch_2, ram_wait_3, fetch_3, decode, execute);
     signal state, nxstate : state_t;
 
     -- instruction registers
@@ -99,7 +99,7 @@ begin
     end process fsm_next;
 
     -- fsm output decoder
-    fsm_output : process(state, inr1)
+    fsm_output : process(state, inr1, clk)
     begin
         pc_write <= '0';
         pc_clock <= '0';
@@ -121,6 +121,7 @@ begin
             when ram_wait_1 => null;
 
             when fetch_1 => 
+                report "inr1: " & integer'image(to_integer(unsigned(inr1))) ;
                 inr1 <= ram_out;
                 pc_clock <= '1';
 
@@ -144,6 +145,7 @@ begin
                 if condition = '0' then 
                     pc_clock <= '1';  -- nop
                 else
+                    ram_port_addr <= inr3 & inr2;
                     -- real exec
                     if inr1(0) = '0' then
                         -- LD opearation (write to register, pc)
@@ -203,4 +205,6 @@ begin
     debug_inr1 <= inr1;
     debug_inr2 <= inr2;
     debug_inr3 <= inr3;
+    debug_cpu_state <= state;
+    debug_cpu_nxstate <= nxstate;
 end Behavioral;

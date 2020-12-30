@@ -132,7 +132,6 @@ begin
             when ram_wait_1 => null;
 
             when fetch_1 => 
-                report "inr1: " & integer'image(to_integer(unsigned(inr1))) ;
                 inr1 <= ram_out;
                 pc_clock <= '1';
 

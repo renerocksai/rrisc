@@ -5,7 +5,7 @@ jmp start
 
 const K = $efe
 
-db $43 $41 $52 $4f   ; -- CARO
+db $43 $41 $52 $4f   
 
 :start 
 lda #$00  ; clear accu

@@ -174,7 +174,7 @@ class Scanner:
                 (' <hello world', True, 'hello', '<'),
                 ('   >_org', True, '_org', '>'),
                 ('kali_linux__1_24', True, 'kali_linux__1_24', None),
-                ('> love_caro; every day', True, 'love_caro', '>'),
+                ('> love_life; every day', True, 'love_life', '>'),
                 ('  > >_org', False, None, None),
                 ('  < _org>', False, None, None),
                 ('  < _org$', False, None, None),

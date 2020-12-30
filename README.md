@@ -2,7 +2,7 @@
 VHDL implementation of my [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU
 
 ![image](https://user-images.githubusercontent.com/30892199/103373974-a2d11400-4ad6-11eb-8086-ad39d59cb9d3.png)
-![image](https://user-images.githubusercontent.com/30892199/103298890-94fa9080-49fb-11eb-90dd-5c4e36a62733.png)
+![image](https://user-images.githubusercontent.com/30892199/103374649-69010d00-4ad8-11eb-9507-7393e7f29b51.png)
 
 > *In a hurry? See it work [here](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)*
 

@@ -11,7 +11,7 @@ The code is organized as follows:
 - [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [->ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
 - [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
 
-More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU will follow as soon as I get to it. 
+More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md) CPU will follow as soon as I get to it. 
 
 ---
 

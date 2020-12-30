@@ -59,6 +59,8 @@ Here is what's going on in the core of the CPU:
 
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+
 < [2. What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)
+
 \> [4. It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
 

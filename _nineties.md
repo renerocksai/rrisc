@@ -30,5 +30,7 @@ Microcode
 
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+
 < [4. It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
+
 \> [6. Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)

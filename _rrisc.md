@@ -1,4 +1,4 @@
-# What's unique about RRISC:
+# 2. What's unique about RRISC:
 
 - the instruction set is truly minimal:
   - load register from RAM / IO port / immediately
@@ -29,3 +29,8 @@ Example of using the port-mapped ALU to add two values:
      out a, ALU_CMD       ; --> into ALU
      in a, ALU_RESULT     ; read result
   ```
+
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+< [1. Background and why I built the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_why.md)
+\> [3. It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)

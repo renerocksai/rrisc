@@ -1,4 +1,4 @@
-# The FPGA
+# 7. The FPGA
 
 This is where it will run: on my Xilinx Spartan-7 FPGA board "Arty S7":
 
@@ -19,3 +19,6 @@ All it takes, is a little microSD card slot and a bit of code.
 ![image](https://user-images.githubusercontent.com/30892199/103264497-24c41e80-49ab-11eb-956e-8f3ce4ea0793.png)
 
 
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+< [6. Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)

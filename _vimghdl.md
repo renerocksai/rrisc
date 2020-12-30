@@ -1,4 +1,4 @@
-# vim, tmux, ghdl & gtkwave workflow
+# 6. Vim, tmux, ghdl & gtkwave workflow
 
 Via ssh. On a Chromebook :)
 
@@ -11,3 +11,9 @@ As an extra plus, vim and commandline work smoothly over ssh. With X-forwarding 
 ![image](https://user-images.githubusercontent.com/30892199/103263490-55568900-49a8-11eb-9b65-84b423a1a7b3.png)
 
 While all that software runs in the Linux container of my Chromebook, too, I got used to the habit of SSH-ing into my stationary Linux box, making it my main devlopment machine. So when I'm not at my desk, I use my Chromebook to attach to the tmux session of the PC and seemlessly continue work there.
+
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+< [5. Radical RISC from the early nineties](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
+\> [7. The FPGA](https://github.com/renerocksai/rrisc/blob/main/_fpga.md)
+

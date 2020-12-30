@@ -1,4 +1,4 @@
-# Background and why I built the RRISC CPU
+# 1. Background and why I built the RRISC CPU
 
 In the early nineties, when I finally figured out how to do sequential digital circuits, I used the momentum of that heureka-moment to develop the [RRISC](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md) CPU (Radically Reduced Instruction Set Computer), with the intention to build it using just 74xx TTL logic circuits. It was meant both as an educational and also instructive endeavor, as I figured such a simple CPU would be ideal for teaching the basics of CPU design. Being able to make an actual CPU from just two easy-to-build printed circuit boards would also free the whole topic from being a merely abstract one. If you put a bit of extra work in, you could actually see the CPU work.
 
@@ -24,5 +24,6 @@ This lead me down the path of minimizing combinatorial digital logic circuits (Q
 So, this Christmas, I thought I would revive the 30 years old project, but this time implement the CPU in VHDL so I can program an FPGA with it in order to get my CPU up and running in the physical world.
 
 ---
-< [back](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
-\> 2. [What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+
+\> [2. What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)

@@ -1,4 +1,4 @@
-# It's executing its first instruction!!!
+# 3. It's executing its first instruction!!!
 
 ```
 lda # $CA    ; load register A with immediate value 0xCA
@@ -56,4 +56,9 @@ Here is what's going on in the core of the CPU:
   - *ram_addr* is switched back to the program counter 
 - 95 .. 100ns:
   - the cpu goes into *ram_wait_1* again, to give the ram time to output the next instruction
+
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+< [2. What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)
+\> [4. It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
 

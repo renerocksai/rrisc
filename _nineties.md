@@ -1,4 +1,4 @@
-# Radical RISC from the early nineties
+# 5. Radical RISC from the early nineties
 
 Let's walk down memory lane. Here are a few design documents of the original RRISC CPU:
 
@@ -28,4 +28,7 @@ Microcode
 ![fetch](https://user-images.githubusercontent.com/30892199/103262716-19babf80-49a6-11eb-9e65-19c49d2f28c6.jpg)
 
 
-
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
+< [4. It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
+\> [6. Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)

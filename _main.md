@@ -3,6 +3,8 @@ VHDL implementation of my [RRISC](https://github.com/renerocksai/rrisc#btw-whats
 
 ![image](https://user-images.githubusercontent.com/30892199/103280947-e4c46200-49d1-11eb-9e5f-1e69fb49baaf.png)
 
+![image](https://user-images.githubusercontent.com/30892199/103298890-94fa9080-49fb-11eb-90dd-5c4e36a62733.png)
+
 > *In a hurry? See it work [here](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)*
 
 The code is organized as follows:

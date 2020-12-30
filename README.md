@@ -38,6 +38,9 @@ More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc#btw-w
   - load register from RAM / IO port / immediately
   - store register to RAM / IO port
   - jump
+- ALL instructions can be executed conditionally
+    - e.g. `LDA #$00 : EQ` will clear register A only if the EQUAL flag is set
+    - this reduces the need for conditional jumps
 - an interesting indirect jump mode:
   - `jmp HI[LO]`  will jump to HI * 256 + [HI * 256 + LO]
   - HIGH byte is specified directly
@@ -45,9 +48,6 @@ More info on the minimalistic [RRISC](https://github.com/renerocksai/rrisc#btw-w
   - this allows for jmp tables
 - above jumps can also be indirected by external port data:
   - `jmpp HI[LO]` will take the LOW byte of the address from **port** HI*256+LO
-- ALL instructions can be executed conditionally
-    - e.g. `LDA #$00 : EQ` will clear register A only if the EQUAL flag is set
-    - this reduces the need for conditional jumps
 - the ALU is intended to be port mapped:
   - making the CPU independent from a specific ALU allows for upgradability
   - see example below for adding:

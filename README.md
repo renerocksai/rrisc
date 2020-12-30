@@ -19,8 +19,9 @@ So, this Christmas, I thought I would revive the 30 years old project, but this 
 This is the progress I've made so far:
 
 1. [It's executing its first instruction](https://github.com/renerocksai/rrisc#its-executing-its-first-instruction)
+2. [It runs the whole test program](https://github.com/renerocksai/rrisc#its-executing-the-whole-test-program)
 2. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc#radical-risc-from-the-early-nineties)
-3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
+3. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc#vim-tmux-ghdl--gtkwave-workflow)
 4. [The FPGA](https://github.com/renerocksai/rrisc#the-fpga)
 
 The code is organized as follows:
@@ -70,7 +71,7 @@ lda # $CA    ; load register A with immediate value 0xCA
 ```
 
 The instruction `lda # $CA` does the following:
-- it takes the value _$CA_ (_292_ in hexadecimal); the hexadecimal notation prefix `$` is taken from the good old 6502, C64 days
+- it takes the value _$CA_ (_202_ in hexadecimal); the hexadecimal notation prefix `$` is taken from the good old 6502, C64 days
 - it stores this value in register A
 
 The image below shows the CPU going out of reset and then executing its first instruction, the instruction above, in 8 clock cycles.
@@ -122,6 +123,40 @@ Here is what's going on in the core of the CPU:
 - 95 .. 100ns:
   - the cpu goes into *ram_wait_1* again, to give the ram time to output the next instruction
 
+# It's executing the whole test program!!!
+
+The test program:
+
+```
+org 0             ; start at address 0  (meta)
+lda #$ca          ; A = $CA
+sta data          ; Store A in RAM at address 'data'
+ldb data          ; B = content of RAM at address 'data'
+:loop_forever
+jmp loop_forever  ; jump to this jmp instruction, repeating itself forever
+:data
+db $ff            ; <--- here the data will be stored, $ff will be overwritten 
+                  ;      by $CA 
+```
+
+What we expect after running this:
+- Both registers A and B containing the value $CA
+  - that means writing to and reading from RAM works
+- The program counter being set to address $0009 (where the jump is) as the jump instruction is executed
+  - hence, the instruction repeating itself
+  - instead of the program counter incrementing past address $000B
+
+As you can see below, both registers contain the value $CA and the program counter falling back to $0009 after reaching $000B.
+
+The red vertical line marks the time of the first jump.
+
+![image](https://user-images.githubusercontent.com/30892199/103299193-4699c180-49fc-11eb-9313-7a4d1407bb4b.png)
+
+Zooming in to the first jump:
+
+![image](https://user-images.githubusercontent.com/30892199/103298890-94fa9080-49fb-11eb-90dd-5c4e36a62733.png)
+
+Et voila! The CPU works as expected :-)
 
 # Radical RISC from the early nineties
 

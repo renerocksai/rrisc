@@ -1,9 +1,11 @@
 # rrisc
 VHDL implementation of my [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU
 
+---
+
 ![image](https://user-images.githubusercontent.com/30892199/103395117-bad38280-4b2c-11eb-91b5-cb6f7a66f8ac.png)
 
-<!--![image](https://user-images.githubusercontent.com/30892199/103373974-a2d11400-4ad6-11eb-8086-ad39d59cb9d3.png)-->
+<!--![image](https://user-images.githubusercontent.com/30892199/103373974-a2d11400-4ad6-11eb-8086-ad39d59cb9d3.png)--> 
 
 ![image](https://user-images.githubusercontent.com/30892199/103374649-69010d00-4ad8-11eb-9507-7393e7f29b51.png)
 

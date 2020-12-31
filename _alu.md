@@ -2,6 +2,7 @@
 
 We now have a port-mappable ALU. That means, the ALU is not connected directly to the CPU registers, but needs to be accessed via port I/O commands. This is indicated in the illustration below:
 
+---
 ![image](https://user-images.githubusercontent.com/30892199/103395727-e4da7400-4b2f-11eb-96ff-8afe23cdada9.png)
 
 ---
@@ -83,7 +84,7 @@ include alu.inc   ; -- read the ALU macro definitions
 
 org 0
 ldg # $10         ; G = 10
-ADD_G $20         ; intructs the ALU to add $20 to register G
+ADD_G $20         ; instructs the ALU to add $20 to register G
                   ;   and to return the result in register G
 
 ; ...

@@ -1,0 +1,12 @@
+
+.vim/
+ghdl/alu/
+ghdl/core/
+ghdl/pmem/
+ghdl/regs/
+ghdl/work/
+ghdl/*.fst
+project_2.cache/
+project_2.gen/
+project_2.sim/
+

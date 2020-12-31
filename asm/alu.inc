@@ -18,3 +18,24 @@ const ALU_CMP  = 11    ; compare, sets carry (gt), sm, eq flags
 const ALU_INC  = 12    ; increments A by 1, sets equal (zero) flag on zero
 const ALU_DEC  = 13    ; decrements A by 1, sets equal (zero) flag on zero
 
+; --
+; -- port I/O mapping of ALU registers
+; --
+const ALU_PORT_A      = $fffc
+const ALU_PORT_B      = $fffd
+const ALU_PORT_INSTR  = $fffe
+const ALU_PORT_RESULT = $ffff
+
+; --
+; -- ALU convenience macros
+; --
+MACRODEF ADD 
+ldg # $1
+out G, ALU_PORT_A
+ldg # $2
+out G, ALU_PORT_B
+ldg # ALU_ADD
+out G, ALU_PORT_INSTR
+in G, ALU_RESULT
+
+

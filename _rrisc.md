@@ -33,6 +33,6 @@ Example of using the port-mapped ALU to add two values:
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
-< [1. Background and why I built the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_why.md)
+< [Background and why I built the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_why.md)
 
-\> [3. It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)
+\> [It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)

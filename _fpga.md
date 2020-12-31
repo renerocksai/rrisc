@@ -22,4 +22,4 @@ All it takes, is a little microSD card slot and a bit of code.
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
-< [6. Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)
+< [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)

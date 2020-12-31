@@ -15,7 +15,7 @@ While all that software runs in the Linux container of my Chromebook, too, I got
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
-< [5. Radical RISC from the early nineties](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
+< [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
 
-\> [7. The FPGA](https://github.com/renerocksai/rrisc/blob/main/_fpga.md)
+\> [The FPGA](https://github.com/renerocksai/rrisc/blob/main/_fpga.md)
 

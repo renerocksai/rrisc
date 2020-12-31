@@ -26,4 +26,4 @@ So, this Christmas, I thought I would revive the 30 years old project, but this 
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
-\> [2. What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)
+\> [What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)

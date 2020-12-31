@@ -37,7 +37,7 @@ Et voila! The CPU works as expected :-)
 ---
 ^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
-< [3. It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)
+< [It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)
 
-\> [5. Radical RISC from the early nineties](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
+\> [We have an ALU](https://github.com/renerocksai/rrisc/blob/main/_alu.md)
 

@@ -29,13 +29,15 @@ const ALU_PORT_RESULT = $ffff
 ; --
 ; -- ALU convenience macros
 ; --
-MACRODEF ADD 
-ldg # $1
+MACRODEF ADD_G
 out G, ALU_PORT_A
-ldg # $2
+ldg # $1
 out G, ALU_PORT_B
 ldg # ALU_ADD
 out G, ALU_PORT_INSTR
 in G, ALU_RESULT
+ENDMACRO
+
+
 
 

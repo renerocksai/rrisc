@@ -75,6 +75,7 @@ out G, ALU_PORT_B
 ldg # ALU_ADD
 out G, ALU_PORT_INSTR
 in G, ALU_RESULT
+ENDMACRO
 ```
 
 So the following assembly snippet would add a value to register G, without having to deal with ALU port operations:

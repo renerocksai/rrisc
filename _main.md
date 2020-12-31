@@ -25,7 +25,7 @@ The following documents my journey developing the RRISC CPU, in a sort of blog l
 2. [What's unique about the RRISC CPU](https://github.com/renerocksai/rrisc/blob/main/_rrisc.md)
 3. [It's executing its first instruction](https://github.com/renerocksai/rrisc/blob/main/_firstinstr.md)
 4. [It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
-5. **NEW!** [We have an ALU](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
+5. **NEW!** [We have an ALU!](https://github.com/renerocksai/rrisc/blob/main/_alu.md)
 6. [Radical RISC from the early nineties](https://github.com/renerocksai/rrisc/blob/main/_nineties.md)
 7. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](https://github.com/renerocksai/rrisc/blob/main/_vimghdl.md)
 8. [The FPGA](https://github.com/renerocksai/rrisc/blob/main/_fpga.md)

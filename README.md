@@ -1,7 +1,7 @@
 # rrisc
 VHDL implementation of my [RRISC](https://renerocksai.github.io/rrisc/rrisc.html) CPU
 
-**Read all about it here: >>> [https://renerocksai.github.io/rrisc](https://renerocksai.github.io/rrisc) <<<**
+### **>> Read all about it here: >>> [https://renerocksai.github.io/rrisc](https://renerocksai.github.io/rrisc) <<<**
 
 ![image](https://user-images.githubusercontent.com/30892199/103374649-69010d00-4ad8-11eb-9507-7393e7f29b51.png)
 

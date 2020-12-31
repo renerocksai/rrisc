@@ -133,6 +133,29 @@ begin
         assert zero_equal = '1' report "DEC zero_equal bad" severity ERROR;
         assert sm = '0' report "DEC sm bad" severity ERROR;
 
+        B <= "00000010";
+        I <= OP_CMP;
+        wait for 30 ns;
+        assert F = "00000001" report "CMP 1 result bad: " & integer'image((to_integer(unsigned(F)))) severity ERROR;
+        assert cout_gt = '0' report "CMP 1 carry bad" severity ERROR;
+        assert zero_equal = '0' report "CMP 1 zero_equal bad" severity ERROR;
+        assert sm = '1' report "CMP 1 sm bad" severity ERROR;
+
+        A <= "00000010";
+        I <= OP_CMP;
+        wait for 30 ns;
+        assert F = "00000001" report "CMP 2 result bad: " & integer'image((to_integer(unsigned(F)))) severity ERROR;
+        assert cout_gt = '0' report "CMP 2 carry bad" severity ERROR;
+        assert zero_equal = '1' report "CMP 2 zero_equal bad" severity ERROR;
+        assert sm = '0' report "CMP 2 sm bad" severity ERROR;
+
+        A <= "00000011";
+        I <= OP_CMP;
+        wait for 30 ns;
+        assert F = "00000001" report "CMP 3 result bad: " & integer'image((to_integer(unsigned(F)))) severity ERROR;
+        assert cout_gt = '1' report "CMP 3 carry bad" severity ERROR;
+        assert zero_equal = '0' report "CMP 3 zero_equal bad" severity ERROR;
+        assert sm = '0' report "CMP 3 sm bad" severity ERROR;
         assert false report "FINISHED OK" severity ERROR;
     end process;
     

@@ -119,6 +119,7 @@ architecture calculation of alu is
                     when "1010" => F_i <= '0' & (A XNOR B);               -- XNOR
 
                     when "1011" =>                                        -- CMP
+                        F_i <= "000000001"; -- prevent zero flag
                         if A = B then
                             s_equal <= '1';
                         end if;

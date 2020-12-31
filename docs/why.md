@@ -12,9 +12,7 @@ Despite all my intentions, I never got around to actually build it. Part of what
 
 *On top of that, to erase an EPROM, you would need an UV light source and point it at the glass window of the IC:*
 
-![image](https://user-images.githubusercontent.com/30892199/103368626-55e64100-4ac8-11eb-98c0-607b7c547336.png)
-
-![image](https://user-images.githubusercontent.com/30892199/103368907-12400700-4ac9-11eb-9f63-73362f86b3ee.png)
+![image](https://user-images.githubusercontent.com/30892199/103368626-55e64100-4ac8-11eb-98c0-607b7c547336.png) ![image](https://user-images.githubusercontent.com/30892199/103368907-12400700-4ac9-11eb-9f63-73362f86b3ee.png)
 
 
 This lead me down the path of minimizing combinatorial digital logic circuits (Quine McCluskey anyone?), creating CAD files for automating production of minimized circuits, ... Which all developed a life of its own, until I was past mere CPU design - I knew it worked, which was almost as good as seeing it work. And I moved on. 

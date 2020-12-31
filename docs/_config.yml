@@ -23,8 +23,8 @@ email: renemann@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
     A small CPU with a radically reduced instruction set. Hand-crafted. Implemented in VHDL,
     for use in an FPGA.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://renerocksai.github.io/rrisc" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/rrisc" # the subpath of your site, e.g. /blog
+url: "https://renerocksai.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: renerocksai
 github_username:  renerocksai
 

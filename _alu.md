@@ -91,6 +91,8 @@ ADD_G $20         ; instructs the ALU to add $20 to register G
 ```
 
 
+---
+^ [toc](https://github.com/renerocksai/rrisc/blob/main/_main.md)        
 
 < [It runs the whole test program](https://github.com/renerocksai/rrisc/blob/main/_firstprog.md)
 

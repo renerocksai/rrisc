@@ -4,6 +4,8 @@ We now have a port-mappable ALU. That means, the ALU is not connected directly t
 
 ![image](https://user-images.githubusercontent.com/30892199/103395727-e4da7400-4b2f-11eb-96ff-8afe23cdada9.png)
 
+---
+
 The ALU has the following 4 registers
 
 - Operand A

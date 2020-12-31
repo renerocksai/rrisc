@@ -1,5 +1,5 @@
 # rrisc
-VHDL implementation of my [RRISC](https://github.com/renerocksai/rrisc#btw-whats-so-special-about-rrisc) CPU
+VHDL implementation of my [RRISC](https://renerocksai.github.io/rrisc/rrisc.html) CPU
 
 **Read all about it here: >>> [https://renerocksai.github.io/rrisc](https://renerocksai.github.io/rrisc)**
 

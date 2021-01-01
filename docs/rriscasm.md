@@ -71,7 +71,7 @@ Examples:
 
 ```
 LDA $1300   ; load byte from RAM at address $1300
-STA $1301   ; store byte into RAM at address $1300
+STA $1301   ; store byte into RAM at address $1301
 ```
 
 ### External addressing mode

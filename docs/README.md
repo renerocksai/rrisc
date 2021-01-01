@@ -10,7 +10,7 @@ Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about it
 4. **NEW!** [RRISC Assembly - introduction](rriscasm.md)
 5. **NEW!** [RRISC Assembler - writing programs](asm.md)
 4. [It runs the whole test program](firstprog.md)
-5. ** [We have an ALU!](alu.md)
+5. [We have an ALU!](alu.md)
 6. **NEW!** [Playing with the ALU](aluplay.md)
 7. [Radical RISC from the early nineties](nineties.md)
 8. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)

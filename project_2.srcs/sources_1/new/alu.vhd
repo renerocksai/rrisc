@@ -64,9 +64,18 @@ architecture calculation of alu is
         s_zero <= '1' when F_i(7 downto 0) = "00000000" else '0';
         zero_equal <= s_zero or s_equal;
         F <= std_logic_vector(F_i(7 downto 0)); 
+
         cout_gt <= c_gt;
         sm <= ssm;
         sign <= s_sign;
+
+        debug_alu_eq <= s_zero or s_equal;
+        debug_alu_gt <= c_gt;
+        debug_alu_sm <= ssm;
+        debug_alu_A <= A_in;
+        debug_alu_B <= B_in;
+        debug_alu_I <= I;
+        debug_alu_F <= std_logic_vector(F_i(7 downto 0));
         
         
 --        processes

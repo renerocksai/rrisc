@@ -29,7 +29,7 @@ use work.debug.ALL;
 -- This translates to:
 --     0a ca 00 09 0c 00 10 0c  00 02 09 00 ff
 
-entity test_ram is
+entity ram is
     port(
     -- reset and clock
     rst         :   IN    std_logic;    -- RESET
@@ -40,9 +40,9 @@ entity test_ram is
     addr        :   IN   std_logic_vector (5 downto 0);
     ram_out     :   OUT  std_logic_vector (7 downto 0)
 );
-end test_ram;
+end ram;
 
-architecture Behavioral of test_ram is
+architecture Behavioral of ram is
     -- type mem_t is array (0 to 15) of std_logic_vector (7 downto 0);
 
     -- signals
@@ -170,4 +170,5 @@ begin
     debug_mem(30) <= mem(30);
     debug_mem(31) <= mem(31);
 end Behavioral;
+
 

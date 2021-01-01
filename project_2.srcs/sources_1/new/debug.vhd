@@ -23,8 +23,12 @@ package debug is
     signal debug_inr2 : std_logic_vector (7 downto 0);
     signal debug_inr3 : std_logic_vector (7 downto 0);
 
+    signal debug_alu_eq, debug_alu_gt, debug_alu_sm : std_logic;
+    signal debug_alu_A, debug_alu_B, debug_alu_I, debug_alu_F : std_logic_vector(7 downto 0);
+
     procedure show_regs;
     procedure show_iregs;
+    procedure show_regs_and_alu;
 end package debug;
 
 package body debug is
@@ -48,5 +52,24 @@ package body debug is
         report "     INR2: " & integer'image(to_integer(unsigned(debug_inr2))) ;
         report "     INR3: " & integer'image(to_integer(unsigned(debug_inr3))) ;
     end show_iregs;
+
+    procedure show_regs_and_alu is
+    begin
+        report "*** Registers: ***";
+        report "     A: " & integer'image(to_integer(unsigned(debug_regs(0)))) ;
+        report "     B: " & integer'image(to_integer(unsigned(debug_regs(1)))) ;
+        report "     C: " & integer'image(to_integer(unsigned(debug_regs(2)))) ;
+        report "     D: " & integer'image(to_integer(unsigned(debug_regs(3)))) ;
+        report "     E: " & integer'image(to_integer(unsigned(debug_regs(4)))) ;
+        report "     F: " & integer'image(to_integer(unsigned(debug_regs(5)))) ;
+        report "     G: " & integer'image(to_integer(unsigned(debug_regs(6)))) ;
+        report "ALU_A : " & integer'image(to_integer(unsigned(debug_alu_A))) ;
+        report "ALU_B : " & integer'image(to_integer(unsigned(debug_alu_B))) ;
+        report "ALU_I : " & integer'image(to_integer(unsigned(debug_alu_I))) ;
+        report "ALU_F : " & integer'image(to_integer(unsigned(debug_alu_F))) ;
+        report "   EQ : " & std_logic'image(debug_alu_eq) ;
+        report "   GT : " & std_logic'image(debug_alu_gt) ;
+        report "   SM : " & std_logic'image(debug_alu_sm) ;
+    end show_regs_and_alu;
 end package body;
 

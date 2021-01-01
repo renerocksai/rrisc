@@ -31,7 +31,7 @@ const ALU_PORT_RESULT = $ffff
 ; --
 MACRODEF ADD_G
 out G, ALU_PORT_A
-ldg # $1
+ldg # @1
 out G, ALU_PORT_B
 ldg # ALU_ADD
 out G, ALU_PORT_INSTR
@@ -62,5 +62,4 @@ ldg # ALU_CMP
 out G, ALU_PORT_INSTR
 ; result will be in flags!
 ENDMACRO
-
-
+                                                                                                       

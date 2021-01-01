@@ -16,6 +16,12 @@ The ALU has the following 4 registers
 
 These registers need to be accessed via 4 port addresses. In my implementation I am using the ports $fffc - $ffff.
 
+On top of the registers, the ALU also provides 3 flags to the CPU:
+
+- EQ/zero: set if a comparison yielded the result 'equal' or if the numerical result of an operation was 0.
+- GT/carry: set if a comparison yielded the result 'greater than' or if an addition/subtraction over/underflowed or if a shift operation shifted a bit into this flag.
+- LT: set if a comparison yielded the result 'less than'
+
 The ALU is capable of executing the following 14 instructions:
 
 - add with carry
@@ -85,7 +91,7 @@ include alu.inc   ; -- read the ALU macro definitions
 
 org 0
 ldg # $10         ; G = 10
-ADD_G $20         ; instructs the ALU to add $20 to register G
+macro ADD_G $20   ; instructs the ALU to add $20 to register G
                   ;   and to return the result in register G
 
 ; ...
@@ -93,9 +99,10 @@ ADD_G $20         ; instructs the ALU to add $20 to register G
 
 
 ---
+
 ^ [toc](./)        
 
 < [It runs the whole test program](firstprog.md)
 
-\> [Radical RISC from the early nineties](nineties.md)
+\> [Playing with the ALU](aluplay.md)
 

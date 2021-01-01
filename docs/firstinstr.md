@@ -62,5 +62,4 @@ Here is what's going on in the core of the CPU:
 
 < [What's unique about the RRISC CPU](rrisc.md)
 
-\> [It runs the whole test program](firstprog.md)
-
+\> [RRISC Assembly - introduction](rriscasm.md)

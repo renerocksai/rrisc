@@ -37,7 +37,7 @@ entity ram is
 
     ram_ld_val  :   IN   std_logic_vector (7 downto 0);
     write       :   IN   std_logic;
-    addr        :   IN   std_logic_vector (4 downto 0);
+    addr        :   IN   std_logic_vector (5 downto 0);
     ram_out     :   OUT  std_logic_vector (7 downto 0)
 );
 end ram;
@@ -48,21 +48,69 @@ architecture Behavioral of ram is
     -- signals
     signal mem : mem_t := (
         "00001010",
-        "11001010",
+        "00000001",
         "00000000",
-        "00001001",
-        "00001100",
+        "00010010",
+        "00000101",
         "00000000",
-        "00010000",
+        "01010010",
+        "00000011",
+        "00000000",
+        "00001101",
+        "11111100",
+        "11111111",
+        "00010101",
+        "11111101",
+        "11111111",
+        "00111010",
+        "00000000",
+        "00000000",
+        "00111101",
+        "11111110",
+        "11111111",
         "00001100",
+        "11111111",
+        "11111111",
+        "00010010",
+        "00000110",
+        "00000000",
+        "00011010",
+        "11111111",
+        "00000000",
+        "00001101",
+        "11111100",
+        "11111111",
+        "00010101",
+        "11111101",
+        "11111111",
+        "00111010",
+        "00001011",
+        "00000000",
+        "00111101",
+        "11111110",
+        "11111111",
+        "01011010",
+        "00000001",
         "00000000",
         "00000010",
-        "00001001",
+        "00101101",
         "00000000",
-        "11111111",
-        "11111111",
-        "11111111",
-        "11111111"
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000"
     );
     signal myval : std_logic_vector (7 downto 0) := "11111111";
     constant zero : std_logic_vector(7 downto 0) := "00000000";
@@ -78,6 +126,7 @@ begin
                 myval <= ram_ld_val;
                 report "> ram " & integer'image(to_integer(unsigned(addr))) & " : " & integer'image(to_integer(unsigned(ram_ld_val))) ;
             else
+                report "< ram " & integer'image(to_integer(unsigned(addr))); --  & " : " & integer'image(to_integer(unsigned(ram_ld_val))) ;
                 myval <= mem(to_integer(unsigned(addr)));
             end if;
         end if;
@@ -103,5 +152,22 @@ begin
     debug_mem(13) <= mem(13);
     debug_mem(14) <= mem(14);
     debug_mem(15) <= mem(15);
+    debug_mem(16) <= mem(16);
+    debug_mem(17) <= mem(17);
+    debug_mem(18) <= mem(18);
+    debug_mem(19) <= mem(19);
+    debug_mem(20) <= mem(20);
+    debug_mem(21) <= mem(21);
+    debug_mem(22) <= mem(22);
+    debug_mem(23) <= mem(23);
+    debug_mem(24) <= mem(24);
+    debug_mem(25) <= mem(25);
+    debug_mem(26) <= mem(26);
+    debug_mem(27) <= mem(27);
+    debug_mem(27) <= mem(27);
+    debug_mem(28) <= mem(28);
+    debug_mem(29) <= mem(29);
+    debug_mem(30) <= mem(30);
+    debug_mem(31) <= mem(31);
 end Behavioral;
 

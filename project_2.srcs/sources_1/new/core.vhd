@@ -152,6 +152,7 @@ begin
                 s_addr <= inr3 & inr2;
 
             when execute => 
+                report "condition " & integer'image(to_integer(unsigned(inr1(7 downto 6)))) & " = " & std_logic'image(condition);
                 if condition = '0' then 
                     pc_clock <= '1';  -- nop
                 else
@@ -176,7 +177,9 @@ begin
                                 case addr_mode is 
                                     when "00" => reg_ld_val <= ram_out;   -- absolute
                                     when "01" => reg_ld_val <= inr2;     -- immediate
-                                    when "10" => reg_ld_val <= port_out; -- extern
+                                    when "10" => 
+                                        reg_ld_val <= port_out; -- extern
+                                        report "<<<<<<<<<<<< Port read :" & integer'image(to_integer(unsigned(port_out))) & " from " & integer'image(to_integer(unsigned(s_addr)));
                                     when others => null;
                                 end case;
                                 reg_write <= '1';

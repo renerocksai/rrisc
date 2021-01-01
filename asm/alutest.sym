@@ -1,0 +1,20 @@
+Symbol Table of alutest.asm
+ALU_ADD              : 0
+ALU_SUB              : 1
+ALU_SHL              : 2
+ALU_SHR              : 3
+ALU_ROL              : 4
+ALU_ROR              : 5
+ALU_OR               : 6
+ALU_AND              : 7
+ALU_NAND             : 8
+ALU_XOR              : 9
+ALU_XNOR             : 10
+ALU_CMP              : 11
+ALU_INC              : 12
+ALU_DEC              : 13
+ALU_PORT_A           : 65532
+ALU_PORT_B           : 65533
+ALU_PORT_INSTR       : 65534
+ALU_PORT_RESULT      : 65535
+forever              : 45

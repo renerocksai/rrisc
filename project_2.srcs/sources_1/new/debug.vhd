@@ -13,7 +13,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 package debug is
     type regs_t is array (0 to 6) of std_logic_vector (7 downto 0);
-    type mem_t is array (0 to 15) of std_logic_vector (7 downto 0);
+    type mem_t is array (0 to 63) of std_logic_vector (7 downto 0);
     signal debug_regs : regs_t ;
     signal debug_mem : mem_t ;
     type state_t is (wakeup, ram_wait_1, fetch_1, ram_wait_2, fetch_2, ram_wait_3, fetch_3, decode, execute);

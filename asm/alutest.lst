@@ -1,4 +1,9 @@
 ; -------------------
+; -- ALU test prog --
+; -- for RRISC ALU --
+; -------------------
+
+; -------------------
 ; -- ALU constants --
 ; -- for RRISC ALU --
 ; -------------------
@@ -29,38 +34,76 @@ const ALU_PORT_RESULT = $ffff
 ; --
 ; -- ALU convenience macros
 ; --
-MACRODEF ADD_G
-out G, ALU_PORT_A
-ldg # $1
-out G, ALU_PORT_B
-ldg # ALU_ADD
-out G, ALU_PORT_INSTR
-in G, ALU_PORT_RESULT
-ENDMACRO
 
 
-MACRODEF ADD_A_B_G
+
+
+
+
+
+org 0
+
+lda #$01
+; > 0000: 0a 01 00
+
+ldb #$05
+; > 0003: 12 05 00
+
+
+ldb #$03 : EQ  ; should not execute
+; > 0006: 52 03 00
+
+; because EQ (zero)
+; flag isn't set
+
 out A, ALU_PORT_A
-out B, ALU_PORT_B
-ldg # ALU_ADD
-out G, ALU_PORT_INSTR
-in G, ALU_PORT_RESULT
-ENDMACRO
+; > 0009: 0d fc ff
 
-MACRODEF ADD_A_B
-out A, ALU_PORT_A
 out B, ALU_PORT_B
+; > 000c: 15 fd ff
+
 ldg # ALU_ADD
+; > 000f: 3a 00 00
+
 out G, ALU_PORT_INSTR
+; > 0012: 3d fe ff
+
 in A, ALU_PORT_RESULT
-ENDMACRO
+; > 0015: 0c ff ff
 
-MACRODEF CMP_A_B
+; (A = 6)
+ldb #$06       ; B = 6
+; > 0018: 12 06 00
+
+
+; if A == B -> C = $01 else C = $ff
+ldc #$ff       ; C = $ff
+; > 001b: 1a ff 00
+
 out A, ALU_PORT_A
-out B, ALU_PORT_B
-ldg # ALU_CMP
-out G, ALU_PORT_INSTR
-; result will be in flags!
-ENDMACRO
+; > 001e: 0d fc ff
 
+out B, ALU_PORT_B
+; > 0021: 15 fd ff
+
+ldg # ALU_CMP
+; > 0024: 3a 0b 00
+
+out G, ALU_PORT_INSTR
+; > 0027: 3d fe ff
+
+; result will be in flags!
+ldc #$01 : EQ  ; C = $01 if EQual
+; > 002a: 5a 01 00
+
+
+:forever
+jmp forever
+; > 002d: 02 2d 00
+
+
+; we expect:
+; A = 6
+; B = 6
+; C = 1
 

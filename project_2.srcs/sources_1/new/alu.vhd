@@ -43,7 +43,7 @@ end entity;
 architecture calculation of alu is 
 
         signal A, B : unsigned (7 downto 0);
-        signal F_i : unsigned(8 downto 0) := "000000000";        
+        signal F_i : unsigned(8 downto 0) := "011111111";    -- don't trigger zero flag right away 
         -- internal signal for calculation
         -- is assigned to F-output and carry-flag with concurrent statement
         
@@ -76,7 +76,7 @@ architecture calculation of alu is
             cin <= c_gt;  -- carry in is carry out from last operation
 
             if rising_edge(clk) then 
-                F_i <= "000000000";
+                F_i <= "011111111";  -- careful, not triggering zero flag
                 ssm <= '0';
                 c_gt <= F_i(8);   -- carry 
 

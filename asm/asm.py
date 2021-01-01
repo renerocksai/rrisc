@@ -1308,16 +1308,21 @@ class Asm:
         inr1 |= self.register2bin[register]
         inr1 |= self.condition2bin[condition]
 
+        debug_line = f'; > {self.pc:04x}: {inr1:02x} {inr2:02x} {inr3:02x}\n'
+
         self.mem[self.pc] = inr1
         self.mem[self.pc + 1] = inr2
         self.mem[self.pc + 2] = inr3
+
         self.pc += 3
         self.max_pc = max(self.pc, self.max_pc)
-
+        return debug_line
 
     def run_pass(self, pass_no=1):
         self.pc = 0
+        newlines = []
         for i, line in enumerate(self.lines):
+            newlines.append(line)
             if Scanner.scan_for_skipline(line):
                 continue
 
@@ -1351,7 +1356,8 @@ class Asm:
             # JMP
             ok, addr, modifier, condition = Scanner.scan_for_jmp(line, 0)
             if ok:
-                self.emit(load=True, addrmode='immediate', register='pc', condition=condition, addr=addr, modifier=modifier)
+                debug_line = self.emit(load=True, addrmode='immediate', register='pc', condition=condition, addr=addr, modifier=modifier)
+                newlines.append(debug_line)
                 continue
 
             # LD
@@ -1362,31 +1368,36 @@ class Asm:
                     if value > 0xff and pass_no == 2:
                         print(f'line {i}: WARNING: literal {addr}={value} > 0xff!')
                         print(f'line {i}> {line}')
-                self.emit(load=True, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                debug_line = self.emit(load=True, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                newlines.append(debug_line)
                 continue
 
             # ST
             ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_st(line, 0)
             if ok:
-                self.emit(load=False, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                debug_line = self.emit(load=False, addrmode=addrmode, register=register, condition=condition, addr=addr, modifier=modifier)
+                newlines.append(debug_line)
                 continue
 
 
             # IN
             ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_in(line, 0)
             if ok:
-                self.emit(load=True, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                debug_line = self.emit(load=True, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                newlines.append(debug_line)
                 continue
 
             # OUT
             ok, register, addrmode, addr, modifier, condition = Scanner.scan_for_out(line, 0)
             if ok:
-                self.emit(load=False, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                debug_line = self.emit(load=False, addrmode='extern', register=register, condition=condition, addr=addr, modifier=modifier)
+                newlines.append(debug_line)
                 continue
 
             if pass_no == 1:
                 print(f'line {i}: cannot parse:\nline {i}> {line}')
             self.has_errors = True
+        self.lst_lines = newlines
         return self.has_errors
 
 
@@ -1489,11 +1500,6 @@ class Asm:
             else:
                 newlines.append(line)
         self.lines = newlines
-        lstfn = os.path.splitext(self.outfn)[0] + '.lst'
-        print(f'Generating: {lstfn}')
-        with open(lstfn, 'wt') as f:
-            for l in newlines:
-                f.write(f'{l}\n')
 
                 
     def assemble(self):
@@ -1512,6 +1518,12 @@ class Asm:
         print('Symbol Table:')
         for k, v in self.symboltable.symbols.items():
             print(f'{k:20} : {v}')
+
+        lstfn = os.path.splitext(self.outfn)[0] + '.lst'
+        print(f'Generating: {lstfn}')
+        with open(lstfn, 'wt') as f:
+            for l in self.lst_lines:
+                f.write(f'{l}\n')
 
         symfn = os.path.splitext(self.outfn)[0] + '.sym'
         print(f'Generating: {symfn}')
@@ -1548,6 +1560,7 @@ class Asm:
                 f.write(f'{b:08b}\n')
 
 
+        print(f'Program size: ${self.max_pc:04x} bytes.')
         print('Done!')
 
 

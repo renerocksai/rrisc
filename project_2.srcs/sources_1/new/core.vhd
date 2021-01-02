@@ -104,7 +104,8 @@ begin
     end process fsm_next;
 
     -- fsm output decoder
-    fsm_output : process(state, inr1, clk)
+    fsm_output : process(state, inr1, clk, pc_addr, inr3, inr2, alu_eq, alu_gr, alu_sm, ram_out, condition, selected_register, addr_mode,
+                          port_out, reg_out)
     begin
         pc_write <= '0';
         pc_clock <= '0';

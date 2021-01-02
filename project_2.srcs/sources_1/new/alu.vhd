@@ -80,7 +80,7 @@ architecture calculation of alu is
         
 --        processes
         
-        process(clk) is
+        process(clk, c_gt) is
         begin
             cin <= c_gt;  -- carry in is carry out from last operation
 

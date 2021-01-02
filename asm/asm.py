@@ -891,18 +891,18 @@ class Scanner:
                     ok, commapos = Scanner.scan_for_comma(line, reg_pos)
                     if ok:
                         commapos += 1
-                    # test for identifier
-                    ok, addr, modifier, addrpos, _ = Scanner.scan_identifier(line, commapos)
-                    if ok:
-                        state = 'got_address'
-                    else:
-                        # else test for literal
-                        ok, addr, addrpos, _ = Scanner.scan_literal_value(line, commapos)
+                        # test for identifier
+                        ok, addr, modifier, addrpos, _ = Scanner.scan_identifier(line, commapos)
                         if ok:
                             state = 'got_address'
                         else:
-                            state = 'abort'
-                            break
+                            # else test for literal
+                            ok, addr, addrpos, _ = Scanner.scan_literal_value(line, commapos)
+                            if ok:
+                                state = 'got_address'
+                            else:
+                                state = 'abort'
+                                break
             elif state == 'got_address':
                 #0 print(f'addr={addr}')
                 #0 print(f'line[addrpos:]="{line[addrpos:]}"')

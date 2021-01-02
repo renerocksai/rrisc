@@ -12,7 +12,7 @@ const LED_PORT = $fffa;
 ; 8us per instruction
 ; --> 125k instructions per 1ms
 
-const arty_delay = $c000  ; TODO calculate this
+const arty_delay = $10da  ; gives us 500ms
 
 ; a simple constant delay
 ; pollutes c, d, e, f, g

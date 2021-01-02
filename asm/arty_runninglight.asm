@@ -4,7 +4,7 @@
 ; -------------------------------
 
 include arty.inc
-const my_delay = $20 ; TODO: calculate this
+const my_delay = $0100 ; gives us 500ms
 
 org 0
 
@@ -12,6 +12,15 @@ MACRODEF LEFT
 out a, LED_PORT
 macro DELAY my_delay
 ldb # ALU_ROL
+out a, ALU_PORT_A
+out g, ALU_PORT_INSTR
+in a, ALU_PORT_RESULT
+ENDMACRO
+
+MACRODEF RIGHT
+out a, LED_PORT
+macro DELAY my_delay
+ldb # ALU_ROR
 out a, ALU_PORT_A
 out g, ALU_PORT_INSTR
 in a, ALU_PORT_RESULT

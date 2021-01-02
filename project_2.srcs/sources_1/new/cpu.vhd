@@ -30,7 +30,12 @@ entity cpu is
         -- port bus
         port_ld_value :   OUT   std_logic_vector (7 downto 0);
         port_write    :   OUT   std_logic;
-        port_out      :   IN    std_logic_vector (7 downto 0)
+        port_out      :   IN    std_logic_vector (7 downto 0);
+
+        -- ALU flags
+        alu_eq        :   IN    std_logic;
+        alu_gt        :   IN    std_logic;
+        alu_sm        :   IN    std_logic
      );
 end cpu;
 
@@ -98,24 +103,6 @@ architecture Behavioral of cpu is
     );
     end component core;
 
-    component alu is
-        port(
-        -- clock
-        clk               :   IN    std_logic;    
-        -- operands
-        A_in, B_in        :   IN    std_logic_vector(7 downto 0);
-        -- operation
-        I                 :   IN    std_logic_vector(7 downto 0);
-        -- flags
-        cout_gt           :   OUT   std_logic;
-        sign              :   OUT   std_logic;
-        zero_equal        :   OUT   std_logic;
-        sm                :   OUT   std_logic;
-        -- result
-        F                 :   out   std_logic_vector(7 downto 0)
-    );
-    end component;
-
     signal    s_ram_ld_val    :  std_logic_vector (7 downto 0);
     signal    s_ram_write     :  std_logic;
     signal    s_ram_port_addr :  std_logic_vector (15 downto 0);
@@ -134,12 +121,6 @@ architecture Behavioral of cpu is
     signal    s_port_ld_value : std_logic_vector (7 downto 0) := "00000000";
     signal    s_port_out : std_logic_vector (7 downto 0) := "00000000";
     signal    s_port_write : std_logic;
-
-    signal alu_A : std_logic_vector (7 downto 0) := "00000000";
-    signal alu_B : std_logic_vector (7 downto 0) := "01111111";  -- make A != B initially
-    signal alu_I : std_logic_vector (7 downto 0) := "00000000";
-    signal alu_eq, alu_gt, alu_sm : std_logic := '0';
-    signal alu_F : std_logic_vector (7 downto 0) := "00000000";
 
     signal cpustate : state_t;
     signal helper : std_logic := '0';
@@ -169,17 +150,6 @@ begin
         pc_clock => pc_clock,
         pc_ld_val => pc_ld_val,
         pc_addr => pc_addr
-    );
-
-    ialu : alu port map (
-        clk        =>   clk,
-        A_in       =>   alu_A,
-        B_in       =>   alu_B,
-        I          =>   alu_I,
-        cout_gt    =>   alu_gt,
-        zero_equal =>   alu_eq,
-        sm         =>   alu_sm,
-        F          =>   alu_F
     );
 
     icore : core port map (
@@ -212,35 +182,8 @@ begin
     s_ram_out <= ram_out;
     port_ld_value <= s_port_ld_value;
     port_write   <= s_port_write    ;
-    s_port_out     <= port_out     ; 
     ram_port_addr <= s_ram_port_addr;
+    s_port_out     <= port_out     ; 
 
-    aluports : process(clk, s_ram_port_addr, s_port_ld_value, s_port_out, s_port_write)
-    begin
-        if rising_edge(clk) then
-            if s_port_write = '1' then
-                report ":PORT WRiTE";
-                case s_ram_port_addr is
-                    when "1111111111111100" =>
-                        alu_A <= s_port_ld_value;
-                        report "> ALU A: " & integer'image(to_integer(unsigned(s_port_ld_value)));
-                    when "1111111111111101" =>
-                        alu_B <= s_port_ld_value;
-                        report "> ALU B: " & integer'image(to_integer(unsigned(s_port_ld_value)));
-                    when "1111111111111110" =>
-                        alu_I <= s_port_ld_value;
-                        report "> ALU I: " & integer'image(to_integer(unsigned(s_port_ld_value)));
-                    when others => null;
-                end case;
-            else
-                case s_ram_port_addr is
-                    when "1111111111111111" =>
-                        s_port_out <= alu_F;
-                        report "< ALU F: " & integer'image(to_integer(unsigned(alu_F)));
-                    when others => null;
-                end case;
-            end if;
-        end if;
-    end process aluports;
 end Behavioral;
 

@@ -2,6 +2,7 @@
 .vim/
 ghdl/alu/
 ghdl/core/
+ghdl/cpu/
 ghdl/pmem/
 ghdl/regs/
 ghdl/work/

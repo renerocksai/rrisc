@@ -13,7 +13,7 @@ syn keyword asmR2Reg a b c d e f A B C D E F G
 
 " opcodes:
 
-syn keyword asmR2Op  lda ldb ldc lde ldf ldg sta stb stc std ste stf stg in out jmp jmpp
+syn keyword asmR2Op  lda ldb ldc ldd lde ldf ldg sta stb stc std ste stf stg in out jmp jmpp
 
 syn keyword asmR2Branch EQ GT SM
 

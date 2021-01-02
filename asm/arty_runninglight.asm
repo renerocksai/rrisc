@@ -10,7 +10,6 @@ org 0
 
 MACRODEF LEFT
 out a, LED_PORT
-macro DELAY my_delay
 ldb # ALU_ROL
 out a, ALU_PORT_A
 out g, ALU_PORT_INSTR
@@ -19,7 +18,6 @@ ENDMACRO
 
 MACRODEF RIGHT
 out a, LED_PORT
-macro DELAY my_delay
 ldb # ALU_ROR
 out a, ALU_PORT_A
 out g, ALU_PORT_INSTR
@@ -30,12 +28,19 @@ ENDMACRO
 :loop
 lda #$01
 macro LEFT
-macro LEFT
+macro DELAY my_delay
 macro LEFT
 macro DELAY my_delay
+macro LEFT
+macro DELAY my_delay
+macro DELAY my_delay
+macro DELAY my_delay
 macro RIGHT
+macro DELAY my_delay
 macro RIGHT
+macro DELAY my_delay
 macro RIGHT
+macro DELAY my_delay
 macro DELAY my_delay
 jmp loop
 

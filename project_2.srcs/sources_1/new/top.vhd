@@ -150,6 +150,7 @@ begin
                 case s_ram_port_addr is
                     when "1111111111111010" =>
                         s_leds <= s_port_ld_value(3 downto 0);
+                        report " ******* LEDS: " & integer'image(to_integer(unsigned(s_port_ld_value)));
                     when "1111111111111100" =>
                         alu_A <= s_port_ld_value;
                     when "1111111111111101" =>

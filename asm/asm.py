@@ -1406,12 +1406,10 @@ class Asm:
 
 
     def run_include_pass(self):
-        with open(self.infn, 'rt') as f:
-            lines = [l.strip() for l in f.readlines()]
-
-        self.lines = []
-        for i, line in enumerate(lines):
+        newlines = []
+        for i, line in enumerate(self.lines):
             if line.startswith('include'):
+                print(line)
                 cols = line.split()
                 if len(cols) < 2:
                     print(f'line {i}: missing include file name:\nline {i}> {line}')
@@ -1423,9 +1421,10 @@ class Asm:
 
                 with open(incfn, 'rt') as incf:
                     ls = [l.strip() for l in incf.readlines()]
-                    self.lines.extend(ls)
+                    newlines.extend(ls)
             else:
-                self.lines.append(line)
+                newlines.append(line)
+        self.lines = newlines
         return
 
 
@@ -1503,22 +1502,32 @@ class Asm:
 
                 
     def assemble(self):
+        self.lines = []
+        with open(self.infn, 'rt') as f:
+            self.lines = [l.strip() for l in f.readlines()]
+
+        self.run_include_pass()
+        self.run_include_pass()
+        self.run_include_pass()
         self.run_include_pass()
         self.run_macro_read_pass()
         self.run_macro_subst_pass()
         has_errors = self.run_pass()
         if not has_errors:
             self.run_pass(2)
+        print()
+        print('Symbol Table:')
+        for k, v in self.symboltable.symbols.items():
+            print(f'{k:20} : {v:04x}')
+
+        print()
         u = self.get_unresolved_symbols()
         if u:
             print('The following symbols are undefined:')
             for x in u:
                 print('    ', x)
+            has_errors = True
         print()
-        print('Symbol Table:')
-        for k, v in self.symboltable.symbols.items():
-            print(f'{k:20} : {v}')
-
         lstfn = os.path.splitext(self.outfn)[0] + '.lst'
         print(f'Generating: {lstfn}')
         with open(lstfn, 'wt') as f:
@@ -1530,8 +1539,7 @@ class Asm:
         with open(symfn, 'wt') as f:
             f.write(f'Symbol Table of {self.infn}\n')
             for k, v in self.symboltable.symbols.items():
-                f.write(f'{k:20} : {v}\n')
-
+                f.write(f'{k:20} : {v:04x}\n')
 
         print(f'Generating: {self.outfn}')
         with open(self.outfn, 'wt') as f:
@@ -1556,12 +1564,20 @@ class Asm:
             b = self.mem.get(pc, 0xff)
             buffer.append(b)
         with open(binfn, 'wt') as f:
-            for b in buffer:
-                f.write(f'{b:08b}\n')
+            for i, b in enumerate(buffer):
+                comma = ', '
+                if i == len(buffer) -1:
+                    comma =''
+                f.write(f'"{b:08b}"{comma}')
+                if (i + 1) % 8 == 0:
+                    f.write('\n')
 
 
         print(f'Program size: ${self.max_pc:04x} bytes.')
-        print('Done!')
+        if has_errors:
+            print('THERE WERE ERRORS!')
+        else:
+            print('Done!')
 
 
 

@@ -40,17 +40,16 @@ const ALU_PORT_RESULT = $ffff
 
 
 
-
 org 0
 
-lda #$01
+lda # $01
 ; > 0000: 0a 01 00
 
-ldb #$05
+ldb # $05
 ; > 0003: 12 05 00
 
 
-ldb #$03 : EQ  ; should not execute
+ldb # $03 : EQ  ; should not execute
 ; > 0006: 52 03 00
 
 ; because EQ (zero)
@@ -72,12 +71,14 @@ in A, ALU_PORT_RESULT
 ; > 0015: 0c ff ff
 
 ; (A = 6)
-ldb #$06       ; B = 6
+ldb # $06       ; B = 6
 ; > 0018: 12 06 00
 
 
-; if A == B -> C = $01 else C = $ff
-ldc #$ff       ; C = $ff
+;  if A == B
+;      then C = $01
+;      else C = $ff
+ldc # $ff       ; C = $ff
 ; > 001b: 1a ff 00
 
 out A, ALU_PORT_A
@@ -93,7 +94,7 @@ out G, ALU_PORT_INSTR
 ; > 0027: 3d fe ff
 
 ; result will be in flags!
-ldc #$01 : EQ  ; C = $01 if EQual
+ldc # $01 : EQ  ; C = $01 if EQual
 ; > 002a: 5a 01 00
 
 

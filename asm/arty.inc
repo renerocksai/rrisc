@@ -17,8 +17,8 @@ const arty_delay = $10da  ; gives us 500ms
 ; a simple constant delay
 ; pollutes c, d, e, f, g
 MACRODEF DELAY
-ldf # <@1
-lde # >@1
+ldf # < @1
+lde # > @1
 
 :@loop_delay                 ; loop over 16bit const
 ldd # <arty_delay
@@ -30,7 +30,7 @@ out g, ALU_PORT_INSTR
 in d, ALU_PORT_RESULT
 jmp @break_low : EQ
 jmp @loop_low
-:break_low                    ; loop over high byte of const
+:@break_low                    ; loop over high byte of const
 out c, ALU_PORT_A
 in c, ALU_PORT_RESULT
 jmp @break_high : EQ

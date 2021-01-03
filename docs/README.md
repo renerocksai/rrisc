@@ -19,12 +19,6 @@ At Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about
 
 
 
-The code is organized as follows:
-
-- [asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and both [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) and [testalu.asm](https://github.com/renerocksai/rrisc/blob/main/asm/testalu.asm) which are used for first tests of the CPU
-- [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [-> ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
-- [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
-
 ---
 
 **This is a work in progess**. More info on the minimalistic [RRISC](rrisc.md) CPU will follow as soon as I get to it. 
@@ -34,3 +28,12 @@ The code is organized as follows:
 Here is a block diagram of the CPU to get you started:
 
 ![cpu](cpu.png)
+
+---
+
+The code is organized as follows:
+
+- [asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and both [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) and [testalu.asm](https://github.com/renerocksai/rrisc/blob/main/asm/testalu.asm) which are used for first tests of the CPU
+- [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [-> ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
+- [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
+

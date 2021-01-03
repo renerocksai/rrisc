@@ -23,3 +23,5 @@ All it takes, is a little microSD card slot and a bit of code.
 ^ [toc](./)        
 
 < [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
+
+\> [See it in action!](fpgafun.md)

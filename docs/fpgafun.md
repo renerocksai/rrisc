@@ -1,4 +1,6 @@
-# The CPU in action on the FPGA board
+# Becoming real: The CPU in action on an FPGA board
+
+**Note:** If you're not interested in the details, there is a [video](https://youtu.be/Ecf-VYi4tbY) at the end of the page.
 
 All the RRISC CPU's components and the RRISC assembler have now reached a level where they can be used to write real programs and run them on real hardware, utilizing a Xilinx FPGA. 
 
@@ -12,9 +14,24 @@ As described in the [previous section](fpga), I use a Xilinx Spartan-7 on the Ar
   - 4 switches
   - 4 buttons
 
+The CPU is clocked with 100 MHz, giving us 80 ns per instruction cycle. As a quick [recap](firstinstr.md), a single instruction is executed in the following phases, taking 10 nanoseconds each:
+
+- `ram_wait_1`
+- `fetch_1`
+- `ram_wait_2`
+- `fetch_2`
+- `ram_wait_3`
+- `fetch_3`
+- `decode`
+- `execute`
+
+---
+
 ## The example program
 
 The example program is a simple LED running light demo, activated by pressing the button. Once the button is pressed, the light runs from right to left and then back to right, where it remains until the button is pressed again.
+
+The running light pattern is achieved with simple bit shifting, executed by the [ALU](alu.md) using its `ROL` (rotate left) and `ROR` (rotate right) operations.
 
 Here is the code consisting of the main assembly file [runninglight.asm](https://github.com/renerocksai/rrisc/blob/main/asm/arty_runninglight.asm) and an include file [arty.inc](https://github.com/renerocksai/rrisc/blob/main/asm/arty.inc) containing macro definitions for the Arty board and timing constants:
 
@@ -25,6 +42,10 @@ A simulation run shows (in the 1st line), that the LEDs are activated in the cor
 ![](runlight.timing.png)
 
 So, let's see it in action!
+
+---
+
+## Example running on real hardware
 
 <div class="embed-container">
   <iframe

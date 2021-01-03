@@ -68,7 +68,7 @@ Here we can see the relevant CPU signals and registers in action:
 
 The red vertical line is placed right after the execution phase of the `ldc # $01 : EQ` instruction. At the left you can see the values of all shown registers and signals.
 
-And here is the complete source code, consisting of `alutest.asm` and the macros in `alu.inc`:
+And here is the complete source code, consisting of [alutest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/alutest.asm) and the macros in [alu.inc](https://github.com/renerocksai/rrisc/blob/main/asm/alu.inc):
 
 ![](aluplay2.png)
 

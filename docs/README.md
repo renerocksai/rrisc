@@ -9,13 +9,13 @@ At Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about
 3. [It's executing its first instruction](firstinstr.md)
 4. [RRISC Assembly - introduction](rriscasm.md)
 5. [RRISC Assembler - writing programs](asm.md)
-4. [It runs the whole test program](firstprog.md)
-5. [We have an ALU!](alu.md)
-6. [Playing with the ALU](aluplay.md)
-7. [Radical RISC from the early nineties](nineties.md)
-8. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
-9. [The FPGA](fpga.md)
-9. **NEW** [The CPU in action on the FPGA board](fpgafun.md)
+6. [It runs the whole test program](firstprog.md)
+7. [We have an ALU!](alu.md)
+8. [Playing with the ALU](aluplay.md)
+9. [Radical RISC from the early nineties](nineties.md)
+10. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
+11. [The FPGA](fpga.md)
+12. **NEW** [Becoming real: The CPU in action on an FPGA board](fpgafun.md)
 
 
 

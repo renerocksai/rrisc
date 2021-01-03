@@ -31,6 +31,7 @@ Microcode
 ---
 ^ [toc](./)        
 
-< [We have an ALU](alu.md)
+< [Background and why I built the RRISC CPU](why.md)
 
-\> [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
+\> [What's unique about the RRISC CPU](rrisc.md)
+

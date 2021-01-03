@@ -24,4 +24,5 @@ So, this Christmas, I thought I would revive the 30 years old project, but this 
 ---
 ^ [toc](./)        
 
-\> [What's unique about the RRISC CPU](rrisc.md)
+\> [Radical RISC from the early nineties](nineties.md)
+

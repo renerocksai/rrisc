@@ -17,7 +17,8 @@ While all that software runs in the Linux container of my Chromebook, too, I got
 ---
 ^ [toc](./)        
 
-< [Radical RISC from the early nineties](nineties.md)
+< [Playing with the ALU](aluplay.md)
+
 
 \> [The FPGA](fpga.md)
 

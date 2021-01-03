@@ -4,6 +4,7 @@
   - load register from RAM / IO port / immediately
   - store register to RAM / IO port
   - jump
+- all instructions take exactly 8 clock cycles, enabling easy deterministic timing behavior
 - ALL instructions can be executed conditionally
     - e.g. `LDA #$00 : EQ` will clear register A only if the EQUAL flag is set
     - this reduces the need for conditional jumps
@@ -34,6 +35,6 @@ Example of using the port-mapped ALU to add two values:
 
 ^ [toc](./)        
 
-< [Background and why I built the RRISC CPU](why.md)
+< [Radical RISC from the early nineties](nineties.md)
 
 \> [It's executing its first instruction](firstinstr.md)

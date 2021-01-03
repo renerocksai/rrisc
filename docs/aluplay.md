@@ -202,6 +202,7 @@ jmp forever
 
 < [We have an ALU!](alu.md)
 
-\> [Radical RISC from the early nineties](nineties.md)
+\> [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
+
 
 

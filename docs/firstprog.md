@@ -2,17 +2,7 @@
 
 The test program:
 
-```
-org 0             ; start at address 0  (meta)
-lda #$ca          ; A = $CA
-sta data          ; Store A in RAM at address 'data'
-ldb data          ; B = content of RAM at address 'data'
-:loop_forever
-jmp loop_forever  ; jump to this jmp instruction, repeating itself forever
-:data
-db $ff            ; <--- here the data will be stored, $ff will be overwritten 
-                  ;      by $CA 
-```
+![](simtest.asm.png)
 
 What we expect after running this:
 - Both registers A and B containing the value $CA
@@ -37,7 +27,7 @@ Et voila! The CPU works as expected :-)
 ---
 ^ [toc](./)        
 
-< [It's executing its first instruction](firstinstr.md)
+< [RRISC Assembler - writing programs](asm.md)
 
 \> [We have an ALU](alu.md)
 

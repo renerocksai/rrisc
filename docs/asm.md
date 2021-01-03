@@ -30,8 +30,10 @@ When you run the assembler on the above code, you get the following output:
 $ python asm.py simtest.asm
 
 Symbol Table:
-loop_forever         : 9
-data                 : 12
+loop_forever         : 0009
+data                 : 000c
+
+
 Generating: simtest.lst
 Generating: simtest.sym
 Generating: simtest.coe
@@ -47,9 +49,9 @@ Then it generates output files with the following extensions:
 
 - `.lst` - the most interesting one, mixing your source code with generated machine code
 - `.sym` - the symbol table you saw when running the program
-- `.coe` - a .coe file for use in Vivado
+- `.coe` - a coefficient file for use in Vivado
 - `.bin` - a binary file containing the machine code
-- `.bit` - a text file with one byte of the machine code per line, in binary notation. Useful for integratio as `std_logic_vector` array in VHDL
+- `.bit` - a text file with 8 bytes of the machine code per line, in binary notation. Useful for integration as `std_logic_vector` array in VHDL
 
 The most interesting output file to look at is probably the `.lst` file:
 
@@ -76,7 +78,7 @@ Here is how you define macros:
 To expand a macro:
 - write `macro` followed by the macro name and any parameters you want to pass to the macro, separated by whitespace
 
-As you can see in the generated `.lst` file, `@label` got expanded to `label_2`. `_2` is the postfix of the second expanded macro (the first one was `testmacro`):
+As you can see in the generated `.lst` file, `@label` got expanded to `label_2`, where `_2` is the postfix of the second expanded macro (the first one was `testmacro`):
 
 ![](simtest2.lst.png)
 

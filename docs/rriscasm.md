@@ -140,8 +140,8 @@ the following assembler command set of the RRISC CPU is derived.
 Example:
 
 ```
-lDA # $00   ; unconditional
-LDA # $00 : EQ  ; only if EQ flag is set
+lDA # $00         ; unconditional
+LDA # $00 : EQ    ; only if EQ flag is set
 ```
 ---
 

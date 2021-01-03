@@ -1,20 +1,21 @@
 # rrisc
-Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about it here.
+At Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about it here.
 
-*In a hurry? See it work [here](firstinstr.md).*
+*In a hurry? See it executing a single instruction [here](firstinstr.md), a complete program [here](firstprog.md), and in physical form [here](fpgafun).*
 
 
 1. [Background and why I built the RRISC CPU](why.md)
 2. [What's unique about the RRISC CPU](rrisc.md)
 3. [It's executing its first instruction](firstinstr.md)
-4. **NEW!** [RRISC Assembly - introduction](rriscasm.md)
-5. **NEW!** [RRISC Assembler - writing programs](asm.md)
+4. [RRISC Assembly - introduction](rriscasm.md)
+5. [RRISC Assembler - writing programs](asm.md)
 4. [It runs the whole test program](firstprog.md)
 5. [We have an ALU!](alu.md)
-6. **NEW!** [Playing with the ALU](aluplay.md)
+6. [Playing with the ALU](aluplay.md)
 7. [Radical RISC from the early nineties](nineties.md)
 8. [Open source, text-based VHDL design: vim, tmux, ghdl, gtkwave](vimghdl.md)
 9. [The FPGA](fpga.md)
+9. **NEW** [The CPU in action on the FPGA board](fpgafun.md)
 
 
 

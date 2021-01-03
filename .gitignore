@@ -5,8 +5,10 @@ ghdl/core/
 ghdl/cpu/
 ghdl/pmem/
 ghdl/regs/
+ghdl/top/
 ghdl/work/
 ghdl/*.fst
+ghdl/a.out
 project_2.cache/
 project_2.gen/
 project_2.sim/

@@ -37,9 +37,10 @@ out b, ALU_PORT_INSTR
 in a, ALU_PORT_RESULT
 ENDMACRO
 
-:loop                         ; loop until button is pressed
 lda # $00      
 out a, LED_PORT               ; initially, clear led pattern
+
+:loop                         ; loop until button is pressed
 in b, BTN_PORT
 out b, ALU_PORT_A
 ldb # $01

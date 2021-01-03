@@ -16,7 +16,7 @@ As described in the [previous section](fpga), I use a Xilinx Spartan-7 on the Ar
 
 The example program is a simple LED running light demo, activated by pressing the button. Once the button is pressed, the light runs from right to left and then back to right, where it remains until the button is pressed again.
 
-Here is the code consisting of the main assembly file and an include file containing macro definitions for the Arty board and timing constants:
+Here is the code consisting of the main assembly file [runninglight.asm](https://github.com/renerocksai/rrisc/blob/main/asm/arty_runninglight.asm) and an include file [arty.inc](https://github.com/renerocksai/rrisc/blob/main/asm/arty.inc) containing macro definitions for the Arty board and timing constants:
 
 ![](runninglight.asm.png)
 
@@ -24,7 +24,7 @@ A simulation run shows (in the 1st line), that the LEDs are activated in the cor
 
 ![](runlight.timing.png)
 
-So, ler's see it in action!
+So, let's see it in action!
 
 <div class="embed-container">
   <iframe

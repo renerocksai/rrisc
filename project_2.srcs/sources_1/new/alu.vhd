@@ -117,9 +117,11 @@ architecture calculation of alu is
 
                     when "0100" =>                                        -- ROL
                         F_i <= '0' & A(6 downto 0) & A(7);
+                        report "ROL" & integer'image(to_integer(unsigned(A))) & " -> " &  integer'image(to_integer(unsigned(A(6 downto 0) & A(7))));
 
                     when "0101" =>                                        -- ROR
-                        F_i <= A(0) & A(7)& A(6 downto 0) ;
+                        F_i <= '0' & A(0)& A(7 downto 1) ;
+                        report "ROR" & integer'image(to_integer(unsigned(A))) & " -> " &  integer'image(to_integer(unsigned(A(0)& A(7 downto 1))));
 
                     when "0110" => F_i <= '0' & (A OR B);                 -- OR
                     when "0111" => F_i <= '0' & (A AND B);                -- AND

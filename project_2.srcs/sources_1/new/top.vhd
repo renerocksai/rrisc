@@ -40,10 +40,28 @@ architecture Behavioral of top is
 
             ram_ld_val  :   IN   std_logic_vector (7 downto 0);
             write       :   IN   std_logic;
-            addr        :   IN   std_logic_vector (7 downto 0);
+            addr        :   IN   std_logic_vector (15 downto 0);
             ram_out     :   OUT  std_logic_vector (7 downto 0)
         );
     end component ram;
+
+    component alu is
+        port(
+        -- clock
+        clk               :   IN    std_logic;    
+        -- operands
+        A_in, B_in        :   IN    std_logic_vector(7 downto 0);
+        -- operation
+        I                 :   IN    std_logic_vector(7 downto 0);
+        -- flags
+        cout_gt           :   OUT   std_logic;
+        sign              :   OUT   std_logic;
+        zero_equal        :   OUT   std_logic;
+        sm                :   OUT   std_logic;
+        -- result
+        F                 :   out   std_logic_vector(7 downto 0)
+    );
+    end component;
     
     component cpu is
         Port (
@@ -80,7 +98,7 @@ architecture Behavioral of top is
     signal    s_port_out : std_logic_vector (7 downto 0) := "00000000";
     signal    s_port_write : std_logic;
 
-    signal    s_ram_addr :  std_logic_vector (7 downto 0);
+    signal    s_ram_addr :  std_logic_vector (15 downto 0);
 
     signal alu_A : std_logic_vector (7 downto 0) := "00000000";
     signal alu_B : std_logic_vector (7 downto 0) := "01111111";  -- make A != B initially
@@ -101,6 +119,17 @@ begin
         write => s_ram_write,
         addr => s_ram_addr,
         ram_out => s_ram_out
+    );
+
+    ialu : alu port map (
+        clk        =>   clk,
+        A_in       =>   alu_A,
+        B_in       =>   alu_B,
+        I          =>   alu_I,
+        cout_gt    =>   alu_gt,
+        zero_equal =>   alu_eq,
+        sm         =>   alu_sm,
+        F          =>   alu_F
     );
 
     icpu : cpu port map (
@@ -124,7 +153,7 @@ begin
     );
 
     -- concurrent stuff
-    s_ram_addr <= s_ram_port_addr(7 downto 0);
+    s_ram_addr <= s_ram_port_addr(15  downto 0);
     rst <= '0' when reset_cntr = RESET_CNTR_MAX else '1';
 --    led(2) <= '0' when reset_cntr = RESET_CNTR_MAX else '1';
 --    led(3) <= '1' when reset_cntr = RESET_CNTR_MAX else '0';
@@ -143,7 +172,7 @@ begin
       end if;
     end process;
 
-    ports : process(clk, s_ram_port_addr, s_port_ld_value, s_port_out, s_port_write)
+    ports : process(clk, s_ram_port_addr, s_port_ld_value, s_port_write)
     begin
         if rising_edge(clk) then
             if s_port_write = '1' then
@@ -166,6 +195,7 @@ begin
                     when "1111111111111001" =>
                         s_port_out <= "0000" & sw(3 downto 0);
                     when "1111111111111111" =>
+                        report " ******* ALU RESULT: " & integer'image(to_integer(unsigned(alu_F)));
                         s_port_out <= alu_F;
                     when others => null;
                 end case;

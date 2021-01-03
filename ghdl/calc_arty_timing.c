@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 int main(){
-    unsigned char  artylo = 218;
-    unsigned char  artyhi = 16;
-    unsigned char  paramlo = 0;
-    unsigned char  paramhi = 1;
+    unsigned char  artylo = 0xda;
+    unsigned char  artyhi = 0x10; 
+    unsigned char  paramlo = 0xca;
+    unsigned char  paramhi = 0x01;
 
     unsigned int ret = 0;
     unsigned char c,d,e,f;

@@ -8,7 +8,7 @@ Given source code `test.asm`, you invoke the assembler simply via:
 python asm.py test.asm
 ```
 
-The RRISC assembler is a *macro assembler*, which means it can expand macros on a textual basis, sparing you from repetetively writing nearly identical blocks of code.
+The RRISC assembler [asm.py](https://github.com/renerocksai/rrisc/blob/main/asm/asm.py) is a *macro assembler*, which means it can expand macros on a textual basis, sparing you from repetetively writing nearly identical blocks of code.
 
 # The first program
 

@@ -2,7 +2,7 @@
 
 **Note:** If you're not interested in the details, there is a [video](https://youtu.be/Ecf-VYi4tbY) at the end of the page.
 
-All the RRISC CPU's components and the RRISC assembler have now reached a level where they can be used to write real programs and run them on real hardware, utilizing a Xilinx FPGA. 
+All the RRISC CPU's components and the RRISC [assembler](asm.md)  have now reached a level where they can be used to write real programs and run them on real hardware, utilizing a Xilinx FPGA. 
 
 As described in the [previous section](fpga), I use a Xilinx Spartan-7 on the Arty S7 board from Digilent. The FPGA is programmed to contain:
 

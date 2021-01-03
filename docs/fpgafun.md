@@ -14,6 +14,8 @@ As described in the [previous section](fpga), I use a Xilinx Spartan-7 on the Ar
   - 4 switches
   - 4 buttons
 
+![](cpudemo.png)
+
 The CPU is clocked with 100 MHz, giving us 80 ns per instruction cycle. As a quick [recap](firstinstr.md), a single instruction is executed in the following phases, taking 10 nanoseconds each:
 
 - `ram_wait_1`

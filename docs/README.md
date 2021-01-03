@@ -25,9 +25,9 @@ At Christmas 2020, I decided to hack on my [RRISC](rrisc.md) CPU. Read all about
 
 ---
 
-Here is a block diagram of the CPU to get you started:
+Here is a block diagram of the CPU with periphery of the demo implementation to get you started:
 
-![cpu](cpu.png)
+![cpu](cpudemo.png)
 
 ---
 

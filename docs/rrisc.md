@@ -4,6 +4,7 @@
   - load register from RAM / IO port / immediately
   - store register to RAM / IO port
   - jump
+- there is no stack!
 - all instructions take exactly 8 clock cycles, enabling easy deterministic timing behavior
 - ALL instructions can be executed conditionally
     - e.g. `LDA #$00 : EQ` will clear register A only if the EQUAL flag is set

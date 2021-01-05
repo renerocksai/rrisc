@@ -1,0 +1,286 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Bullets/fonts/BootsplashFontBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Bullets/Slides/bootmenu.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=4]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Bold.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Bullets/components/coolanim.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://cpu/github.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=8]
+[ext_resource path="res://Bullets/Slides/bootmenu.tres" type="StyleBox" id=9]
+[ext_resource path="res://Bullets/components/pulse_effect.gd" type="Script" id=10]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 75
+extra_spacing_top = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+start_scene = "res://cpu/cpu_pres.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 140.0
+margin_right = 1920.0
+margin_bottom = 839.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][wave][color=#cd0f2d]> [/color]Bûllets[/wave][/center]"
+text = "> Bûllets"
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 874.0
+margin_top = 402.0
+margin_right = 1699.0
+margin_bottom = 542.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=red]^
+^[/color] the power of the point[color=red] <  <  <[/color]"
+text = "^
+^ the power of the point <  <  <"
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 934.0
+margin_right = 1919.0
+margin_bottom = 1025.0
+rect_clip_content = false
+mouse_filter = 2
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#cd0f2d]> > > [/color] [pulse width=-10.0 freq=3.0]click to start[/pulse][/center]"
+text = "> > >  click to start"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ), SubResource( 4 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 920.0
+margin_right = 1920.0
+margin_bottom = 1020.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#cd0f2d]> > >   LOADING THE BÛLLETS[/color] "
+text = "> > >   LOADING THE BÛLLETS "
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 691.0
+margin_top = 546.0
+margin_right = 1389.0
+margin_bottom = 862.0
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=#993366]<SPACE>[/color][color=grey],[/color][/b]
+
+
+
+
+         [b][color=#993366]<?>[/color][color=grey],[/color][/b]
+"
+text = "<SPACE>,
+
+
+
+
+         <?>,
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 873.0
+margin_top = 546.0
+margin_right = 1571.0
+margin_bottom = 962.0
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=#993366] --> [/color][/b]
+[b][color=#993366]<-- [/color][/b]
+[b][color=#993366]<F>[/color][/b]
+[b][color=#993366]<L>[/color][/b]
+[b][color=#993366]<D>[/color][/b]
+[b][color=#993366]<H>[/color][/b]
+[b][color=#993366]<P>[/color][/b]
+[b][color=#993366]<M>[/color][/b]"
+text = " --> 
+<-- 
+<F>
+<L>
+<D>
+<H>
+<P>
+<M>"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 963.0
+margin_top = 546.0
+margin_right = 1661.0
+margin_bottom = 904.0
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[b]next slide[/b]
+[b]previous slide[/b]
+toggle fullscreen 
+toggle laserpointer 
+toggle drawmode, <C> to clear
+help 
+PDF / PNG export 
+Multiplayer mode"
+text = "next slide
+previous slide
+toggle fullscreen 
+toggle laserpointer 
+toggle drawmode, <C> to clear
+help 
+PDF / PNG export 
+Multiplayer mode"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1266.42
+margin_top = 546.0
+margin_right = 1964.42
+margin_bottom = 862.0
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=#993366]>  tap right border[/color][/b] [color=grey]/[/color] swipe left
+[b][color=#993366]>  tap left border [/color] [/b][color=grey]/[/color] swipe right
+[b][color=#993366]>  tap upper border [/color] [/b][color=grey]
+"
+text = ">  tap right border / swipe left
+>  tap left border  / swipe right
+>  tap upper border  
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+
+[node name="LaserPointer" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1327.99, 984.132 )
+frames = ExtResource( 6 )
+animation = "coolanim"
+frame = 29
+playing = true

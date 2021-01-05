@@ -1,0 +1,4242 @@
+[gd_scene load_steps=138 format=2]
+
+[ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bullets/Slides/BTitle.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/Presentation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bullets/fonts/SubTitleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Bullets/img/bgwater.jpg" type="Texture" id=5]
+[ext_resource path="res://Bullets/fonts/TitleFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://imgs/cpuschem1.jpg" type="Texture" id=8]
+[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=9]
+[ext_resource path="res://Bullets/components/ContentBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=11]
+[ext_resource path="res://Bullets/components/borderedimg.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Bullets/Slides/BOneContent.gd" type="Script" id=13]
+[ext_resource path="res://Bullets/fonts/SlideTitleFont.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Bullets/fonts/calibril.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://imgs/pcb1.png" type="Texture" id=16]
+[ext_resource path="res://imgs/pcblay1.png" type="Texture" id=17]
+[ext_resource path="res://imgs/b0u.png" type="Texture" id=18]
+[ext_resource path="res://imgs/vhdlbook.png" type="Texture" id=19]
+[ext_resource path="res://imgs/arty.png" type="Texture" id=20]
+[ext_resource path="res://Bullets/Slides/BTwoContents.gd" type="Script" id=21]
+[ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=22]
+[ext_resource path="res://Bullets/fonts/contentfontbolditalic.tres" type="DynamicFont" id=23]
+[ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=24]
+[ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=25]
+[ext_resource path="res://imgs/vimghdl.png" type="Texture" id=26]
+[ext_resource path="res://imgs/firstinstr.png" type="Texture" id=27]
+[ext_resource path="res://imgs/cpucore.png" type="Texture" id=28]
+[ext_resource path="res://imgs/tinycore.png" type="Texture" id=29]
+[ext_resource path="res://imgs/firstinstrtiming.png" type="Texture" id=30]
+[ext_resource path="res://imgs/asm.png" type="Texture" id=31]
+[ext_resource path="res://imgs/simtest2.png" type="Texture" id=32]
+[ext_resource path="res://imgs/simtest2.lst.png" type="Texture" id=33]
+[ext_resource path="res://Bullets/img/GitHub-Mark-64px.png" type="Texture" id=34]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Light.ttf" type="DynamicFontData" id=35]
+[ext_resource path="res://imgs/withalu2.png" type="Texture" id=36]
+[ext_resource path="res://imgs/web.png" type="Texture" id=37]
+[ext_resource path="res://imgs/tinyvid.ogv" type="VideoStream" id=38]
+[ext_resource path="res://cpu/vidplay.gd" type="Script" id=39]
+[ext_resource path="res://imgs/linkedin1.png" type="Texture" id=40]
+[ext_resource path="res://imgs/runninglight.asm.png" type="Texture" id=41]
+[ext_resource path="res://imgs/runlight.timing.png" type="Texture" id=42]
+[ext_resource path="res://imgs/reddit.png" type="Texture" id=43]
+[ext_resource path="res://imgs/linkedin2.png" type="Texture" id=44]
+[ext_resource path="res://Bullets/Slides/BThankyou.gd" type="Script" id=45]
+[ext_resource path="res://imgs/cpudemo.png" type="Texture" id=46]
+[ext_resource path="res://Bullets/Slides/BOneContent.tscn" type="PackedScene" id=47]
+[ext_resource path="res://imgs/combigates.png" type="Texture" id=48]
+[ext_resource path="res://imgs/statefultiming.png" type="Texture" id=49]
+[ext_resource path="res://imgs/combitable.png" type="Texture" id=50]
+[ext_resource path="res://imgs/statefulgates.png" type="Texture" id=51]
+[ext_resource path="res://imgs/fsmschem.png" type="Texture" id=52]
+[ext_resource path="res://imgs/fsmtable.png" type="Texture" id=53]
+[ext_resource path="res://imgs/fsmstate.png" type="Texture" id=54]
+[ext_resource path="res://imgs/ctrlunitschem.png" type="Texture" id=55]
+[ext_resource path="res://Bullets/Slides/BChapter.gd" type="Script" id=56]
+[ext_resource path="res://Bullets/fonts/ChapterTitleFont.tres" type="DynamicFont" id=57]
+[ext_resource path="res://Bullets/fonts/ChapterNumberFont.tres" type="DynamicFont" id=58]
+[ext_resource path="res://Bullets/fonts/ChapterSubTitleFont.tres" type="DynamicFont" id=59]
+[ext_resource path="res://imgs/cpuschem2.jpg" type="Texture" id=60]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_top = 10
+font_data = ExtResource( 35 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 9 )
+
+[sub_resource type="Animation" id=75]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "visible"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=6]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=12]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=13]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=15]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=27]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=29]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=31]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=32]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=34]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=36]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=37]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=38]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=39]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=44]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=45]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=56]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=58]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=59]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=60]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=61]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=62]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=64]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=65]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=66]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=67]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=68]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=69]
+size = 100
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=70]
+size = 50
+extra_spacing_bottom = 45
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=71]
+size = 148
+extra_spacing_top = 5
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=72]
+size = 148
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=73]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=74]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[node name="BulletsDemoPresentation" instance=ExtResource( 3 )]
+
+[node name="LaserPointer" parent="Slides" index="1"]
+frame = 28
+
+[node name="LaserPointer2" parent="Slides" index="2"]
+frame = 29
+
+[node name="LaserPointer3" parent="Slides" index="3"]
+frame = 1
+
+[node name="Title" type="Node2D" parent="Slides" index="5"]
+script = ExtResource( 2 )
+Title = "RRISC CPU"
+Subtitle = "Building a CPU in 2 weeks"
+Authors = "Rene Schallner"
+title_size = 148.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 50.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/Title" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Slides/Title" index="1"]
+margin_left = 219.0
+margin_top = 500.0
+margin_right = 1231.0
+margin_bottom = 723.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]RRISC CPU[/color]"
+text = "RRISC CPU"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Slides/Title" index="2"]
+margin_left = 219.0
+margin_top = 760.0
+margin_right = 1055.0
+margin_bottom = 1006.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU IN 2 WEEKS[/color]
+[color=#ff993366]RENE SCHALLNER[/color]"
+text = "BUILDING A CPU IN 2 WEEKS
+RENE SCHALLNER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Title" index="3"]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="Slides/Title" index="4"]
+position = Vector2( 1020, -55.693 )
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Slides/Title/Node2D" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 420.0
+margin_top = 99.0
+margin_right = 1109.0
+margin_bottom = 199.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=blue][url=renerocksai.github.io/rrisc/]https://renerocksai.github.io/rrisc[/url][/color]"
+text = "https://renerocksai.github.io/rrisc"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 4 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Title/Node2D" index="1"]
+position = Vector2( 377.026, 126.278 )
+texture = ExtResource( 34 )
+
+[node name="Chapter0" type="Node2D" parent="Slides" index="6"]
+script = ExtResource( 56 )
+ChapterNum = "0"
+Title = "What & why?"
+Subtitle = "What is a CPU and why would I want to build one anyway?"
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 128.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/Chapter0" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterTitle" type="RichTextLabel" parent="Slides/Chapter0" index="1"]
+margin_left = 614.0
+margin_top = 614.0
+margin_right = 1689.0
+margin_bottom = 742.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 57 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]What & why?[/color]"
+text = "What & why?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterSubtitle" type="RichTextLabel" parent="Slides/Chapter0" index="2"]
+margin_left = 614.0
+margin_top = 794.0
+margin_right = 1660.0
+margin_bottom = 935.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 59 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff993366]WHAT IS A CPU AND WHY WOULD I WANT TO BUILD ONE ANYWAY?[/color]"
+text = "WHAT IS A CPU AND WHY WOULD I WANT TO BUILD ONE ANYWAY?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterNumber" type="RichTextLabel" parent="Slides/Chapter0" index="3"]
+margin_left = 201.0
+margin_top = 509.0
+margin_right = 461.0
+margin_bottom = 931.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 58 )
+bbcode_enabled = true
+bbcode_text = "[color=#ffcd0f2d]0[/color]"
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Chapter0" index="4"]
+anims/FadeIn = SubResource( 75 )
+anims/FadeOut = SubResource( 76 )
+anims/visible = SubResource( 77 )
+
+[node name="TwoContent" type="Node2D" parent="Slides" index="7"]
+script = ExtResource( 21 )
+title = "What is a RRISC CPU and why would I want to build one anyway?"
+textLeft = "[b]CPU[/b]
+>a CPU (Central Processing Unit) is a \"microprocessor\"
+>the heart of a computer
+
+[b]CISC, RISC, RRISC[/b]
+>early - mid 1970s : trend from simple register machines 
+    towards more and more complex architectures: [b]CISC[/b]
+    [i](Complex Instruction Set Computer)[/i]
+
+>late 1970s - 1990s: counter trend after critical 
+    observation towards less, and simpler instructions: [b]RISC[/b]
+    [i](Reduced Instruction Set Computer)[/i]
+	
+>early 1990s: out of necessity, I come up with: [b]RRISC[/b]
+    [i](Radically Reduced Instruction Set Computer)[/i]
+   "
+textRight = "[center][b][u]Main Differences RISC -> RRISC[/u][/b][/center]
+>[b]No ALU[/b] (arithmetic logical unit) inside the core of 
+    the CPU
+>[b]No stack[/b]
+>5 basic instructions, with variations
+    [i](addressing modes)[/i]
+    >LD (load from memory)
+    >ST (store to memory)
+    >IN (read from port)
+    >OUT (write to port)
+    >JMP (jump to address)
+>ALL instructions are conditional
+    (=> Turing complete)
+>identical execution time of all instructions
+"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/TwoContent" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/TwoContent" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/TwoContent" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]What is a RRISC CPU and why would I want to build one anyway?[/color]"
+text = "What is a RRISC CPU and why would I want to build one anyway?"
+custom_effects = [ SubResource( 6 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" type="RichTextLabel" parent="Slides/TwoContent" index="3"]
+margin_left = 110.0
+margin_top = 181.0
+margin_right = 960.0
+margin_bottom = 1042.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000][b]CPU[/b]
+[color=#ffcd0f2d]> [/color]a CPU (Central Processing Unit) is a \"microprocessor\"
+[color=#ffcd0f2d]> [/color]the heart of a computer
+
+[b]CISC, RISC, RRISC[/b]
+[color=#ffcd0f2d]> [/color]early - mid 1970s : trend from simple register machines 
+    towards more and more complex architectures: [b]CISC[/b]
+    [i](Complex Instruction Set Computer)[/i]
+
+[color=#ffcd0f2d]> [/color]late 1970s - 1990s: counter trend after critical 
+    observation towards less, and simpler instructions: [b]RISC[/b]
+    [i](Reduced Instruction Set Computer)[/i]
+	
+[color=#ffcd0f2d]> [/color]early 1990s: out of necessity, I come up with: [b]RRISC[/b]
+    [i](Radically Reduced Instruction Set Computer)[/i]
+   [/color]"
+tab_size = 6
+text = "CPU
+> a CPU (Central Processing Unit) is a \"microprocessor\"
+> the heart of a computer
+
+CISC, RISC, RRISC
+> early - mid 1970s : trend from simple register machines 
+    towards more and more complex architectures: CISC
+    (Complex Instruction Set Computer)
+
+> late 1970s - 1990s: counter trend after critical 
+    observation towards less, and simpler instructions: RISC
+    (Reduced Instruction Set Computer)
+	
+> early 1990s: out of necessity, I come up with: RRISC
+    (Radically Reduced Instruction Set Computer)
+   "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel2" type="RichTextLabel" parent="Slides/TwoContent" index="4"]
+margin_left = 1095.0
+margin_top = 181.0
+margin_right = 1945.0
+margin_bottom = 1060.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000][center][b][u]Main Differences RISC -> RRISC[/u][/b][/center]
+[color=#ffcd0f2d]> [/color][b]No ALU[/b] (arithmetic logical unit) inside the core of 
+    the CPU
+[color=#ffcd0f2d]> [/color][b]No stack[/b]
+[color=#ffcd0f2d]> [/color]5 basic instructions, with variations
+    [i](addressing modes)[/i]
+    [color=#ffcd0f2d]> [/color]LD (load from memory)
+    [color=#ffcd0f2d]> [/color]ST (store to memory)
+    [color=#ffcd0f2d]> [/color]IN (read from port)
+    [color=#ffcd0f2d]> [/color]OUT (write to port)
+    [color=#ffcd0f2d]> [/color]JMP (jump to address)
+[color=#ffcd0f2d]> [/color]ALL instructions are conditional
+    (=> Turing complete)
+[color=#ffcd0f2d]> [/color]identical execution time of all instructions
+[/color]"
+tab_size = 6
+text = "Main Differences RISC -> RRISC
+> No ALU (arithmetic logical unit) inside the core of 
+    the CPU
+> No stack
+> 5 basic instructions, with variations
+    (addressing modes)
+    > LD (load from memory)
+    > ST (store to memory)
+    > IN (read from port)
+    > OUT (write to port)
+    > JMP (jump to address)
+> ALL instructions are conditional
+    (=> Turing complete)
+> identical execution time of all instructions
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/TwoContent" index="5"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent" index="6"]
+anims/FadeIn = SubResource( 8 )
+anims/FadeOut = SubResource( 9 )
+
+[node name="TwoContent3" type="Node2D" parent="Slides" index="8"]
+visible = false
+script = ExtResource( 21 )
+title = "What is a RRISC CPU and why would I want to build one anyway?"
+textLeft = "[b][u]WHY?[/u][/b]
+
+-Because!
+
+-I always wanted to know how CPUs work anyway
+    -best way to learn is to attempt to build one
+    -from the ground up
+
+-Original motivations: 
+    -for learning and educating about CPU design
+    -De-mystifying CPUs
+"
+textRight = ""
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/TwoContent3" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/TwoContent3" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/TwoContent3" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]What is a RRISC CPU and why would I want to build one anyway?[/color]"
+text = "What is a RRISC CPU and why would I want to build one anyway?"
+custom_effects = [ SubResource( 6 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" type="RichTextLabel" parent="Slides/TwoContent3" index="3"]
+margin_left = 110.0
+margin_top = 181.0
+margin_right = 1810.0
+margin_bottom = 1042.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000][b][u]WHY?[/u][/b]
+
+[color=#ffcd0f2d]> [/color]Because!
+
+[color=#ffcd0f2d]> [/color]I always wanted to know how CPUs work anyway
+    [color=#ffcd0f2d]> [/color]best way to learn is to attempt to build one
+    [color=#ffcd0f2d]> [/color]from the ground up
+
+[color=#ffcd0f2d]> [/color]Original motivations: 
+    [color=#ffcd0f2d]> [/color]for learning and educating about CPU design
+    [color=#ffcd0f2d]> [/color]De-mystifying CPUs
+[/color]"
+tab_size = 6
+text = "WHY?
+
+> Because!
+
+> I always wanted to know how CPUs work anyway
+    > best way to learn is to attempt to build one
+    > from the ground up
+
+> Original motivations: 
+    > for learning and educating about CPU design
+    > De-mystifying CPUs
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel2" type="RichTextLabel" parent="Slides/TwoContent3" index="4"]
+margin_left = 1095.0
+margin_top = 181.0
+margin_right = 1945.0
+margin_bottom = 1060.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000][/color]"
+tab_size = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/TwoContent3" index="5"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent3" index="6"]
+anims/FadeIn = SubResource( 10 )
+anims/FadeOut = SubResource( 11 )
+
+[node name="Chapter" parent="Slides" index="9" instance=ExtResource( 1 )]
+visible = false
+ChapterNum = "1"
+Title = "Days 1-3: learning"
+Subtitle = ""
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 128.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
+
+[node name="ChapterTitle" parent="Slides/Chapter" index="1"]
+margin_left = 614.0
+margin_top = 614.0
+margin_right = 1689.0
+margin_bottom = 928.0
+bbcode_text = "[color=#ff000000]Days 1-3: learning[/color]"
+text = "Days 1-3: learning"
+
+[node name="ChapterNumber" parent="Slides/Chapter" index="3"]
+bbcode_text = "[color=#ffcd0f2d]1[/color]"
+text = "1"
+
+[node name="OneContent" type="Node2D" parent="Slides" index="10"]
+script = ExtResource( 13 )
+title = "Starting off with some 30 years old schematics"
+text = ">I designed the
+   RRISC CPU in 
+   the early
+   nineties
+
+>It was 
+   intended to be
+   implemented 
+   using standard 
+   TTL logic circuits
+   (LS 74XX)
+
+>I never got 
+   around to 
+   actually build it"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Starting off with some 30 years old schematics[/color]"
+text = "Starting off with some 30 years old schematics"
+custom_effects = [ SubResource( 13 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent" index="3" instance=ExtResource( 10 )]
+margin_right = 380.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]I designed the
+   RRISC CPU in 
+   the early
+   nineties
+
+[color=#ffcd0f2d]> [/color]It was 
+   intended to be
+   implemented 
+   using standard 
+   TTL logic circuits
+   (LS 74XX)
+
+[color=#ffcd0f2d]> [/color]I never got 
+   around to 
+   actually build it[/color]"
+text = "> I designed the
+   RRISC CPU in 
+   the early
+   nineties
+
+> It was 
+   intended to be
+   implemented 
+   using standard 
+   TTL logic circuits
+   (LS 74XX)
+
+> I never got 
+   around to 
+   actually build it"
+content = "> I designed the
+   RRISC CPU in 
+   the early
+   nineties
+
+> It was 
+   intended to be
+   implemented 
+   using standard 
+   TTL logic circuits
+   (LS 74XX)
+
+> I never got 
+   around to 
+   actually build it"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 14 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent" index="5"]
+anims/FadeIn = SubResource( 15 )
+anims/FadeOut = SubResource( 16 )
+
+[node name="Border" parent="Slides/OneContent" index="6" instance=ExtResource( 12 )]
+margin_left = 474.0
+margin_top = 181.0
+margin_right = 1074.0
+margin_bottom = 981.0
+img = ExtResource( 8 )
+
+[node name="Border2" parent="Slides/OneContent" index="7" instance=ExtResource( 12 )]
+margin_left = 1198.0
+margin_top = 181.0
+margin_right = 1798.0
+margin_bottom = 981.0
+img = ExtResource( 60 )
+
+[node name="OneContent2" type="Node2D" parent="Slides" index="11"]
+visible = false
+script = ExtResource( 13 )
+title = "More old design stuff"
+
+[node name="ContentLabel" parent="Slides/OneContent2" index="0" instance=ExtResource( 10 )]
+margin_right = 380.0
+content = ""
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent2" index="1"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent2" index="2"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent2" index="3"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]More old design stuff[/color]"
+text = "More old design stuff"
+custom_effects = [ SubResource( 13 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent2" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 14 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent2" index="5"]
+anims/FadeIn = SubResource( 17 )
+anims/FadeOut = SubResource( 18 )
+
+[node name="Border" parent="Slides/OneContent2" index="6" instance=ExtResource( 12 )]
+margin_left = 110.0
+margin_top = 594.0
+margin_right = 757.0
+margin_bottom = 994.0
+img = ExtResource( 17 )
+
+[node name="Border3" parent="Slides/OneContent2" index="7" instance=ExtResource( 12 )]
+margin_left = 110.0
+margin_top = 181.0
+margin_right = 757.0
+margin_bottom = 581.0
+img = ExtResource( 16 )
+
+[node name="Border2" parent="Slides/OneContent2" index="8" instance=ExtResource( 12 )]
+margin_left = 800.0
+margin_top = 181.0
+margin_right = 1824.0
+margin_bottom = 983.0
+img = ExtResource( 18 )
+
+[node name="OneContent3" type="Node2D" parent="Slides" index="12"]
+visible = false
+script = ExtResource( 13 )
+title = "Let's order an FPGA development board"
+text = "
+> Intention: upgrading the implementation to 
+    present times technology
+
+> The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+>FPGA ... Field Programmable Logic Array
+
+>FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+[wave][b][u]GOAL[/u]: Have the CPU [color=#cd0f2d]run a demo program here[/color] --->[/b][/wave]"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent3" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent3" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent3" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Let's order an FPGA development board[/color]"
+text = "Let's order an FPGA development board"
+custom_effects = [ SubResource( 13 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent3" index="3" instance=ExtResource( 10 )]
+margin_right = 910.0
+bbcode_text = "[color=#ff000000]
+[color=#ffcd0f2d]> [/color] Intention: upgrading the implementation to 
+    present times technology
+
+[color=#ffcd0f2d]> [/color] The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+[color=#ffcd0f2d]> [/color]FPGA ... Field Programmable Logic Array
+
+[color=#ffcd0f2d]> [/color]FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+[wave][b][u]GOAL[/u]: Have the CPU [color=#cd0f2d]run a demo program here[/color] --->[/b][/wave][/color]"
+text = "
+>  Intention: upgrading the implementation to 
+    present times technology
+
+>  The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+> FPGA ... Field Programmable Logic Array
+
+> FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+GOAL: Have the CPU run a demo program here --->"
+content = "
+>  Intention: upgrading the implementation to 
+    present times technology
+
+>  The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+> FPGA ... Field Programmable Logic Array
+
+> FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+GOAL: Have the CPU run a demo program here --->"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent3" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 14 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent3" index="5"]
+anims/FadeIn = SubResource( 19 )
+anims/FadeOut = SubResource( 20 )
+
+[node name="TextureRect2" type="TextureRect" parent="Slides/OneContent3" index="6"]
+margin_left = 915.0
+margin_top = 110.0
+margin_right = 1835.0
+margin_bottom = 988.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneContent4" type="Node2D" parent="Slides" index="13"]
+visible = false
+script = ExtResource( 13 )
+title = "Learning VHDL"
+text = ">We order an ebook about FPGAs and VHDL
+    >VHDL ... VHSIC-HDL
+        >VHSIC ... Very High Speed Integrated Circuit
+        >HDL ... Hardware Description Language
+		
+    >VHDL allows us to describe digital circuits in
+        a textual representation 
+
+> We spend the rest of the week reading and learning"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent4" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent4" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent4" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Learning VHDL[/color]"
+text = "Learning VHDL"
+custom_effects = [ SubResource( 13 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent4" index="3" instance=ExtResource( 10 )]
+margin_right = 910.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]We order an ebook about FPGAs and VHDL
+    [color=#ffcd0f2d]> [/color]VHDL ... VHSIC-HDL
+        [color=#ffcd0f2d]> [/color]VHSIC ... Very High Speed Integrated Circuit
+        [color=#ffcd0f2d]> [/color]HDL ... Hardware Description Language
+		
+    [color=#ffcd0f2d]> [/color]VHDL allows us to describe digital circuits in
+        a textual representation 
+
+[color=#ffcd0f2d]> [/color] We spend the rest of the week reading and learning[/color]"
+text = "> We order an ebook about FPGAs and VHDL
+    > VHDL ... VHSIC-HDL
+        > VHSIC ... Very High Speed Integrated Circuit
+        > HDL ... Hardware Description Language
+		
+    > VHDL allows us to describe digital circuits in
+        a textual representation 
+
+>  We spend the rest of the week reading and learning"
+content = "> We order an ebook about FPGAs and VHDL
+    > VHDL ... VHSIC-HDL
+        > VHSIC ... Very High Speed Integrated Circuit
+        > HDL ... Hardware Description Language
+		
+    > VHDL allows us to describe digital circuits in
+        a textual representation 
+
+>  We spend the rest of the week reading and learning"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent4" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 14 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent4" index="5"]
+anims/FadeIn = SubResource( 21 )
+anims/FadeOut = SubResource( 22 )
+
+[node name="Border" parent="Slides/OneContent4" index="6" instance=ExtResource( 12 )]
+margin_left = 1085.0
+margin_top = 181.0
+margin_right = 1649.0
+margin_bottom = 981.0
+img = ExtResource( 19 )
+
+[node name="Chapter2" parent="Slides" index="14" instance=ExtResource( 1 )]
+visible = false
+ChapterNum = "2"
+Title = "Days 4-13: doing"
+Subtitle = ""
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 128.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
+
+[node name="ChapterTitle" parent="Slides/Chapter2" index="1"]
+margin_left = 614.0
+margin_top = 614.0
+margin_right = 1689.0
+margin_bottom = 928.0
+bbcode_text = "[color=#ff000000]Days 4-13: doing[/color]"
+text = "Days 4-13: doing"
+
+[node name="ChapterNumber" parent="Slides/Chapter2" index="3"]
+bbcode_text = "[color=#ffcd0f2d]2[/color]"
+text = "2"
+
+[node name="AnimationPlayer" parent="Slides/Chapter2" index="4"]
+anims/FadeIn = SubResource( 23 )
+anims/FadeOut = SubResource( 24 )
+anims/visible = SubResource( 25 )
+
+[node name="TwoContent2" type="Node2D" parent="Slides" index="15"]
+visible = false
+script = ExtResource( 21 )
+title = "The plan"
+textLeft = "I only had a rough idea of what to accomplish
+>[b]Setup:[/b] Install and familiarize with Xilinx Vivado FPGA design suite for  programming the FPGA
+>[b]Code:[/b] Write the VHDL files of the CPU core components
+>[b]Test:[/b] Write VHDL \"testbenches\" to verify the components via simulation
+>[b]Repeat[/b] code & test for peripheral components:
+    -RAM
+    >ALU (arithmetic logical unit)
+    >Arty development board (LEDs, buttons, switches)
+>[b]Create[/b] a macro-assembler
+    >translates RRISC assembly language into binary machine code
+>[b]Write[/b] assembly code for
+    -ALU verification
+    -assembler macro capability examples
+    -sample code
+    -the demo program running on the board
+>[b]Run:[/b] get the code translated and programmed into the FPGA
+>[b]Document:[/b] create a web page documenting the CPU and project"
+textRight = ""
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/TwoContent2" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/TwoContent2" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 26 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/TwoContent2" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The plan[/color]"
+text = "The plan"
+custom_effects = [ SubResource( 27 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" type="RichTextLabel" parent="Slides/TwoContent2" index="3"]
+margin_left = 110.0
+margin_top = 181.0
+margin_right = 1875.0
+margin_bottom = 1042.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]I only had a rough idea of what to accomplish
+[color=#ffcd0f2d]> [/color][b]Setup:[/b] Install and familiarize with Xilinx Vivado FPGA design suite for  programming the FPGA
+[color=#ffcd0f2d]> [/color][b]Code:[/b] Write the VHDL files of the CPU core components
+[color=#ffcd0f2d]> [/color][b]Test:[/b] Write VHDL \"testbenches\" to verify the components via simulation
+[color=#ffcd0f2d]> [/color][b]Repeat[/b] code & test for peripheral components:
+    [color=#ffcd0f2d]> [/color]RAM
+    [color=#ffcd0f2d]> [/color]ALU (arithmetic logical unit)
+    [color=#ffcd0f2d]> [/color]Arty development board (LEDs, buttons, switches)
+[color=#ffcd0f2d]> [/color][b]Create[/b] a macro-assembler
+    [color=#ffcd0f2d]> [/color]translates RRISC assembly language into binary machine code
+[color=#ffcd0f2d]> [/color][b]Write[/b] assembly code for
+    [color=#ffcd0f2d]> [/color]ALU verification
+    [color=#ffcd0f2d]> [/color]assembler macro capability examples
+    [color=#ffcd0f2d]> [/color]sample code
+    [color=#ffcd0f2d]> [/color]the demo program running on the board
+[color=#ffcd0f2d]> [/color][b]Run:[/b] get the code translated and programmed into the FPGA
+[color=#ffcd0f2d]> [/color][b]Document:[/b] create a web page documenting the CPU and project[/color]"
+tab_size = 6
+text = "I only had a rough idea of what to accomplish
+> Setup: Install and familiarize with Xilinx Vivado FPGA design suite for  programming the FPGA
+> Code: Write the VHDL files of the CPU core components
+> Test: Write VHDL \"testbenches\" to verify the components via simulation
+> Repeat code & test for peripheral components:
+    > RAM
+    > ALU (arithmetic logical unit)
+    > Arty development board (LEDs, buttons, switches)
+> Create a macro-assembler
+    > translates RRISC assembly language into binary machine code
+> Write assembly code for
+    > ALU verification
+    > assembler macro capability examples
+    > sample code
+    > the demo program running on the board
+> Run: get the code translated and programmed into the FPGA
+> Document: create a web page documenting the CPU and project"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel2" type="RichTextLabel" parent="Slides/TwoContent2" index="4"]
+margin_left = 970.0
+margin_top = 181.0
+margin_right = 1820.0
+margin_bottom = 1060.0
+rect_pivot_offset = Vector2( 214.937, 26.2238 )
+mouse_filter = 2
+custom_fonts/bold_italics_font = ExtResource( 23 )
+custom_fonts/italics_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 24 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000][/color]"
+tab_size = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/TwoContent2" index="5"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 28 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent2" index="6"]
+anims/FadeIn = SubResource( 29 )
+anims/FadeOut = SubResource( 30 )
+
+[node name="OneContent5" type="Node2D" parent="Slides" index="16"]
+visible = false
+script = ExtResource( 13 )
+title = "Software stack change"
+text = "-Turned out Vivado was bad for my 
+    working style
+    -slow, resource-hogging Java GUI
+    -(neo)vim is a far better editor
+
+>Surprise: High quality open source
+    VHDL software exists!
+    
+    >[b]neovim[/b] is my preferred  editor
+	
+    >[b]ghdl[/b]
+        >compiles VHDL electronic designs 
+            to native code
+        >runs simulations
+		
+    >[b]gtkwave[/b] is a viewer for waveforms
+        -such as created by ghdl"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent5" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent5" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 31 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent5" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Software stack change[/color]"
+text = "Software stack change"
+custom_effects = [ SubResource( 32 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent5" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Turned out Vivado was bad for my 
+    working style
+    [color=#ffcd0f2d]> [/color]slow, resource-hogging Java GUI
+    [color=#ffcd0f2d]> [/color](neo)vim is a far better editor
+
+[color=#ffcd0f2d]> [/color]Surprise: High quality open source
+    VHDL software exists!
+    
+    [color=#ffcd0f2d]> [/color][b]neovim[/b] is my preferred  editor
+	
+    [color=#ffcd0f2d]> [/color][b]ghdl[/b]
+        [color=#ffcd0f2d]> [/color]compiles VHDL electronic designs 
+            to native code
+        [color=#ffcd0f2d]> [/color]runs simulations
+		
+    [color=#ffcd0f2d]> [/color][b]gtkwave[/b] is a viewer for waveforms
+        [color=#ffcd0f2d]> [/color]such as created by ghdl[/color]"
+text = "> Turned out Vivado was bad for my 
+    working style
+    > slow, resource-hogging Java GUI
+    > (neo)vim is a far better editor
+
+> Surprise: High quality open source
+    VHDL software exists!
+    
+    > neovim is my preferred  editor
+	
+    > ghdl
+        > compiles VHDL electronic designs 
+            to native code
+        > runs simulations
+		
+    > gtkwave is a viewer for waveforms
+        > such as created by ghdl"
+content = "> Turned out Vivado was bad for my 
+    working style
+    > slow, resource-hogging Java GUI
+    > (neo)vim is a far better editor
+
+> Surprise: High quality open source
+    VHDL software exists!
+    
+    > neovim is my preferred  editor
+	
+    > ghdl
+        > compiles VHDL electronic designs 
+            to native code
+        > runs simulations
+		
+    > gtkwave is a viewer for waveforms
+        > such as created by ghdl"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent5" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 33 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent5" index="5"]
+anims/FadeIn = SubResource( 34 )
+anims/FadeOut = SubResource( 35 )
+
+[node name="Border" parent="Slides/OneContent5" index="6" instance=ExtResource( 12 )]
+margin_left = 849.0
+margin_top = 330.0
+margin_right = 1809.0
+margin_bottom = 970.0
+img = ExtResource( 26 )
+
+[node name="ContentLabel2" parent="Slides/OneContent5" index="7" instance=ExtResource( 10 )]
+margin_left = 850.0
+margin_right = 2550.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]     Editing, simulating, and testing of VHDL designs
+    [color=#ffcd0f2d]> [/color]     right in the terminal, no mouse needed
+        (viewing waveforms requires a mouse)
+	[/color]"
+text = ">      Editing, simulating, and testing of VHDL designs
+    >      right in the terminal, no mouse needed
+        (viewing waveforms requires a mouse)
+	"
+content = ">     Editing, simulating, and testing of VHDL designs
+    >     right in the terminal, no mouse needed
+        (viewing waveforms requires a mouse)
+	"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="OneContent6" type="Node2D" parent="Slides" index="17"]
+visible = false
+script = ExtResource( 13 )
+title = "The core CPU components"
+text = "The core components of the CPU:
+
+-[b]Control Unit[/b]
+    -doing all the work
+    -[i]\"the CPU\" inside the CPU[/i]
+
+-[b]7 registers[/b]: A, B, C, D, E, F, G
+    -for storing values
+
+-[b]Program Counter[/b] 
+    -provides address of current 
+       instruction in memory
+
+
+
+
+When we implement these, we have a CPU, legally speaking."
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent6" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent6" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent6" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The core CPU components[/color]"
+text = "The core CPU components"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent6" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000]The core components of the CPU:
+
+[color=#ffcd0f2d]> [/color][b]Control Unit[/b]
+    [color=#ffcd0f2d]> [/color]doing all the work
+    [color=#ffcd0f2d]> [/color][i]\"the CPU\" inside the CPU[/i]
+
+[color=#ffcd0f2d]> [/color][b]7 registers[/b]: A, B, C, D, E, F, G
+    [color=#ffcd0f2d]> [/color]for storing values
+
+[color=#ffcd0f2d]> [/color][b]Program Counter[/b] 
+    [color=#ffcd0f2d]> [/color]provides address of current 
+       instruction in memory
+
+
+
+
+When we implement these, we have a CPU, legally speaking.[/color]"
+text = "The core components of the CPU:
+
+> Control Unit
+    > doing all the work
+    > \"the CPU\" inside the CPU
+
+> 7 registers: A, B, C, D, E, F, G
+    > for storing values
+
+> Program Counter 
+    > provides address of current 
+       instruction in memory
+
+
+
+
+When we implement these, we have a CPU, legally speaking."
+content = "The core components of the CPU:
+
+> Control Unit
+    > doing all the work
+    > \"the CPU\" inside the CPU
+
+> 7 registers: A, B, C, D, E, F, G
+    > for storing values
+
+> Program Counter 
+    > provides address of current 
+       instruction in memory
+
+
+
+
+When we implement these, we have a CPU, legally speaking."
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent6" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent6" index="5"]
+anims/FadeIn = SubResource( 39 )
+anims/FadeOut = SubResource( 40 )
+
+[node name="Border" parent="Slides/OneContent6" index="6" instance=ExtResource( 12 )]
+margin_left = 776.0
+margin_top = 180.0
+margin_right = 1556.0
+margin_bottom = 670.0
+rect_scale = Vector2( 1.4, 1.4 )
+img = ExtResource( 29 )
+
+[node name="OneContent17" type="Node2D" parent="Slides" index="18"]
+visible = false
+script = ExtResource( 13 )
+title = "The CPU inside the CPU -- 1: combinatorial logic"
+text = ">Combinatorial logic describes a function:
+
+    >from the [b]combination[/b] of binary inputs, a set of 
+       binary outputs is derived
+
+    >the function can be described as a function table
+
+    >combinatorial logic is built from basic logic gates:
+        >AND, OR, NOT
+        >they are easily translated into basic electronic 
+           circuits with transistors
+
+[b][u]Example:[/u][/b]
+        X = ({[b]NOT[/b] A} [b]AND[/b] {[b]NOT[/b] B}) [b]
+              OR[/b] (A [b]AND[/b] {[b]NOT[/b] B}) 
+              [b]OR[/b] (A [b]AND[/b] B)"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent17" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent17" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent17" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 1: combinatorial logic[/color]"
+text = "The CPU inside the CPU -- 1: combinatorial logic"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent17" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Combinatorial logic describes a function:
+
+    [color=#ffcd0f2d]> [/color]from the [b]combination[/b] of binary inputs, a set of 
+       binary outputs is derived
+
+    [color=#ffcd0f2d]> [/color]the function can be described as a function table
+
+    [color=#ffcd0f2d]> [/color]combinatorial logic is built from basic logic gates:
+        [color=#ffcd0f2d]> [/color]AND, OR, NOT
+        [color=#ffcd0f2d]> [/color]they are easily translated into basic electronic 
+           circuits with transistors
+
+[b][u]Example:[/u][/b]
+        X = ({[b]NOT[/b] A} [b]AND[/b] {[b]NOT[/b] B}) [b]
+              OR[/b] (A [b]AND[/b] {[b]NOT[/b] B}) 
+              [b]OR[/b] (A [b]AND[/b] B)[/color]"
+text = "> Combinatorial logic describes a function:
+
+    > from the combination of binary inputs, a set of 
+       binary outputs is derived
+
+    > the function can be described as a function table
+
+    > combinatorial logic is built from basic logic gates:
+        > AND, OR, NOT
+        > they are easily translated into basic electronic 
+           circuits with transistors
+
+Example:
+        X = ({NOT A} AND {NOT B}) 
+              OR (A AND {NOT B}) 
+              OR (A AND B)"
+content = "> Combinatorial logic describes a function:
+
+    > from the combination of binary inputs, a set of 
+       binary outputs is derived
+
+    > the function can be described as a function table
+
+    > combinatorial logic is built from basic logic gates:
+        > AND, OR, NOT
+        > they are easily translated into basic electronic 
+           circuits with transistors
+
+Example:
+        X = ({NOT A} AND {NOT B}) 
+              OR (A AND {NOT B}) 
+              OR (A AND B)"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent17" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent17" index="5"]
+anims/FadeIn = SubResource( 41 )
+anims/FadeOut = SubResource( 42 )
+
+[node name="Border" parent="Slides/OneContent17" index="6" instance=ExtResource( 12 )]
+margin_left = 1138.0
+margin_top = 554.0
+margin_right = 2037.0
+margin_bottom = 1114.0
+rect_scale = Vector2( 0.8, 0.8 )
+img = ExtResource( 48 )
+
+[node name="Border2" parent="Slides/OneContent17" index="7" instance=ExtResource( 12 )]
+margin_left = 1138.0
+margin_top = 181.0
+margin_right = 1585.0
+margin_bottom = 376.0
+rect_scale = Vector2( 1.6, 1.6 )
+img = ExtResource( 50 )
+
+[node name="OneContent18" type="Node2D" parent="Slides" index="19"]
+visible = false
+script = ExtResource( 13 )
+title = "The CPU inside the CPU -- 2: adding state"
+text = ">When we add a flipflop behind the combinatorial logic
+    ==> the circuit becomes [b]stateful[/b] ==>  [b]time-dependent[/b]
+
+>A flipflop has memory:
+    >when a CLOCK signal arrives
+        >its output becomes the input at this very moment
+        >the output does not change even if the input changes
+        >this state is kept until the next CLOCK signal arrives
+    >such flipflops are easily built from basic logic gates "
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent18" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent18" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent18" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 2: adding state[/color]"
+text = "The CPU inside the CPU -- 2: adding state"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent18" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]When we add a flipflop behind the combinatorial logic
+    ==> the circuit becomes [b]stateful[/b] ==>  [b]time-dependent[/b]
+
+[color=#ffcd0f2d]> [/color]A flipflop has memory:
+    [color=#ffcd0f2d]> [/color]when a CLOCK signal arrives
+        [color=#ffcd0f2d]> [/color]its output becomes the input at this very moment
+        [color=#ffcd0f2d]> [/color]the output does not change even if the input changes
+        [color=#ffcd0f2d]> [/color]this state is kept until the next CLOCK signal arrives
+    [color=#ffcd0f2d]> [/color]such flipflops are easily built from basic logic gates [/color]"
+text = "> When we add a flipflop behind the combinatorial logic
+    ==> the circuit becomes stateful ==>  time-dependent
+
+> A flipflop has memory:
+    > when a CLOCK signal arrives
+        > its output becomes the input at this very moment
+        > the output does not change even if the input changes
+        > this state is kept until the next CLOCK signal arrives
+    > such flipflops are easily built from basic logic gates "
+content = "> When we add a flipflop behind the combinatorial logic
+    ==> the circuit becomes stateful ==>  time-dependent
+
+> A flipflop has memory:
+    > when a CLOCK signal arrives
+        > its output becomes the input at this very moment
+        > the output does not change even if the input changes
+        > this state is kept until the next CLOCK signal arrives
+    > such flipflops are easily built from basic logic gates "
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent18" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent18" index="5"]
+anims/FadeIn = SubResource( 43 )
+anims/FadeOut = SubResource( 44 )
+
+[node name="Border" parent="Slides/OneContent18" index="6" instance=ExtResource( 12 )]
+margin_left = 157.0
+margin_top = 650.0
+margin_right = 1053.0
+margin_bottom = 1030.0
+rect_scale = Vector2( 0.9, 0.9 )
+img = ExtResource( 51 )
+
+[node name="Border2" parent="Slides/OneContent18" index="7" instance=ExtResource( 12 )]
+margin_left = 1009.0
+margin_top = 240.0
+margin_right = 1559.0
+margin_bottom = 710.0
+rect_scale = Vector2( 1.6, 1.6 )
+img = ExtResource( 49 )
+
+[node name="OneContent19" type="Node2D" parent="Slides" index="20"]
+visible = false
+script = ExtResource( 13 )
+title = "The CPU inside the CPU -- 3: Finite State Machines"
+text = ">When we [b]feed back the state[/b]
+    ==> we get a [b]finite state machine[/b]
+
+>In a finite state machine
+    >the output state is dependent on:
+        >the [i]condition[/i]  (input signals A, B)
+        >the current state
+    >you can jump from state to state, given a 
+        condition
+[b][u]Example:[/u][/b]"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent19" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent19" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent19" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 3: Finite State Machines[/color]"
+text = "The CPU inside the CPU -- 3: Finite State Machines"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent19" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]When we [b]feed back the state[/b]
+    ==> we get a [b]finite state machine[/b]
+
+[color=#ffcd0f2d]> [/color]In a finite state machine
+    [color=#ffcd0f2d]> [/color]the output state is dependent on:
+        [color=#ffcd0f2d]> [/color]the [i]condition[/i]  (input signals A, B)
+        [color=#ffcd0f2d]> [/color]the current state
+    [color=#ffcd0f2d]> [/color]you can jump from state to state, given a 
+        condition
+[b][u]Example:[/u][/b][/color]"
+text = "> When we feed back the state
+    ==> we get a finite state machine
+
+> In a finite state machine
+    > the output state is dependent on:
+        > the condition  (input signals A, B)
+        > the current state
+    > you can jump from state to state, given a 
+        condition
+Example:"
+content = "> When we feed back the state
+    ==> we get a finite state machine
+
+> In a finite state machine
+    > the output state is dependent on:
+        > the condition  (input signals A, B)
+        > the current state
+    > you can jump from state, given a condition
+
+Example:"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent19" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent19" index="5"]
+anims/FadeIn = SubResource( 45 )
+anims/FadeOut = SubResource( 46 )
+
+[node name="Border" parent="Slides/OneContent19" index="6" instance=ExtResource( 12 )]
+margin_left = 110.0
+margin_top = 670.0
+margin_right = 840.0
+margin_bottom = 1031.0
+img = ExtResource( 52 )
+
+[node name="Border2" parent="Slides/OneContent19" index="7" instance=ExtResource( 12 )]
+margin_left = 907.0
+margin_top = 671.0
+margin_right = 1427.0
+margin_bottom = 861.0
+rect_scale = Vector2( 1.9, 1.9 )
+img = ExtResource( 54 )
+
+[node name="Border3" parent="Slides/OneContent19" index="8" instance=ExtResource( 12 )]
+margin_left = 907.0
+margin_top = 162.0
+margin_right = 1526.0
+margin_bottom = 466.0
+rect_scale = Vector2( 1.6, 1.6 )
+img = ExtResource( 53 )
+
+[node name="OneContent20" type="Node2D" parent="Slides" index="21"]
+visible = false
+script = ExtResource( 13 )
+title = "The CPU inside the CPU -- 4:  Control Unit"
+text = "In the final control unit of the CPU
+>we first use an FSM to define the CPU state
+>we use an additional cobinatorial logic circuit to decode the combination of state and input signals into the 
+   desired output signals
+
+Separating CPU state and output signals makes for a cleaner, more easy to maintain design."
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent20" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent20" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent20" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 4:  Control Unit[/color]"
+text = "The CPU inside the CPU -- 4:  Control Unit"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent20" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000]In the final control unit of the CPU
+[color=#ffcd0f2d]> [/color]we first use an FSM to define the CPU state
+[color=#ffcd0f2d]> [/color]we use an additional cobinatorial logic circuit to decode the combination of state and input signals into the 
+   desired output signals
+
+Separating CPU state and output signals makes for a cleaner, more easy to maintain design.[/color]"
+text = "In the final control unit of the CPU
+> we first use an FSM to define the CPU state
+> we use an additional cobinatorial logic circuit to decode the combination of state and input signals into the 
+   desired output signals
+
+Separating CPU state and output signals makes for a cleaner, more easy to maintain design."
+content = "In the final control unit of the CPU
+> we first use an FSM to define the CPU state
+> we use an additional cobinatorial logic circuit to decode the combination of state and input signals into the 
+   desired output signals
+
+Separating CPU state and output signals makes for a cleaner, more easy to maintain design."
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent20" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent20" index="5"]
+anims/FadeIn = SubResource( 47 )
+anims/FadeOut = SubResource( 48 )
+
+[node name="Border" parent="Slides/OneContent20" index="6" instance=ExtResource( 12 )]
+margin_left = 110.0
+margin_top = 480.0
+margin_right = 1210.0
+margin_bottom = 840.0
+rect_scale = Vector2( 1.6, 1.5 )
+img = ExtResource( 55 )
+
+[node name="OneContent7" type="Node2D" parent="Slides" index="22"]
+visible = false
+script = ExtResource( 13 )
+title = "A minimalistic computer - for testing the CPU"
+text = "
+
+Without any 
+memory, there's 
+nothing to 
+execute. 
+
+Hence, for testing 
+[b]we have to add 
+some RAM![/b] 
+"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent7" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent7" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent7" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]A minimalistic computer - for testing the CPU[/color]"
+text = "A minimalistic computer - for testing the CPU"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent7" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000]
+
+Without any 
+memory, there's 
+nothing to 
+execute. 
+
+Hence, for testing 
+[b]we have to add 
+some RAM![/b] 
+[/color]"
+text = "
+
+Without any 
+memory, there's 
+nothing to 
+execute. 
+
+Hence, for testing 
+we have to add 
+some RAM! 
+"
+content = "
+
+Without any 
+memory, there's 
+nothing to 
+execute. 
+
+Hence, for testing 
+we have to add 
+some RAM! 
+"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent7" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent7" index="5"]
+anims/FadeIn = SubResource( 49 )
+anims/FadeOut = SubResource( 50 )
+
+[node name="Border" parent="Slides/OneContent7" index="6" instance=ExtResource( 12 )]
+margin_left = 405.0
+margin_top = 235.0
+margin_right = 1465.0
+margin_bottom = 725.0
+rect_scale = Vector2( 1.4, 1.4 )
+img = ExtResource( 28 )
+
+[node name="OneContent8" type="Node2D" parent="Slides" index="23"]
+visible = false
+script = ExtResource( 13 )
+title = "Day 7: Breakthrough!!!!"
+text = "[u]First instruction ever executed:[/u]
+[b]lda # $CA[/b]
+
+>Loads register A
+>with constant value $CA
+    [i]CA (hex) = 202 (dec)[/i]
+
+
+
+
+
+Simulation waveform of relevant signals:"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent8" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent8" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent8" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Day 7: Breakthrough!!!![/color]"
+text = "Day 7: Breakthrough!!!!"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent8" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][u]First instruction ever executed:[/u]
+[b]lda # $CA[/b]
+
+[color=#ffcd0f2d]> [/color]Loads register A
+[color=#ffcd0f2d]> [/color]with constant value $CA
+    [i]CA (hex) = 202 (dec)[/i]
+
+
+
+
+
+Simulation waveform of relevant signals:[/color]"
+text = "First instruction ever executed:
+lda # $CA
+
+> Loads register A
+> with constant value $CA
+    CA (hex) = 202 (dec)
+
+
+
+
+
+Simulation waveform of relevant signals:"
+content = "First instruction ever executed:
+lda # $CA
+
+> Loads register A
+> with constant value $CA
+    CA (hex) = 202 (dec)
+
+
+
+
+
+Simulation waveform of relevant signals:"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent8" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent8" index="5"]
+anims/FadeIn = SubResource( 51 )
+anims/FadeOut = SubResource( 52 )
+
+[node name="Border" parent="Slides/OneContent8" index="6" instance=ExtResource( 12 )]
+margin_left = 854.0
+margin_top = 62.0
+margin_right = 2562.0
+margin_bottom = 1193.0
+rect_scale = Vector2( 0.6, 0.6 )
+img = ExtResource( 27 )
+
+[node name="Border2" parent="Slides/OneContent8" index="7" instance=ExtResource( 12 )]
+margin_left = 138.0
+margin_top = 760.0
+margin_right = 2321.0
+margin_bottom = 1091.0
+rect_scale = Vector2( 0.8, 0.8 )
+img = ExtResource( 30 )
+
+[node name="OneContent9" type="Node2D" parent="Slides" index="24"]
+visible = false
+script = ExtResource( 13 )
+title = "The macro assembler"
+text = ">Translates RRISC assembly
+    to machine code
+
+>Supports
+    >constants (dec/hex)
+    >labels
+    >[color=blue][b]<[/b][/color]low and [color=blue][b]>[/b][/color]high byte
+        notation
+    -macros with parameters
+	
+>Generates files:
+    -[b].bin[/b]: binary
+    -[b].lst[/b]: source listing annotated
+        with generated code
+    -[b].sym[/b]: symbol table
+    -[b].bit[/b]: textual representation
+        in binary notation for use
+        in VHDL files
+    -[b].coe[/b]: coefficient file for
+        use in BRAM cells"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent9" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent9" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent9" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The macro assembler[/color]"
+text = "The macro assembler"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent9" index="3" instance=ExtResource( 10 )]
+margin_top = 154.0
+margin_right = 2028.0
+margin_bottom = 1067.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Translates RRISC assembly
+    to machine code
+
+[color=#ffcd0f2d]> [/color]Supports
+    [color=#ffcd0f2d]> [/color]constants (dec/hex)
+    [color=#ffcd0f2d]> [/color]labels
+    [color=#ffcd0f2d]> [/color][color=blue][b]<[/b][/color]low and [color=blue][b]>[/b][/color]high byte
+        notation
+    [color=#ffcd0f2d]> [/color]macros with parameters
+	
+[color=#ffcd0f2d]> [/color]Generates files:
+    [color=#ffcd0f2d]> [/color][b].bin[/b]: binary
+    [color=#ffcd0f2d]> [/color][b].lst[/b]: source listing annotated
+        with generated code
+    [color=#ffcd0f2d]> [/color][b].sym[/b]: symbol table
+    [color=#ffcd0f2d]> [/color][b].bit[/b]: textual representation
+        in binary notation for use
+        in VHDL files
+    [color=#ffcd0f2d]> [/color][b].coe[/b]: coefficient file for
+        use in BRAM cells[/color]"
+text = "> Translates RRISC assembly
+    to machine code
+
+> Supports
+    > constants (dec/hex)
+    > labels
+    > <low and >high byte
+        notation
+    > macros with parameters
+	
+> Generates files:
+    > .bin: binary
+    > .lst: source listing annotated
+        with generated code
+    > .sym: symbol table
+    > .bit: textual representation
+        in binary notation for use
+        in VHDL files
+    > .coe: coefficient file for
+        use in BRAM cells"
+content = "> Translates RRISC assembly
+    to machine code
+
+> Supports
+    > constants (dec/hex)
+    > labels
+    > <low and >high byte
+        notation
+    > macros with parameters
+	
+> Generates files:
+    > .bin: binary
+    > .lst: source listing annotated
+        with generated code
+    > .sym: symbol table
+    > .bit: textual representation
+        in binary notation for use
+        in VHDL files
+    > .coe: coefficient file for
+        use in BRAM cells"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent9" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent9" index="5"]
+anims/FadeIn = SubResource( 53 )
+anims/FadeOut = SubResource( 54 )
+
+[node name="Border" parent="Slides/OneContent9" index="6" instance=ExtResource( 12 )]
+margin_left = 591.0
+margin_top = 650.0
+margin_right = 1684.0
+margin_bottom = 991.0
+rect_scale = Vector2( 1.2, 1.2 )
+img = ExtResource( 33 )
+
+[node name="Border2" parent="Slides/OneContent9" index="7" instance=ExtResource( 12 )]
+margin_left = 591.0
+margin_top = 125.0
+margin_right = 1684.0
+margin_bottom = 324.0
+rect_scale = Vector2( 1.2, 1 )
+img = ExtResource( 32 )
+
+[node name="Border3" parent="Slides/OneContent9" index="8" instance=ExtResource( 12 )]
+margin_left = 591.0
+margin_top = 356.0
+margin_right = 1684.0
+margin_bottom = 629.0
+rect_scale = Vector2( 1.2, 1 )
+img = ExtResource( 31 )
+
+[node name="OneContent10" type="Node2D" parent="Slides" index="25"]
+visible = false
+script = ExtResource( 13 )
+title = "The ALU - arithmetic logical unit"
+text = ">Necessary to perform calculations
+>NOT part of the CPU itself
+
+>Accessed via 4 external ports:
+    >Operand A
+    >Operand B
+    >Operation
+    >Result
+
+Provides 3 flags to the CPU:
+-EQ/zero: last result was zero
+    or comparison result: equal
+-GT/carry:
+    -comparison result:'greater than
+    -add/sub over/underflowed 
+    -shift operation shifted a bit into it
+-LT: comparison result: less than"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent10" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent10" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent10" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The ALU - arithmetic logical unit[/color]"
+text = "The ALU - arithmetic logical unit"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent10" index="3" instance=ExtResource( 10 )]
+margin_right = 710.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Necessary to perform calculations
+[color=#ffcd0f2d]> [/color]NOT part of the CPU itself
+
+[color=#ffcd0f2d]> [/color]Accessed via 4 external ports:
+    [color=#ffcd0f2d]> [/color]Operand A
+    [color=#ffcd0f2d]> [/color]Operand B
+    [color=#ffcd0f2d]> [/color]Operation
+    [color=#ffcd0f2d]> [/color]Result
+
+Provides 3 flags to the CPU:
+[color=#ffcd0f2d]> [/color]EQ/zero: last result was zero
+    or comparison result: equal
+[color=#ffcd0f2d]> [/color]GT/carry:
+    [color=#ffcd0f2d]> [/color]comparison result:'greater than
+    [color=#ffcd0f2d]> [/color]add/sub over/underflowed 
+    [color=#ffcd0f2d]> [/color]shift operation shifted a bit into it
+[color=#ffcd0f2d]> [/color]LT: comparison result: less than[/color]"
+text = "> Necessary to perform calculations
+> NOT part of the CPU itself
+
+> Accessed via 4 external ports:
+    > Operand A
+    > Operand B
+    > Operation
+    > Result
+
+Provides 3 flags to the CPU:
+> EQ/zero: last result was zero
+    or comparison result: equal
+> GT/carry:
+    > comparison result:'greater than
+    > add/sub over/underflowed 
+    > shift operation shifted a bit into it
+> LT: comparison result: less than"
+content = "> Necessary to perform calculations
+> NOT part of the CPU itself
+
+> Accessed via 4 external ports:
+    > Operand A
+    > Operand B
+    > Operation
+    > Result
+
+Provides 3 flags to the CPU:
+> EQ/zero: last result was zero
+    or comparison result: equal
+> GT/carry:
+    > comparison result:'greater than
+    > add/sub over/underflowed 
+    > shift operation shifted a bit into it
+> LT: comparison result: less than"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="ContentLabel2" parent="Slides/OneContent10" index="4" instance=ExtResource( 10 )]
+margin_left = 800.0
+margin_right = 1293.0
+bbcode_text = "[color=#ff000000]Operations:
+[color=#ffcd0f2d]> [/color]       add with carry
+[color=#ffcd0f2d]> [/color]       subtract with carry
+[color=#ffcd0f2d]> [/color]       shift left, MSB into carry
+[color=#ffcd0f2d]> [/color]       shift right, LSB into carry
+[color=#ffcd0f2d]> [/color]       bitwise rotate left
+[color=#ffcd0f2d]> [/color]       bitwise rotate right
+[color=#ffcd0f2d]> [/color]       bitwise or
+[color=#ffcd0f2d]> [/color]       bitwise and
+[color=#ffcd0f2d]> [/color]       bitwise nand
+[color=#ffcd0f2d]> [/color]       bitwise xor
+[color=#ffcd0f2d]> [/color]       bitwise compare
+[color=#ffcd0f2d]> [/color]       increment by 1
+[color=#ffcd0f2d]> [/color]       decrement by 1[/color]"
+text = "Operations:
+>        add with carry
+>        subtract with carry
+>        shift left, MSB into carry
+>        shift right, LSB into carry
+>        bitwise rotate left
+>        bitwise rotate right
+>        bitwise or
+>        bitwise and
+>        bitwise nand
+>        bitwise xor
+>        bitwise compare
+>        increment by 1
+>        decrement by 1"
+content = "Operations:
+>       add with carry
+>       subtract with carry
+>       shift left, MSB into carry
+>       shift right, LSB into carry
+>       bitwise rotate left
+>       bitwise rotate right
+>       bitwise or
+>       bitwise and
+>       bitwise nand
+>       bitwise xor
+>       bitwise compare
+>       increment by 1
+>       decrement by 1"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent10" index="5"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent10" index="6"]
+anims/FadeIn = SubResource( 55 )
+anims/FadeOut = SubResource( 56 )
+
+[node name="Border" parent="Slides/OneContent10" index="7" instance=ExtResource( 12 )]
+margin_left = 1280.0
+margin_top = 153.0
+margin_right = 1770.0
+margin_bottom = 863.0
+rect_scale = Vector2( 1.2, 1.2 )
+img = ExtResource( 36 )
+
+[node name="OneContent15" type="Node2D" parent="Slides" index="26"]
+visible = false
+script = ExtResource( 13 )
+title = "Preparing for the real-world test"
+text = ">For testing the CPU in the real world,
+    we need to provide means for 
+    interaction with the board.
+
+>We add ports for LED lights and 
+    buttons.
+
+>The demo should show a running
+    light when a button is pressed
+
+The complete design consists of:
+- The RRISC CPU core
+- The RRISC ALU (arithmetic logical unit)
+- 1 kB of RAM for the demo program
+- 3 ports connected to the Arty board:
+    - 4 LEDs
+    - 4 switches
+    - 4 buttons
+"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent15" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent15" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 36 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent15" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Preparing for the real-world test[/color]"
+text = "Preparing for the real-world test"
+custom_effects = [ SubResource( 37 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent15" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]For testing the CPU in the real world,
+    we need to provide means for 
+    interaction with the board.
+
+[color=#ffcd0f2d]> [/color]We add ports for LED lights and 
+    buttons.
+
+[color=#ffcd0f2d]> [/color]The demo should show a running
+    light when a button is pressed
+
+The complete design consists of:
+[color=#ffcd0f2d]> [/color] The RRISC CPU core
+[color=#ffcd0f2d]> [/color] The RRISC ALU (arithmetic logical unit)
+[color=#ffcd0f2d]> [/color] 1 kB of RAM for the demo program
+[color=#ffcd0f2d]> [/color] 3 ports connected to the Arty board:
+    [color=#ffcd0f2d]> [/color] 4 LEDs
+    [color=#ffcd0f2d]> [/color] 4 switches
+    [color=#ffcd0f2d]> [/color] 4 buttons
+[/color]"
+text = "> For testing the CPU in the real world,
+    we need to provide means for 
+    interaction with the board.
+
+> We add ports for LED lights and 
+    buttons.
+
+> The demo should show a running
+    light when a button is pressed
+
+The complete design consists of:
+>  The RRISC CPU core
+>  The RRISC ALU (arithmetic logical unit)
+>  1 kB of RAM for the demo program
+>  3 ports connected to the Arty board:
+    >  4 LEDs
+    >  4 switches
+    >  4 buttons
+"
+content = "> For testing the CPU in the real world,
+    we need to provide means for 
+    interaction with the board.
+
+> We add ports for LED lights and 
+    buttons.
+
+> The demo should show a running
+    light when a button is pressed
+
+The complete design consists of:
+>  The RRISC CPU core
+>  The RRISC ALU (arithmetic logical unit)
+>  1 kB of RAM for the demo program
+>  3 ports connected to the Arty board:
+    >  4 LEDs
+    >  4 switches
+    >  4 buttons
+"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent15" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 38 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent15" index="5"]
+anims/FadeIn = SubResource( 57 )
+anims/FadeOut = SubResource( 58 )
+
+[node name="Border" parent="Slides/OneContent15" index="6" instance=ExtResource( 12 )]
+margin_left = 731.0
+margin_top = 180.0
+margin_right = 1791.0
+margin_bottom = 970.0
+rect_scale = Vector2( 1.1, 1.1 )
+img = ExtResource( 46 )
+
+[node name="OneContent14" type="Node2D" parent="Slides" index="27"]
+visible = false
+script = ExtResource( 13 )
+title = "The running light demo program"
+text = "It [b][color=#cd0f2d]should[/color][/b] work..."
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent14" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent14" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 59 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent14" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The running light demo program[/color]"
+text = "The running light demo program"
+custom_effects = [ SubResource( 60 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent14" index="3" instance=ExtResource( 10 )]
+margin_top = 1000.0
+margin_bottom = 1100.0
+bbcode_text = "[color=#ff000000]It [b][color=#cd0f2d]should[/color][/b] work...[/color]"
+text = "It should work..."
+content = "It should work..."
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent14" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 61 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent14" index="5"]
+anims/FadeIn = SubResource( 62 )
+anims/FadeOut = SubResource( 63 )
+
+[node name="Border" parent="Slides/OneContent14" index="6" instance=ExtResource( 12 )]
+margin_left = 156.0
+margin_top = 136.0
+margin_right = 2155.0
+margin_bottom = 1545.0
+rect_scale = Vector2( 0.8, 0.6 )
+img = ExtResource( 41 )
+
+[node name="Border2" parent="Slides/OneContent14" index="7" instance=ExtResource( 12 )]
+margin_left = 750.0
+margin_top = 734.0
+margin_right = 2117.0
+margin_bottom = 1313.0
+rect_scale = Vector2( 0.8, 0.55 )
+img = ExtResource( 42 )
+
+[node name="OneContent11" type="Node2D" parent="Slides" index="28"]
+visible = false
+script = ExtResource( 13 )
+title = "Day 11: Breakthrough!!!!"
+text = ">The test program runs!
+>On the RRISC CPU!
+>On the FPGA board!"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent11" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent11" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 64 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent11" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Day 11: Breakthrough!!!![/color]"
+text = "Day 11: Breakthrough!!!!"
+custom_effects = [ SubResource( 65 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent11" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]The test program runs!
+[color=#ffcd0f2d]> [/color]On the RRISC CPU!
+[color=#ffcd0f2d]> [/color]On the FPGA board![/color]"
+text = "> The test program runs!
+> On the RRISC CPU!
+> On the FPGA board!"
+content = "> The test program runs!
+> On the RRISC CPU!
+> On the FPGA board!"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent11" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 66 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent11" index="5"]
+anims/FadeIn = SubResource( 67 )
+anims/FadeOut = SubResource( 68 )
+
+[node name="Node2D" type="Node2D" parent="Slides/OneContent11" index="6"]
+script = ExtResource( 39 )
+
+[node name="Button" type="Button" parent="Slides/OneContent11/Node2D" index="0"]
+margin_left = 1193.0
+margin_top = 952.0
+margin_right = 1293.0
+margin_bottom = 1002.0
+custom_fonts/font = ExtResource( 24 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Slides/OneContent11/Node2D" index="1"]
+margin_left = 584.0
+margin_top = 210.0
+margin_right = 1864.0
+margin_bottom = 930.0
+stream = ExtResource( 38 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneContent12" type="Node2D" parent="Slides" index="29"]
+visible = false
+script = ExtResource( 13 )
+title = "The website"
+text = "[color=blue][url=renerocksai.github.io/rrisc/]https://renerocksai.github.io/rrisc[/url][/color]
+
+>static HTML website
+>authored in Markdown
+>HTML generated by the Jekyll
+    static site generator
+>hosted on Github pages"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent12" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent12" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 64 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent12" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]The website[/color]"
+text = "The website"
+custom_effects = [ SubResource( 65 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent12" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=blue][url=renerocksai.github.io/rrisc/]https://renerocksai.github.io/rrisc[/url][/color]
+
+[color=#ffcd0f2d]> [/color]static HTML website
+[color=#ffcd0f2d]> [/color]authored in Markdown
+[color=#ffcd0f2d]> [/color]HTML generated by the Jekyll
+    static site generator
+[color=#ffcd0f2d]> [/color]hosted on Github pages[/color]"
+text = "https://renerocksai.github.io/rrisc
+
+> static HTML website
+> authored in Markdown
+> HTML generated by the Jekyll
+    static site generator
+> hosted on Github pages"
+content = "https://renerocksai.github.io/rrisc"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent12" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 66 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent12" index="5"]
+anims/FadeIn = SubResource( 67 )
+anims/FadeOut = SubResource( 68 )
+
+[node name="Border" parent="Slides/OneContent12" index="6" instance=ExtResource( 12 )]
+margin_left = 650.0
+margin_top = 180.0
+margin_right = 3049.0
+margin_bottom = 1774.0
+rect_scale = Vector2( 0.5, 0.5 )
+img = ExtResource( 37 )
+
+[node name="OneContent13" type="Node2D" parent="Slides" index="30"]
+visible = false
+script = ExtResource( 13 )
+title = "Reactions on social media"
+text = ">RRISC is actively being discussed on reddit
+>[b][color=#cd0f2d]Hottest topic[/color][/b] in r/VHDL on days 12 & 13
+    (2021-01-03 and 2021-01-04)"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent13" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent13" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 64 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent13" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Reactions on social media[/color]"
+text = "Reactions on social media"
+custom_effects = [ SubResource( 65 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent13" index="3" instance=ExtResource( 10 )]
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]RRISC is actively being discussed on reddit
+[color=#ffcd0f2d]> [/color][b][color=#cd0f2d]Hottest topic[/color][/b] in r/VHDL on days 12 & 13
+    (2021-01-03 and 2021-01-04)[/color]"
+text = "> RRISC is actively being discussed on reddit
+> Hottest topic in r/VHDL on days 12 & 13
+    (2021-01-03 and 2021-01-04)"
+content = "> RRISC is actively being discussed on reddit
+> Hottest topic in r/VHDL on days 12 & 13
+    (2021-01-03 and 2021-01-04)"
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent13" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 66 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border2" parent="Slides/OneContent13" index="5" instance=ExtResource( 12 )]
+margin_left = 129.0
+margin_top = 336.0
+margin_right = 1034.0
+margin_bottom = 971.0
+img = ExtResource( 43 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent13" index="6"]
+anims/FadeIn = SubResource( 67 )
+anims/FadeOut = SubResource( 68 )
+
+[node name="Border" parent="Slides/OneContent13" index="7" instance=ExtResource( 12 )]
+margin_left = 1091.0
+margin_top = 180.0
+margin_right = 1869.0
+margin_bottom = 1541.0
+rect_scale = Vector2( 0.6, 0.6 )
+img = ExtResource( 40 )
+
+[node name="Border3" parent="Slides/OneContent13" index="8" instance=ExtResource( 12 )]
+margin_left = 1430.0
+margin_top = 197.0
+margin_right = 2204.0
+margin_bottom = 1237.0
+rect_scale = Vector2( 0.6, 0.6 )
+img = ExtResource( 44 )
+
+[node name="OneContent16" parent="Slides" index="31" instance=ExtResource( 47 )]
+visible = false
+title = "Takeaways"
+text = "-FPGAs are fascinating, extremely powerful chips
+
+>Designing electronics in VHDL adds substantially to reusability and testability of electronic circuit designs
+
+>Electronic circuits are parallel by nature
+    >lend themselves for speeding up algorithms
+
+>Lightweight, free, commandline beats tens of gigabytes heavy GUI all the time
+
+>Creating toy CPUs is fun
+    >and there's always someone on reddit ready to comment
+
+>Long, uninterrupted stretches of time for concentration and deep work prove to be extremely productive"
+
+[node name="Thankyou" type="Node2D" parent="Slides" index="32"]
+visible = false
+script = ExtResource( 45 )
+Title = "RRISC CPU"
+Subtitle = "Building a CPU in two weeks"
+Authors = "Rene Schallner"
+title_size = 148.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 50.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/Thankyou" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Slides/Thankyou" index="1"]
+margin_left = 219.0
+margin_top = 200.0
+margin_right = 1819.0
+margin_bottom = 423.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 69 )
+custom_constants/line_separation = 15
+bbcode_enabled = true
+bbcode_text = "[color=#cd0f2d]THANK YOU FOR YOUR ATTENTION[/color]"
+text = "THANK YOU FOR YOUR ATTENTION"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Slides/Thankyou" index="2"]
+margin_left = 219.0
+margin_top = 749.0
+margin_right = 1055.0
+margin_bottom = 995.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 70 )
+custom_constants/line_separation = 0
+bbcode_enabled = true
+bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU IN TWO WEEKS[/color]
+[color=#ff993366]RENE SCHALLNER[/color]"
+text = "BUILDING A CPU IN TWO WEEKS
+RENE SCHALLNER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Slides/Thankyou" index="3"]
+margin_left = 219.0
+margin_top = 560.0
+margin_right = 1137.0
+margin_bottom = 783.0
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 71 )
+custom_fonts/normal_font = SubResource( 72 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]RRISC CPU[/color]"
+text = "RRISC CPU"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D2" type="Node2D" parent="Slides/Thankyou" index="4"]
+position = Vector2( 1020, -55.693 )
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Slides/Thankyou/Node2D2" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 420.0
+margin_top = 99.0
+margin_right = 1109.0
+margin_bottom = 199.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=blue][url=renerocksai.github.io/rrisc/]https://renerocksai.github.io/rrisc[/url][/color]"
+text = "https://renerocksai.github.io/rrisc"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 4 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Thankyou/Node2D2" index="1"]
+position = Vector2( 377.026, 126.278 )
+texture = ExtResource( 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou" index="5"]
+anims/FadeIn = SubResource( 73 )
+anims/FadeOut = SubResource( 74 )
+
+[node name="TouchControls" parent="." index="2"]
+visible = true
+[connection signal="pressed" from="Slides/OneContent11/Node2D/Button" to="Slides/OneContent11/Node2D" method="_on_Button_pressed"]
+
+[editable path="Slides/Chapter"]
+
+[editable path="Slides/Chapter2"]

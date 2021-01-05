@@ -1,4 +1,5 @@
 org 0
+
 lda #$ca
 ; > 0000: 0a ca 00
 
@@ -9,8 +10,11 @@ ldb data
 ; > 0006: 10 0c 00
 
 :loop_forever
+
 jmp loop_forever
 ; > 0009: 02 09 00
 
+
 :data
 db $ff
+

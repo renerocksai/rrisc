@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bullets/components/borderedimg.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 1, 0 )
+shadow_size = 5
+
+[node name="Border" type="Button"]
+margin_right = 500.0
+margin_bottom = 500.0
+mouse_filter = 2
+custom_styles/normal = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 500.0
+margin_bottom = 500.0
+mouse_filter = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -17,3 +17,10 @@ func _on_Button_pressed():
     video.stop()
     video.play()
 
+
+
+func _on_TouchScreenButton_pressed():
+    print("Touch!")
+    video.stop()
+    video.play()
+

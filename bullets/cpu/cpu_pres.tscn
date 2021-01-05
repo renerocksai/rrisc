@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=2]
+[gd_scene load_steps=139 format=2]
 
 [ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.gd" type="Script" id=2]
@@ -60,6 +60,7 @@
 [ext_resource path="res://Bullets/fonts/ChapterNumberFont.tres" type="DynamicFont" id=58]
 [ext_resource path="res://Bullets/fonts/ChapterSubTitleFont.tres" type="DynamicFont" id=59]
 [ext_resource path="res://imgs/cpuschem2.jpg" type="Texture" id=60]
+[ext_resource path="res://Bullets/img/fscreen.png" type="Texture" id=61]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -101,7 +102,7 @@ font_data = ExtResource( 35 )
 [sub_resource type="RichTextEffect" id=4]
 script = ExtResource( 9 )
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=5]
 resource_name = "FadeIn"
 length = 0.5
 tracks/0/type = "value"
@@ -117,7 +118,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=6]
 resource_name = "FadeOut"
 length = 0.5
 tracks/0/type = "value"
@@ -133,7 +134,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=7]
 resource_name = "visible"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -148,61 +149,16 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 size = 20
 font_data = ExtResource( 15 )
 
-[sub_resource type="RichTextEffect" id=6]
+[sub_resource type="RichTextEffect" id=9]
 script = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=10]
 size = 20
 font_data = ExtResource( 7 )
-
-[sub_resource type="Animation" id=8]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
-
-[sub_resource type="Animation" id=10]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=11]
 length = 0.5
@@ -216,64 +172,64 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="Animation" id=13]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=15]
 size = 20
 font_data = ExtResource( 15 )
 
-[sub_resource type="RichTextEffect" id=13]
+[sub_resource type="RichTextEffect" id=16]
 script = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=17]
 size = 20
 font_data = ExtResource( 7 )
-
-[sub_resource type="Animation" id=15]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=16]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
-
-[sub_resource type="Animation" id=17]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=18]
 length = 0.5
@@ -287,7 +243,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -302,7 +258,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -317,7 +273,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -332,7 +288,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -347,7 +303,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -362,7 +318,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -377,10 +333,55 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=25]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=28]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -394,59 +395,18 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=29]
 size = 20
 font_data = ExtResource( 15 )
 
-[sub_resource type="RichTextEffect" id=27]
+[sub_resource type="RichTextEffect" id=30]
 script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=28]
-size = 20
-font_data = ExtResource( 7 )
-
-[sub_resource type="Animation" id=29]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=30]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
 
 [sub_resource type="DynamicFont" id=31]
 size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=32]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=33]
-size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=32]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -461,7 +421,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=33]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -475,19 +435,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
+
+[sub_resource type="DynamicFont" id=34]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=35]
+script = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=36]
 size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=37]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=38]
-size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=37]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -502,7 +462,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=38]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -517,20 +477,16 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=41]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="DynamicFont" id=39]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=40]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 20
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=42]
 length = 0.5
@@ -544,7 +500,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -559,7 +515,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -574,7 +530,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=45]
@@ -589,7 +545,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -604,7 +560,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=47]
@@ -619,7 +575,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -634,7 +590,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -649,7 +605,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -664,7 +620,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -679,7 +635,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=52]
@@ -694,7 +650,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=53]
@@ -709,7 +665,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=54]
@@ -724,7 +680,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=55]
@@ -739,7 +695,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=56]
@@ -754,7 +710,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=57]
@@ -769,7 +725,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
 [sub_resource type="Animation" id=58]
@@ -784,21 +740,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=59]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="DynamicFont" id=59]
-size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=60]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=61]
-size = 20
-font_data = ExtResource( 7 )
-
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=60]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -813,7 +773,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=61]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -827,19 +787,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
+
+[sub_resource type="DynamicFont" id=62]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=63]
+script = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=64]
 size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=65]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=66]
-size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=67]
+[sub_resource type="Animation" id=65]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -854,7 +814,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=68]
+[sub_resource type="Animation" id=66]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -869,25 +829,66 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
+[sub_resource type="DynamicFont" id=67]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=68]
+script = ExtResource( 9 )
+
 [sub_resource type="DynamicFont" id=69]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=70]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=71]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=72]
 size = 100
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=70]
+[sub_resource type="DynamicFont" id=73]
 size = 50
 extra_spacing_bottom = 45
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=71]
+[sub_resource type="DynamicFont" id=74]
 size = 148
 extra_spacing_top = 5
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=72]
+[sub_resource type="DynamicFont" id=75]
 size = 148
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=76]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -902,7 +903,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=77]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -919,14 +920,19 @@ tracks/0/keys = {
 
 [node name="BulletsDemoPresentation" instance=ExtResource( 3 )]
 
+[node name="Slides" parent="." index="0"]
+skip_animation = false
+slide_number_start = 1
+mouse_hide_timeout = 1.5
+
 [node name="LaserPointer" parent="Slides" index="1"]
-frame = 28
+frame = 19
 
 [node name="LaserPointer2" parent="Slides" index="2"]
-frame = 29
+frame = 26
 
 [node name="LaserPointer3" parent="Slides" index="3"]
-frame = 1
+frame = 28
 
 [node name="Title" type="Node2D" parent="Slides" index="5"]
 script = ExtResource( 2 )
@@ -1082,9 +1088,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Chapter0" index="4"]
-anims/FadeIn = SubResource( 75 )
-anims/FadeOut = SubResource( 76 )
-anims/visible = SubResource( 77 )
+anims/FadeIn = SubResource( 5 )
+anims/FadeOut = SubResource( 6 )
+anims/visible = SubResource( 7 )
 
 [node name="TwoContent" type="Node2D" parent="Slides" index="7"]
 script = ExtResource( 21 )
@@ -1152,7 +1158,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1168,7 +1174,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]What is a RRISC CPU and why would I want to build one anyway?[/color]"
 text = "What is a RRISC CPU and why would I want to build one anyway?"
-custom_effects = [ SubResource( 6 ) ]
+custom_effects = [ SubResource( 9 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1277,7 +1283,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 10 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1285,8 +1291,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent" index="6"]
-anims/FadeIn = SubResource( 8 )
-anims/FadeOut = SubResource( 9 )
+anims/FadeIn = SubResource( 11 )
+anims/FadeOut = SubResource( 12 )
 
 [node name="TwoContent3" type="Node2D" parent="Slides" index="8"]
 visible = false
@@ -1337,7 +1343,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1353,7 +1359,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]What is a RRISC CPU and why would I want to build one anyway?[/color]"
 text = "What is a RRISC CPU and why would I want to build one anyway?"
-custom_effects = [ SubResource( 6 ) ]
+custom_effects = [ SubResource( 9 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1425,7 +1431,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 10 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1433,8 +1439,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent3" index="6"]
-anims/FadeIn = SubResource( 10 )
-anims/FadeOut = SubResource( 11 )
+anims/FadeIn = SubResource( 13 )
+anims/FadeOut = SubResource( 14 )
 
 [node name="Chapter" parent="Slides" index="9" instance=ExtResource( 1 )]
 visible = false
@@ -1478,6 +1484,20 @@ text = ">I designed the
 >I never got 
    around to 
    actually build it"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent" index="0"]
 margin_right = 1920.0
@@ -1496,7 +1516,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 15 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1512,7 +1532,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Starting off with some 30 years old schematics[/color]"
 text = "Starting off with some 30 years old schematics"
-custom_effects = [ SubResource( 13 ) ]
+custom_effects = [ SubResource( 16 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1577,7 +1597,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 17 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1585,8 +1605,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent" index="5"]
-anims/FadeIn = SubResource( 15 )
-anims/FadeOut = SubResource( 16 )
+anims/FadeIn = SubResource( 18 )
+anims/FadeOut = SubResource( 19 )
 
 [node name="Border" parent="Slides/OneContent" index="6" instance=ExtResource( 12 )]
 margin_left = 474.0
@@ -1606,6 +1626,21 @@ img = ExtResource( 60 )
 visible = false
 script = ExtResource( 13 )
 title = "More old design stuff"
+text = ""
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="ContentLabel" parent="Slides/OneContent2" index="0" instance=ExtResource( 10 )]
 margin_right = 380.0
@@ -1634,7 +1669,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 15 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1650,7 +1685,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]More old design stuff[/color]"
 text = "More old design stuff"
-custom_effects = [ SubResource( 13 ) ]
+custom_effects = [ SubResource( 16 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1661,7 +1696,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 17 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1669,8 +1704,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent2" index="5"]
-anims/FadeIn = SubResource( 17 )
-anims/FadeOut = SubResource( 18 )
+anims/FadeIn = SubResource( 20 )
+anims/FadeOut = SubResource( 21 )
 
 [node name="Border" parent="Slides/OneContent2" index="6" instance=ExtResource( 12 )]
 margin_left = 110.0
@@ -1710,6 +1745,20 @@ text = "
     circuits onto a programmable chip
 
 [wave][b][u]GOAL[/u]: Have the CPU [color=#cd0f2d]run a demo program here[/color] --->[/b][/wave]"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent3" index="0"]
 margin_right = 1920.0
@@ -1728,7 +1777,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 15 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1744,7 +1793,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Let's order an FPGA development board[/color]"
 text = "Let's order an FPGA development board"
-custom_effects = [ SubResource( 13 ) ]
+custom_effects = [ SubResource( 16 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1803,7 +1852,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 17 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1811,8 +1860,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent3" index="5"]
-anims/FadeIn = SubResource( 19 )
-anims/FadeOut = SubResource( 20 )
+anims/FadeIn = SubResource( 22 )
+anims/FadeOut = SubResource( 23 )
 
 [node name="TextureRect2" type="TextureRect" parent="Slides/OneContent3" index="6"]
 margin_left = 915.0
@@ -1840,6 +1889,20 @@ text = ">We order an ebook about FPGAs and VHDL
         a textual representation 
 
 > We spend the rest of the week reading and learning"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent4" index="0"]
 margin_right = 1920.0
@@ -1858,7 +1921,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 15 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1874,7 +1937,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Learning VHDL[/color]"
 text = "Learning VHDL"
-custom_effects = [ SubResource( 13 ) ]
+custom_effects = [ SubResource( 16 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1921,7 +1984,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 17 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -1929,8 +1992,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent4" index="5"]
-anims/FadeIn = SubResource( 21 )
-anims/FadeOut = SubResource( 22 )
+anims/FadeIn = SubResource( 24 )
+anims/FadeOut = SubResource( 25 )
 
 [node name="Border" parent="Slides/OneContent4" index="6" instance=ExtResource( 12 )]
 margin_left = 1085.0
@@ -1964,9 +2027,9 @@ bbcode_text = "[color=#ffcd0f2d]2[/color]"
 text = "2"
 
 [node name="AnimationPlayer" parent="Slides/Chapter2" index="4"]
-anims/FadeIn = SubResource( 23 )
-anims/FadeOut = SubResource( 24 )
-anims/visible = SubResource( 25 )
+anims/FadeIn = SubResource( 26 )
+anims/FadeOut = SubResource( 27 )
+anims/visible = SubResource( 28 )
 
 [node name="TwoContent2" type="Node2D" parent="Slides" index="15"]
 visible = false
@@ -2022,7 +2085,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 26 )
+custom_fonts/normal_font = SubResource( 29 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2038,7 +2101,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The plan[/color]"
 text = "The plan"
-custom_effects = [ SubResource( 27 ) ]
+custom_effects = [ SubResource( 30 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2120,7 +2183,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 28 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2128,8 +2191,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent2" index="6"]
-anims/FadeIn = SubResource( 29 )
-anims/FadeOut = SubResource( 30 )
+anims/FadeIn = SubResource( 32 )
+anims/FadeOut = SubResource( 33 )
 
 [node name="OneContent5" type="Node2D" parent="Slides" index="16"]
 visible = false
@@ -2152,6 +2215,20 @@ text = "-Turned out Vivado was bad for my
 		
     >[b]gtkwave[/b] is a viewer for waveforms
         -such as created by ghdl"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent5" index="0"]
 margin_right = 1920.0
@@ -2170,7 +2247,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 31 )
+custom_fonts/normal_font = SubResource( 34 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2186,7 +2263,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Software stack change[/color]"
 text = "Software stack change"
-custom_effects = [ SubResource( 32 ) ]
+custom_effects = [ SubResource( 35 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2256,7 +2333,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 33 )
+custom_fonts/normal_font = SubResource( 36 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2264,8 +2341,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent5" index="5"]
-anims/FadeIn = SubResource( 34 )
-anims/FadeOut = SubResource( 35 )
+anims/FadeIn = SubResource( 37 )
+anims/FadeOut = SubResource( 38 )
 
 [node name="Border" parent="Slides/OneContent5" index="6" instance=ExtResource( 12 )]
 margin_left = 849.0
@@ -2277,16 +2354,16 @@ img = ExtResource( 26 )
 [node name="ContentLabel2" parent="Slides/OneContent5" index="7" instance=ExtResource( 10 )]
 margin_left = 850.0
 margin_right = 2550.0
-bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]     Editing, simulating, and testing of VHDL designs
-    [color=#ffcd0f2d]> [/color]     right in the terminal, no mouse needed
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]      Editing, simulating, and testing of VHDL designs
+    [color=#ffcd0f2d]> [/color]      right in the terminal, no mouse needed
         (viewing waveforms requires a mouse)
 	[/color]"
-text = ">      Editing, simulating, and testing of VHDL designs
-    >      right in the terminal, no mouse needed
+text = ">       Editing, simulating, and testing of VHDL designs
+    >       right in the terminal, no mouse needed
         (viewing waveforms requires a mouse)
 	"
-content = ">     Editing, simulating, and testing of VHDL designs
-    >     right in the terminal, no mouse needed
+content = ">      Editing, simulating, and testing of VHDL designs
+    >      right in the terminal, no mouse needed
         (viewing waveforms requires a mouse)
 	"
 text_size = 36.0
@@ -2317,6 +2394,20 @@ text = "The core components of the CPU:
 
 
 When we implement these, we have a CPU, legally speaking."
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent6" index="0"]
 margin_right = 1920.0
@@ -2335,7 +2426,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2351,7 +2442,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The core CPU components[/color]"
 text = "The core CPU components"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2421,7 +2512,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2429,8 +2520,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent6" index="5"]
-anims/FadeIn = SubResource( 39 )
-anims/FadeOut = SubResource( 40 )
+anims/FadeIn = SubResource( 42 )
+anims/FadeOut = SubResource( 43 )
 
 [node name="Border" parent="Slides/OneContent6" index="6" instance=ExtResource( 12 )]
 margin_left = 776.0
@@ -2460,6 +2551,20 @@ text = ">Combinatorial logic describes a function:
         X = ({[b]NOT[/b] A} [b]AND[/b] {[b]NOT[/b] B}) [b]
               OR[/b] (A [b]AND[/b] {[b]NOT[/b] B}) 
               [b]OR[/b] (A [b]AND[/b] B)"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent17" index="0"]
 margin_right = 1920.0
@@ -2478,7 +2583,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2494,7 +2599,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 1: combinatorial logic[/color]"
 text = "The CPU inside the CPU -- 1: combinatorial logic"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2561,7 +2666,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2569,8 +2674,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent17" index="5"]
-anims/FadeIn = SubResource( 41 )
-anims/FadeOut = SubResource( 42 )
+anims/FadeIn = SubResource( 44 )
+anims/FadeOut = SubResource( 45 )
 
 [node name="Border" parent="Slides/OneContent17" index="6" instance=ExtResource( 12 )]
 margin_left = 1138.0
@@ -2601,6 +2706,20 @@ text = ">When we add a flipflop behind the combinatorial logic
         >the output does not change even if the input changes
         >this state is kept until the next CLOCK signal arrives
     >such flipflops are easily built from basic logic gates "
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent18" index="0"]
 margin_right = 1920.0
@@ -2619,7 +2738,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2635,7 +2754,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 2: adding state[/color]"
 text = "The CPU inside the CPU -- 2: adding state"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2681,7 +2800,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2689,8 +2808,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent18" index="5"]
-anims/FadeIn = SubResource( 43 )
-anims/FadeOut = SubResource( 44 )
+anims/FadeIn = SubResource( 46 )
+anims/FadeOut = SubResource( 47 )
 
 [node name="Border" parent="Slides/OneContent18" index="6" instance=ExtResource( 12 )]
 margin_left = 157.0
@@ -2722,6 +2841,20 @@ text = ">When we [b]feed back the state[/b]
     >you can jump from state to state, given a 
         condition
 [b][u]Example:[/u][/b]"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent19" index="0"]
 margin_right = 1920.0
@@ -2740,7 +2873,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2756,7 +2889,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 3: Finite State Machines[/color]"
 text = "The CPU inside the CPU -- 3: Finite State Machines"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2789,8 +2922,8 @@ content = "> When we feed back the state
     > the output state is dependent on:
         > the condition  (input signals A, B)
         > the current state
-    > you can jump from state, given a condition
-
+    > you can jump from state to state, given a 
+        condition
 Example:"
 text_size = 36.0
 text_color = Color( 0, 0, 0, 1 )
@@ -2805,7 +2938,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2813,8 +2946,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent19" index="5"]
-anims/FadeIn = SubResource( 45 )
-anims/FadeOut = SubResource( 46 )
+anims/FadeIn = SubResource( 48 )
+anims/FadeOut = SubResource( 49 )
 
 [node name="Border" parent="Slides/OneContent19" index="6" instance=ExtResource( 12 )]
 margin_left = 110.0
@@ -2849,6 +2982,20 @@ text = "In the final control unit of the CPU
    desired output signals
 
 Separating CPU state and output signals makes for a cleaner, more easy to maintain design."
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent20" index="0"]
 margin_right = 1920.0
@@ -2867,7 +3014,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2883,7 +3030,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 4:  Control Unit[/color]"
 text = "The CPU inside the CPU -- 4:  Control Unit"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2920,7 +3067,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2928,8 +3075,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent20" index="5"]
-anims/FadeIn = SubResource( 47 )
-anims/FadeOut = SubResource( 48 )
+anims/FadeIn = SubResource( 50 )
+anims/FadeOut = SubResource( 51 )
 
 [node name="Border" parent="Slides/OneContent20" index="6" instance=ExtResource( 12 )]
 margin_left = 110.0
@@ -2954,6 +3101,20 @@ Hence, for testing
 [b]we have to add 
 some RAM![/b] 
 "
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent7" index="0"]
 margin_right = 1920.0
@@ -2972,7 +3133,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2988,7 +3149,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]A minimalistic computer - for testing the CPU[/color]"
 text = "A minimalistic computer - for testing the CPU"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3040,7 +3201,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3048,8 +3209,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent7" index="5"]
-anims/FadeIn = SubResource( 49 )
-anims/FadeOut = SubResource( 50 )
+anims/FadeIn = SubResource( 52 )
+anims/FadeOut = SubResource( 53 )
 
 [node name="Border" parent="Slides/OneContent7" index="6" instance=ExtResource( 12 )]
 margin_left = 405.0
@@ -3075,6 +3236,20 @@ text = "[u]First instruction ever executed:[/u]
 
 
 Simulation waveform of relevant signals:"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent8" index="0"]
 margin_right = 1920.0
@@ -3093,7 +3268,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3109,7 +3284,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Day 7: Breakthrough!!!![/color]"
 text = "Day 7: Breakthrough!!!!"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3164,7 +3339,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3172,8 +3347,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent8" index="5"]
-anims/FadeIn = SubResource( 51 )
-anims/FadeOut = SubResource( 52 )
+anims/FadeIn = SubResource( 54 )
+anims/FadeOut = SubResource( 55 )
 
 [node name="Border" parent="Slides/OneContent8" index="6" instance=ExtResource( 12 )]
 margin_left = 854.0
@@ -3215,6 +3390,20 @@ text = ">Translates RRISC assembly
         in VHDL files
     -[b].coe[/b]: coefficient file for
         use in BRAM cells"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent9" index="0"]
 margin_right = 1920.0
@@ -3233,7 +3422,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3249,7 +3438,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The macro assembler[/color]"
 text = "The macro assembler"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3331,7 +3520,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3339,8 +3528,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent9" index="5"]
-anims/FadeIn = SubResource( 53 )
-anims/FadeOut = SubResource( 54 )
+anims/FadeIn = SubResource( 56 )
+anims/FadeOut = SubResource( 57 )
 
 [node name="Border" parent="Slides/OneContent9" index="6" instance=ExtResource( 12 )]
 margin_left = 591.0
@@ -3387,6 +3576,20 @@ Provides 3 flags to the CPU:
     -add/sub over/underflowed 
     -shift operation shifted a bit into it
 -LT: comparison result: less than"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent10" index="0"]
 margin_right = 1920.0
@@ -3405,7 +3608,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3421,7 +3624,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The ALU - arithmetic logical unit[/color]"
 text = "The ALU - arithmetic logical unit"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3490,20 +3693,34 @@ bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 margin_left = 800.0
 margin_right = 1293.0
 bbcode_text = "[color=#ff000000]Operations:
-[color=#ffcd0f2d]> [/color]       add with carry
-[color=#ffcd0f2d]> [/color]       subtract with carry
-[color=#ffcd0f2d]> [/color]       shift left, MSB into carry
-[color=#ffcd0f2d]> [/color]       shift right, LSB into carry
-[color=#ffcd0f2d]> [/color]       bitwise rotate left
-[color=#ffcd0f2d]> [/color]       bitwise rotate right
-[color=#ffcd0f2d]> [/color]       bitwise or
-[color=#ffcd0f2d]> [/color]       bitwise and
-[color=#ffcd0f2d]> [/color]       bitwise nand
-[color=#ffcd0f2d]> [/color]       bitwise xor
-[color=#ffcd0f2d]> [/color]       bitwise compare
-[color=#ffcd0f2d]> [/color]       increment by 1
-[color=#ffcd0f2d]> [/color]       decrement by 1[/color]"
+[color=#ffcd0f2d]> [/color]        add with carry
+[color=#ffcd0f2d]> [/color]        subtract with carry
+[color=#ffcd0f2d]> [/color]        shift left, MSB into carry
+[color=#ffcd0f2d]> [/color]        shift right, LSB into carry
+[color=#ffcd0f2d]> [/color]        bitwise rotate left
+[color=#ffcd0f2d]> [/color]        bitwise rotate right
+[color=#ffcd0f2d]> [/color]        bitwise or
+[color=#ffcd0f2d]> [/color]        bitwise and
+[color=#ffcd0f2d]> [/color]        bitwise nand
+[color=#ffcd0f2d]> [/color]        bitwise xor
+[color=#ffcd0f2d]> [/color]        bitwise compare
+[color=#ffcd0f2d]> [/color]        increment by 1
+[color=#ffcd0f2d]> [/color]        decrement by 1[/color]"
 text = "Operations:
+>         add with carry
+>         subtract with carry
+>         shift left, MSB into carry
+>         shift right, LSB into carry
+>         bitwise rotate left
+>         bitwise rotate right
+>         bitwise or
+>         bitwise and
+>         bitwise nand
+>         bitwise xor
+>         bitwise compare
+>         increment by 1
+>         decrement by 1"
+content = "Operations:
 >        add with carry
 >        subtract with carry
 >        shift left, MSB into carry
@@ -3517,20 +3734,6 @@ text = "Operations:
 >        bitwise compare
 >        increment by 1
 >        decrement by 1"
-content = "Operations:
->       add with carry
->       subtract with carry
->       shift left, MSB into carry
->       shift right, LSB into carry
->       bitwise rotate left
->       bitwise rotate right
->       bitwise or
->       bitwise and
->       bitwise nand
->       bitwise xor
->       bitwise compare
->       increment by 1
->       decrement by 1"
 text_size = 36.0
 text_color = Color( 0, 0, 0, 1 )
 bullet_symbol = ">"
@@ -3544,7 +3747,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3552,8 +3755,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent10" index="6"]
-anims/FadeIn = SubResource( 55 )
-anims/FadeOut = SubResource( 56 )
+anims/FadeIn = SubResource( 58 )
+anims/FadeOut = SubResource( 59 )
 
 [node name="Border" parent="Slides/OneContent10" index="7" instance=ExtResource( 12 )]
 margin_left = 1280.0
@@ -3586,6 +3789,20 @@ The complete design consists of:
     - 4 switches
     - 4 buttons
 "
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent15" index="0"]
 margin_right = 1920.0
@@ -3604,7 +3821,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3620,7 +3837,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Preparing for the real-world test[/color]"
 text = "Preparing for the real-world test"
-custom_effects = [ SubResource( 37 ) ]
+custom_effects = [ SubResource( 40 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3696,7 +3913,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 38 )
+custom_fonts/normal_font = SubResource( 41 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3704,8 +3921,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent15" index="5"]
-anims/FadeIn = SubResource( 57 )
-anims/FadeOut = SubResource( 58 )
+anims/FadeIn = SubResource( 60 )
+anims/FadeOut = SubResource( 61 )
 
 [node name="Border" parent="Slides/OneContent15" index="6" instance=ExtResource( 12 )]
 margin_left = 731.0
@@ -3720,6 +3937,20 @@ visible = false
 script = ExtResource( 13 )
 title = "The running light demo program"
 text = "It [b][color=#cd0f2d]should[/color][/b] work..."
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent14" index="0"]
 margin_right = 1920.0
@@ -3738,7 +3969,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 59 )
+custom_fonts/normal_font = SubResource( 62 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3754,7 +3985,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The running light demo program[/color]"
 text = "The running light demo program"
-custom_effects = [ SubResource( 60 ) ]
+custom_effects = [ SubResource( 63 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3778,7 +4009,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 61 )
+custom_fonts/normal_font = SubResource( 64 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3786,8 +4017,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent14" index="5"]
-anims/FadeIn = SubResource( 62 )
-anims/FadeOut = SubResource( 63 )
+anims/FadeIn = SubResource( 65 )
+anims/FadeOut = SubResource( 66 )
 
 [node name="Border" parent="Slides/OneContent14" index="6" instance=ExtResource( 12 )]
 margin_left = 156.0
@@ -3806,12 +4037,25 @@ rect_scale = Vector2( 0.8, 0.55 )
 img = ExtResource( 42 )
 
 [node name="OneContent11" type="Node2D" parent="Slides" index="28"]
-visible = false
 script = ExtResource( 13 )
 title = "Day 11: Breakthrough!!!!"
 text = ">The test program runs!
 >On the RRISC CPU!
 >On the FPGA board!"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent11" index="0"]
 margin_right = 1920.0
@@ -3830,7 +4074,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 64 )
+custom_fonts/normal_font = SubResource( 67 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3846,7 +4090,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Day 11: Breakthrough!!!![/color]"
 text = "Day 11: Breakthrough!!!!"
-custom_effects = [ SubResource( 65 ) ]
+custom_effects = [ SubResource( 68 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3874,7 +4118,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 66 )
+custom_fonts/normal_font = SubResource( 69 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3882,8 +4126,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent11" index="5"]
-anims/FadeIn = SubResource( 67 )
-anims/FadeOut = SubResource( 68 )
+anims/FadeIn = SubResource( 70 )
+anims/FadeOut = SubResource( 71 )
 
 [node name="Node2D" type="Node2D" parent="Slides/OneContent11" index="6"]
 script = ExtResource( 39 )
@@ -3910,6 +4154,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Slides/OneContent11/Node2D" index="2"]
+modulate = Color( 1, 1, 1, 0.0666667 )
+position = Vector2( 1151, 910 )
+scale = Vector2( 0.2, 0.2 )
+normal = ExtResource( 61 )
+shape_visible = false
+visibility_mode = 1
+
 [node name="OneContent12" type="Node2D" parent="Slides" index="29"]
 visible = false
 script = ExtResource( 13 )
@@ -3921,6 +4173,20 @@ text = "[color=blue][url=renerocksai.github.io/rrisc/]https://renerocksai.github
 >HTML generated by the Jekyll
     static site generator
 >hosted on Github pages"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent12" index="0"]
 margin_right = 1920.0
@@ -3939,7 +4205,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 64 )
+custom_fonts/normal_font = SubResource( 67 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3955,7 +4221,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The website[/color]"
 text = "The website"
-custom_effects = [ SubResource( 65 ) ]
+custom_effects = [ SubResource( 68 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3975,7 +4241,13 @@ text = "https://renerocksai.github.io/rrisc
 > HTML generated by the Jekyll
     static site generator
 > hosted on Github pages"
-content = "https://renerocksai.github.io/rrisc"
+content = "https://renerocksai.github.io/rrisc
+
+> static HTML website
+> authored in Markdown
+> HTML generated by the Jekyll
+    static site generator
+> hosted on Github pages"
 text_size = 36.0
 text_color = Color( 0, 0, 0, 1 )
 bullet_symbol = ">"
@@ -3989,7 +4261,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 66 )
+custom_fonts/normal_font = SubResource( 69 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3997,8 +4269,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent12" index="5"]
-anims/FadeIn = SubResource( 67 )
-anims/FadeOut = SubResource( 68 )
+anims/FadeIn = SubResource( 70 )
+anims/FadeOut = SubResource( 71 )
 
 [node name="Border" parent="Slides/OneContent12" index="6" instance=ExtResource( 12 )]
 margin_left = 650.0
@@ -4015,6 +4287,20 @@ title = "Reactions on social media"
 text = ">RRISC is actively being discussed on reddit
 >[b][color=#cd0f2d]Hottest topic[/color][/b] in r/VHDL on days 12 & 13
     (2021-01-03 and 2021-01-04)"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent13" index="0"]
 margin_right = 1920.0
@@ -4033,7 +4319,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 64 )
+custom_fonts/normal_font = SubResource( 67 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4049,7 +4335,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Reactions on social media[/color]"
 text = "Reactions on social media"
-custom_effects = [ SubResource( 65 ) ]
+custom_effects = [ SubResource( 68 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4077,7 +4363,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 66 )
+custom_fonts/normal_font = SubResource( 69 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -4092,8 +4378,8 @@ margin_bottom = 971.0
 img = ExtResource( 43 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent13" index="6"]
-anims/FadeIn = SubResource( 67 )
-anims/FadeOut = SubResource( 68 )
+anims/FadeIn = SubResource( 70 )
+anims/FadeOut = SubResource( 71 )
 
 [node name="Border" parent="Slides/OneContent13" index="7" instance=ExtResource( 12 )]
 margin_left = 1091.0
@@ -4127,6 +4413,20 @@ text = "-FPGAs are fascinating, extremely powerful chips
     >and there's always someone on reddit ready to comment
 
 >Long, uninterrupted stretches of time for concentration and deep work prove to be extremely productive"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="Thankyou" type="Node2D" parent="Slides" index="32"]
 visible = false
@@ -4157,7 +4457,7 @@ margin_top = 200.0
 margin_right = 1819.0
 margin_bottom = 423.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 69 )
+custom_fonts/normal_font = SubResource( 72 )
 custom_constants/line_separation = 15
 bbcode_enabled = true
 bbcode_text = "[color=#cd0f2d]THANK YOU FOR YOUR ATTENTION[/color]"
@@ -4173,7 +4473,7 @@ margin_top = 749.0
 margin_right = 1055.0
 margin_bottom = 995.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 70 )
+custom_fonts/normal_font = SubResource( 73 )
 custom_constants/line_separation = 0
 bbcode_enabled = true
 bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU IN TWO WEEKS[/color]
@@ -4190,8 +4490,8 @@ margin_top = 560.0
 margin_right = 1137.0
 margin_bottom = 783.0
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 71 )
-custom_fonts/normal_font = SubResource( 72 )
+custom_fonts/bold_font = SubResource( 74 )
+custom_fonts/normal_font = SubResource( 75 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]RRISC CPU[/color]"
 text = "RRISC CPU"
@@ -4230,12 +4530,13 @@ position = Vector2( 377.026, 126.278 )
 texture = ExtResource( 34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou" index="5"]
-anims/FadeIn = SubResource( 73 )
-anims/FadeOut = SubResource( 74 )
+anims/FadeIn = SubResource( 76 )
+anims/FadeOut = SubResource( 77 )
 
 [node name="TouchControls" parent="." index="2"]
 visible = true
 [connection signal="pressed" from="Slides/OneContent11/Node2D/Button" to="Slides/OneContent11/Node2D" method="_on_Button_pressed"]
+[connection signal="pressed" from="Slides/OneContent11/Node2D/TouchScreenButton" to="Slides/OneContent11/Node2D" method="_on_TouchScreenButton_pressed"]
 
 [editable path="Slides/Chapter"]
 

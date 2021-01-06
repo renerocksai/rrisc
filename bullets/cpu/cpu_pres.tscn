@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=140 format=2]
 
 [ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.gd" type="Script" id=2]
@@ -42,7 +42,7 @@
 [ext_resource path="res://imgs/linkedin1.png" type="Texture" id=40]
 [ext_resource path="res://imgs/runninglight.asm.png" type="Texture" id=41]
 [ext_resource path="res://imgs/runlight.timing.png" type="Texture" id=42]
-[ext_resource path="res://imgs/reddit.png" type="Texture" id=43]
+[ext_resource path="res://imgs/reddit2.jpg" type="Texture" id=43]
 [ext_resource path="res://imgs/linkedin2.png" type="Texture" id=44]
 [ext_resource path="res://Bullets/Slides/BThankyou.gd" type="Script" id=45]
 [ext_resource path="res://imgs/cpudemo.png" type="Texture" id=46]
@@ -61,6 +61,7 @@
 [ext_resource path="res://Bullets/fonts/ChapterSubTitleFont.tres" type="DynamicFont" id=59]
 [ext_resource path="res://imgs/cpuschem2.jpg" type="Texture" id=60]
 [ext_resource path="res://Bullets/img/fscreen.png" type="Texture" id=61]
+[ext_resource path="res://imgs/flow.png" type="Texture" id=62]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -926,18 +927,18 @@ slide_number_start = 1
 mouse_hide_timeout = 1.5
 
 [node name="LaserPointer" parent="Slides" index="1"]
-frame = 19
+frame = 7
 
 [node name="LaserPointer2" parent="Slides" index="2"]
-frame = 26
+frame = 15
 
 [node name="LaserPointer3" parent="Slides" index="3"]
-frame = 28
+frame = 17
 
 [node name="Title" type="Node2D" parent="Slides" index="5"]
 script = ExtResource( 2 )
 Title = "RRISC CPU"
-Subtitle = "Building a CPU in 2 weeks"
+Subtitle = "Building a CPU over Christmas"
 Authors = "Rene Schallner"
 title_size = 148.0
 title_color = Color( 0, 0, 0, 1 )
@@ -979,9 +980,9 @@ margin_bottom = 1006.0
 mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU IN 2 WEEKS[/color]
+bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU OVER CHRISTMAS[/color]
 [color=#ff993366]RENE SCHALLNER[/color]"
-text = "BUILDING A CPU IN 2 WEEKS
+text = "BUILDING A CPU OVER CHRISTMAS
 RENE SCHALLNER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1021,9 +1022,10 @@ position = Vector2( 377.026, 126.278 )
 texture = ExtResource( 34 )
 
 [node name="Chapter0" type="Node2D" parent="Slides" index="6"]
+visible = false
 script = ExtResource( 56 )
 ChapterNum = "0"
-Title = "What & why?"
+Title = "What and why?"
 Subtitle = "What is a CPU and why would I want to build one anyway?"
 chapter_num_size = 300.0
 chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
@@ -1052,8 +1054,8 @@ mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 57 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[color=#ff000000]What & why?[/color]"
-text = "What & why?"
+bbcode_text = "[color=#ff000000]What and why?[/color]"
+text = "What and why?"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1093,6 +1095,7 @@ anims/FadeOut = SubResource( 6 )
 anims/visible = SubResource( 7 )
 
 [node name="TwoContent" type="Node2D" parent="Slides" index="7"]
+visible = false
 script = ExtResource( 21 )
 title = "What is a RRISC CPU and why would I want to build one anyway?"
 textLeft = "[b]CPU[/b]
@@ -1126,20 +1129,7 @@ textRight = "[center][b][u]Main Differences RISC -> RRISC[/u][/b][/center]
     (=> Turing complete)
 >identical execution time of all instructions
 "
-sources = ""
-page_number = "auto"
-title_size = 52.0
-title_color = Color( 0, 0, 0, 1 )
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-sources_size = 20.0
-sources_color = Color( 0.75, 0.75, 0.75, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
-pagenumber_size = 20.0
-pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/TwoContent" index="0"]
 margin_right = 1920.0
@@ -1310,21 +1300,7 @@ textLeft = "[b][u]WHY?[/u][/b]
     -for learning and educating about CPU design
     -De-mystifying CPUs
 "
-textRight = ""
-sources = ""
-page_number = "auto"
-title_size = 52.0
-title_color = Color( 0, 0, 0, 1 )
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-sources_size = 20.0
-sources_color = Color( 0.75, 0.75, 0.75, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
-pagenumber_size = 20.0
-pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/TwoContent3" index="0"]
 margin_right = 1920.0
@@ -1467,6 +1443,7 @@ bbcode_text = "[color=#ffcd0f2d]1[/color]"
 text = "1"
 
 [node name="OneContent" type="Node2D" parent="Slides" index="10"]
+visible = false
 script = ExtResource( 13 )
 title = "Starting off with some 30 years old schematics"
 text = ">I designed the
@@ -1584,11 +1561,6 @@ content = "> I designed the
 > I never got 
    around to 
    actually build it"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent" index="4"]
@@ -1644,12 +1616,6 @@ pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="ContentLabel" parent="Slides/OneContent2" index="0" instance=ExtResource( 10 )]
 margin_right = 380.0
-content = ""
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/OneContent2" index="1"]
@@ -1839,11 +1805,6 @@ content = "
     circuits onto a programmable chip
 
 GOAL: Have the CPU run a demo program here --->"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent3" index="4"]
@@ -1971,11 +1932,6 @@ content = "> We order an ebook about FPGAs and VHDL
         a textual representation 
 
 >  We spend the rest of the week reading and learning"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent4" index="4"]
@@ -2052,21 +2008,7 @@ textLeft = "I only had a rough idea of what to accomplish
     -the demo program running on the board
 >[b]Run:[/b] get the code translated and programmed into the FPGA
 >[b]Document:[/b] create a web page documenting the CPU and project"
-textRight = ""
-sources = ""
-page_number = "auto"
-title_size = 52.0
-title_color = Color( 0, 0, 0, 1 )
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-sources_size = 20.0
-sources_color = Color( 0.75, 0.75, 0.75, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
-pagenumber_size = 20.0
-pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/TwoContent2" index="0"]
 margin_right = 1920.0
@@ -2194,6 +2136,14 @@ __meta__ = {
 anims/FadeIn = SubResource( 32 )
 anims/FadeOut = SubResource( 33 )
 
+[node name="Border" parent="Slides/TwoContent2" index="7" instance=ExtResource( 12 )]
+margin_left = 1550.0
+margin_top = 181.0
+margin_right = 1740.0
+margin_bottom = 601.0
+rect_scale = Vector2( 1.8, 2 )
+img = ExtResource( 62 )
+
 [node name="OneContent5" type="Node2D" parent="Slides" index="16"]
 visible = false
 script = ExtResource( 13 )
@@ -2320,11 +2270,6 @@ content = "> Turned out Vivado was bad for my
 		
     > gtkwave is a viewer for waveforms
         > such as created by ghdl"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent5" index="4"]
@@ -2354,23 +2299,18 @@ img = ExtResource( 26 )
 [node name="ContentLabel2" parent="Slides/OneContent5" index="7" instance=ExtResource( 10 )]
 margin_left = 850.0
 margin_right = 2550.0
-bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]      Editing, simulating, and testing of VHDL designs
-    [color=#ffcd0f2d]> [/color]      right in the terminal, no mouse needed
-        (viewing waveforms requires a mouse)
-	[/color]"
-text = ">       Editing, simulating, and testing of VHDL designs
-    >       right in the terminal, no mouse needed
-        (viewing waveforms requires a mouse)
-	"
-content = ">      Editing, simulating, and testing of VHDL designs
-    >      right in the terminal, no mouse needed
-        (viewing waveforms requires a mouse)
-	"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Editing, simulating, and testing of VHDL designs
+    [color=#ffcd0f2d]> [/color]right in the terminal, no mouse needed
+       [i](viewing waveforms requires a mouse)[/i]	
+[/color]"
+text = "> Editing, simulating, and testing of VHDL designs
+    > right in the terminal, no mouse needed
+       (viewing waveforms requires a mouse)	
+"
+content = "> Editing, simulating, and testing of VHDL designs
+    > right in the terminal, no mouse needed
+       (viewing waveforms requires a mouse)	
+"
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="OneContent6" type="Node2D" parent="Slides" index="17"]
@@ -2499,11 +2439,6 @@ content = "The core components of the CPU:
 
 
 When we implement these, we have a CPU, legally speaking."
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent6" index="4"]
@@ -2653,11 +2588,6 @@ Example:
         X = ({NOT A} AND {NOT B}) 
               OR (A AND {NOT B}) 
               OR (A AND B)"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent17" index="4"]
@@ -2787,11 +2717,6 @@ content = "> When we add a flipflop behind the combinatorial logic
         > the output does not change even if the input changes
         > this state is kept until the next CLOCK signal arrives
     > such flipflops are easily built from basic logic gates "
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent18" index="4"]
@@ -2925,11 +2850,6 @@ content = "> When we feed back the state
     > you can jump from state to state, given a 
         condition
 Example:"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent19" index="4"]
@@ -3054,11 +2974,6 @@ content = "In the final control unit of the CPU
    desired output signals
 
 Separating CPU state and output signals makes for a cleaner, more easy to maintain design."
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent20" index="4"]
@@ -3188,11 +3103,6 @@ Hence, for testing
 we have to add 
 some RAM! 
 "
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent7" index="4"]
@@ -3326,11 +3236,6 @@ lda # $CA
 
 
 Simulation waveform of relevant signals:"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent8" index="4"]
@@ -3376,8 +3281,7 @@ text = ">Translates RRISC assembly
 >Supports
     >constants (dec/hex)
     >labels
-    >[color=blue][b]<[/b][/color]low and [color=blue][b]>[/b][/color]high byte
-        notation
+    >include files
     -macros with parameters
 	
 >Generates files:
@@ -3453,8 +3357,7 @@ bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Translates RRISC asse
 [color=#ffcd0f2d]> [/color]Supports
     [color=#ffcd0f2d]> [/color]constants (dec/hex)
     [color=#ffcd0f2d]> [/color]labels
-    [color=#ffcd0f2d]> [/color][color=blue][b]<[/b][/color]low and [color=blue][b]>[/b][/color]high byte
-        notation
+    [color=#ffcd0f2d]> [/color]include files
     [color=#ffcd0f2d]> [/color]macros with parameters
 	
 [color=#ffcd0f2d]> [/color]Generates files:
@@ -3473,8 +3376,7 @@ text = "> Translates RRISC assembly
 > Supports
     > constants (dec/hex)
     > labels
-    > <low and >high byte
-        notation
+    > include files
     > macros with parameters
 	
 > Generates files:
@@ -3493,8 +3395,7 @@ content = "> Translates RRISC assembly
 > Supports
     > constants (dec/hex)
     > labels
-    > <low and >high byte
-        notation
+    > include files
     > macros with parameters
 	
 > Generates files:
@@ -3507,11 +3408,6 @@ content = "> Translates RRISC assembly
         in VHDL files
     > .coe: coefficient file for
         use in BRAM cells"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent9" index="4"]
@@ -3560,7 +3456,7 @@ visible = false
 script = ExtResource( 13 )
 title = "The ALU - arithmetic logical unit"
 text = ">Necessary to perform calculations
->NOT part of the CPU itself
+>[b]NOT[/b] part of the CPU itself
 
 >Accessed via 4 external ports:
     >Operand A
@@ -3569,13 +3465,13 @@ text = ">Necessary to perform calculations
     >Result
 
 Provides 3 flags to the CPU:
--EQ/zero: last result was zero
+-[u]EQ/zero[/u]: last result was zero
     or comparison result: equal
--GT/carry:
+-[u]GT/carry[/u]:
     -comparison result:'greater than
     -add/sub over/underflowed 
     -shift operation shifted a bit into it
--LT: comparison result: less than"
+-[u]LT[/u]: comparison result: less than"
 sources = ""
 page_number = "auto"
 title_size = 52.0
@@ -3632,7 +3528,7 @@ __meta__ = {
 [node name="ContentLabel" parent="Slides/OneContent10" index="3" instance=ExtResource( 10 )]
 margin_right = 710.0
 bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Necessary to perform calculations
-[color=#ffcd0f2d]> [/color]NOT part of the CPU itself
+[color=#ffcd0f2d]> [/color][b]NOT[/b] part of the CPU itself
 
 [color=#ffcd0f2d]> [/color]Accessed via 4 external ports:
     [color=#ffcd0f2d]> [/color]Operand A
@@ -3641,13 +3537,13 @@ bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Necessary to perform 
     [color=#ffcd0f2d]> [/color]Result
 
 Provides 3 flags to the CPU:
-[color=#ffcd0f2d]> [/color]EQ/zero: last result was zero
+[color=#ffcd0f2d]> [/color][u]EQ/zero[/u]: last result was zero
     or comparison result: equal
-[color=#ffcd0f2d]> [/color]GT/carry:
+[color=#ffcd0f2d]> [/color][u]GT/carry[/u]:
     [color=#ffcd0f2d]> [/color]comparison result:'greater than
     [color=#ffcd0f2d]> [/color]add/sub over/underflowed 
     [color=#ffcd0f2d]> [/color]shift operation shifted a bit into it
-[color=#ffcd0f2d]> [/color]LT: comparison result: less than[/color]"
+[color=#ffcd0f2d]> [/color][u]LT[/u]: comparison result: less than[/color]"
 text = "> Necessary to perform calculations
 > NOT part of the CPU itself
 
@@ -3682,63 +3578,53 @@ Provides 3 flags to the CPU:
     > add/sub over/underflowed 
     > shift operation shifted a bit into it
 > LT: comparison result: less than"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="ContentLabel2" parent="Slides/OneContent10" index="4" instance=ExtResource( 10 )]
 margin_left = 800.0
 margin_right = 1293.0
-bbcode_text = "[color=#ff000000]Operations:
-[color=#ffcd0f2d]> [/color]        add with carry
-[color=#ffcd0f2d]> [/color]        subtract with carry
-[color=#ffcd0f2d]> [/color]        shift left, MSB into carry
-[color=#ffcd0f2d]> [/color]        shift right, LSB into carry
-[color=#ffcd0f2d]> [/color]        bitwise rotate left
-[color=#ffcd0f2d]> [/color]        bitwise rotate right
-[color=#ffcd0f2d]> [/color]        bitwise or
-[color=#ffcd0f2d]> [/color]        bitwise and
-[color=#ffcd0f2d]> [/color]        bitwise nand
-[color=#ffcd0f2d]> [/color]        bitwise xor
-[color=#ffcd0f2d]> [/color]        bitwise compare
-[color=#ffcd0f2d]> [/color]        increment by 1
-[color=#ffcd0f2d]> [/color]        decrement by 1[/color]"
+bbcode_text = "[color=#ff000000][b][u]Operations:[/u][/b]
+[color=#ffcd0f2d]> [/color]add with carry
+[color=#ffcd0f2d]> [/color]subtract with carry
+[color=#ffcd0f2d]> [/color]shift left, MSB into carry
+[color=#ffcd0f2d]> [/color]shift right, LSB into carry
+[color=#ffcd0f2d]> [/color]bitwise rotate left
+[color=#ffcd0f2d]> [/color]bitwise rotate right
+[color=#ffcd0f2d]> [/color]bitwise or
+[color=#ffcd0f2d]> [/color]bitwise and
+[color=#ffcd0f2d]> [/color]bitwise nand
+[color=#ffcd0f2d]> [/color]bitwise xor
+[color=#ffcd0f2d]> [/color]bitwise compare
+[color=#ffcd0f2d]> [/color]increment by 1
+[color=#ffcd0f2d]> [/color]decrement by 1[/color]"
 text = "Operations:
->         add with carry
->         subtract with carry
->         shift left, MSB into carry
->         shift right, LSB into carry
->         bitwise rotate left
->         bitwise rotate right
->         bitwise or
->         bitwise and
->         bitwise nand
->         bitwise xor
->         bitwise compare
->         increment by 1
->         decrement by 1"
+> add with carry
+> subtract with carry
+> shift left, MSB into carry
+> shift right, LSB into carry
+> bitwise rotate left
+> bitwise rotate right
+> bitwise or
+> bitwise and
+> bitwise nand
+> bitwise xor
+> bitwise compare
+> increment by 1
+> decrement by 1"
 content = "Operations:
->        add with carry
->        subtract with carry
->        shift left, MSB into carry
->        shift right, LSB into carry
->        bitwise rotate left
->        bitwise rotate right
->        bitwise or
->        bitwise and
->        bitwise nand
->        bitwise xor
->        bitwise compare
->        increment by 1
->        decrement by 1"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
+> add with carry
+> subtract with carry
+> shift left, MSB into carry
+> shift right, LSB into carry
+> bitwise rotate left
+> bitwise rotate right
+> bitwise or
+> bitwise and
+> bitwise nand
+> bitwise xor
+> bitwise compare
+> increment by 1
+> decrement by 1"
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent10" index="5"]
@@ -3900,11 +3786,6 @@ The complete design consists of:
     >  4 switches
     >  4 buttons
 "
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent15" index="4"]
@@ -3996,11 +3877,6 @@ margin_bottom = 1100.0
 bbcode_text = "[color=#ff000000]It [b][color=#cd0f2d]should[/color][/b] work...[/color]"
 text = "It should work..."
 content = "It should work..."
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent14" index="4"]
@@ -4037,8 +3913,9 @@ rect_scale = Vector2( 0.8, 0.55 )
 img = ExtResource( 42 )
 
 [node name="OneContent11" type="Node2D" parent="Slides" index="28"]
+visible = false
 script = ExtResource( 13 )
-title = "Day 11: Breakthrough!!!!"
+title = "Day 11: Breakthrough!!!! RRISC CPU in the real world"
 text = ">The test program runs!
 >On the RRISC CPU!
 >On the FPGA board!"
@@ -4088,8 +3965,8 @@ margin_bottom = 144.0
 mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[color=#ff000000]Day 11: Breakthrough!!!![/color]"
-text = "Day 11: Breakthrough!!!!"
+bbcode_text = "[color=#ff000000]Day 11: Breakthrough!!!! RRISC CPU in the real world[/color]"
+text = "Day 11: Breakthrough!!!! RRISC CPU in the real world"
 custom_effects = [ SubResource( 68 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4105,11 +3982,6 @@ text = "> The test program runs!
 content = "> The test program runs!
 > On the RRISC CPU!
 > On the FPGA board!"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent11" index="4"]
@@ -4248,11 +4120,6 @@ content = "https://renerocksai.github.io/rrisc
 > HTML generated by the Jekyll
     static site generator
 > hosted on Github pages"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent12" index="4"]
@@ -4350,11 +4217,6 @@ text = "> RRISC is actively being discussed on reddit
 content = "> RRISC is actively being discussed on reddit
 > Hottest topic in r/VHDL on days 12 & 13
     (2021-01-03 and 2021-01-04)"
-text_size = 36.0
-text_color = Color( 0, 0, 0, 1 )
-bullet_symbol = ">"
-bullet_bold = false
-bullet_italic = false
 bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 
 [node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent13" index="4"]
@@ -4373,8 +4235,9 @@ __meta__ = {
 [node name="Border2" parent="Slides/OneContent13" index="5" instance=ExtResource( 12 )]
 margin_left = 129.0
 margin_top = 336.0
-margin_right = 1034.0
-margin_bottom = 971.0
+margin_right = 1569.0
+margin_bottom = 2021.0
+rect_scale = Vector2( 0.5, 0.4 )
 img = ExtResource( 43 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent13" index="6"]
@@ -4382,18 +4245,18 @@ anims/FadeIn = SubResource( 70 )
 anims/FadeOut = SubResource( 71 )
 
 [node name="Border" parent="Slides/OneContent13" index="7" instance=ExtResource( 12 )]
-margin_left = 1091.0
+margin_left = 912.0
 margin_top = 180.0
-margin_right = 1869.0
+margin_right = 1689.0
 margin_bottom = 1541.0
 rect_scale = Vector2( 0.6, 0.6 )
 img = ExtResource( 40 )
 
 [node name="Border3" parent="Slides/OneContent13" index="8" instance=ExtResource( 12 )]
 margin_left = 1430.0
-margin_top = 197.0
+margin_top = 181.0
 margin_right = 2204.0
-margin_bottom = 1237.0
+margin_bottom = 1221.0
 rect_scale = Vector2( 0.6, 0.6 )
 img = ExtResource( 44 )
 
@@ -4402,17 +4265,17 @@ visible = false
 title = "Takeaways"
 text = "-FPGAs are fascinating, extremely powerful chips
 
->Designing electronics in VHDL adds substantially to reusability and testability of electronic circuit designs
+>Designing electronics in [b]VHDL adds substantially to reusability and testability[/b] of electronic circuit designs
 
->Electronic circuits are parallel by nature
-    >lend themselves for speeding up algorithms
+>[b]Electronic circuits[/b] are parallel by nature
+    >[b]lend themselves to speeding up algorithms[/b]
 
->Lightweight, free, commandline beats tens of gigabytes heavy GUI all the time
+>Lightweight, free, commandline beats tens of gigabytes download, heavy GUI all the time
 
 >Creating toy CPUs is fun
     >and there's always someone on reddit ready to comment
 
->Long, uninterrupted stretches of time for concentration and deep work prove to be extremely productive"
+>[b]Long, [u][color=#cd0f2d]uninterrupted[/color][/u] stretches of time[/b] for concentration and [b]deep work[/b] prove to be [b]extremely productive[/b]"
 sources = ""
 page_number = "auto"
 title_size = 52.0
@@ -4429,10 +4292,9 @@ pagenumber_size = 20.0
 pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="Thankyou" type="Node2D" parent="Slides" index="32"]
-visible = false
 script = ExtResource( 45 )
 Title = "RRISC CPU"
-Subtitle = "Building a CPU in two weeks"
+Subtitle = "Building a CPU over Christmas"
 Authors = "Rene Schallner"
 title_size = 148.0
 title_color = Color( 0, 0, 0, 1 )
@@ -4476,9 +4338,9 @@ mouse_filter = 2
 custom_fonts/normal_font = SubResource( 73 )
 custom_constants/line_separation = 0
 bbcode_enabled = true
-bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU IN TWO WEEKS[/color]
+bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU OVER CHRISTMAS[/color]
 [color=#ff993366]RENE SCHALLNER[/color]"
-text = "BUILDING A CPU IN TWO WEEKS
+text = "BUILDING A CPU OVER CHRISTMAS
 RENE SCHALLNER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4532,9 +4394,6 @@ texture = ExtResource( 34 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou" index="5"]
 anims/FadeIn = SubResource( 76 )
 anims/FadeOut = SubResource( 77 )
-
-[node name="TouchControls" parent="." index="2"]
-visible = true
 [connection signal="pressed" from="Slides/OneContent11/Node2D/Button" to="Slides/OneContent11/Node2D" method="_on_Button_pressed"]
 [connection signal="pressed" from="Slides/OneContent11/Node2D/TouchScreenButton" to="Slides/OneContent11/Node2D" method="_on_TouchScreenButton_pressed"]
 

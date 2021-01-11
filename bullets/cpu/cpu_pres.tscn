@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=2]
+[gd_scene load_steps=146 format=2]
 
 [ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.gd" type="Script" id=2]
@@ -62,6 +62,8 @@
 [ext_resource path="res://imgs/cpuschem2.jpg" type="Texture" id=60]
 [ext_resource path="res://Bullets/img/fscreen.png" type="Texture" id=61]
 [ext_resource path="res://imgs/flow.png" type="Texture" id=62]
+[ext_resource path="res://imgs/fpgaarch.png" type="Texture" id=63]
+[ext_resource path="res://imgs/fpgaclb.png" type="Texture" id=64]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -322,67 +324,67 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=24]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=25]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
-
-[sub_resource type="Animation" id=26]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=27]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
-
 [sub_resource type="Animation" id=28]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=32]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -396,18 +398,18 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=33]
 size = 20
 font_data = ExtResource( 15 )
 
-[sub_resource type="RichTextEffect" id=30]
+[sub_resource type="RichTextEffect" id=34]
 script = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=31]
+[sub_resource type="DynamicFont" id=35]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=36]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -421,32 +423,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="Animation" id=33]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
-
-[sub_resource type="DynamicFont" id=34]
-size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=35]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=36]
-size = 20
-font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=37]
 length = 0.5
@@ -460,10 +436,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="DynamicFont" id=38]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=39]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=41]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -475,19 +462,8 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="DynamicFont" id=39]
-size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=40]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=41]
-size = 20
-font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=42]
 length = 0.5
@@ -501,53 +477,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=43]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=44]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="DynamicFont" id=43]
+size = 20
+font_data = ExtResource( 15 )
 
-[sub_resource type="Animation" id=45]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
-}
+[sub_resource type="RichTextEffect" id=44]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 20
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=46]
 length = 0.5
@@ -729,6 +671,66 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
+[sub_resource type="Animation" id=24]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
 [sub_resource type="Animation" id=58]
 length = 0.5
 tracks/0/type = "value"
@@ -789,16 +791,50 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="DynamicFont" id=62]
-size = 20
-font_data = ExtResource( 15 )
+[sub_resource type="Animation" id=62]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="RichTextEffect" id=63]
-script = ExtResource( 9 )
+[sub_resource type="Animation" id=63]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
 
-[sub_resource type="DynamicFont" id=64]
-size = 20
-font_data = ExtResource( 7 )
+[sub_resource type="Animation" id=64]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=65]
 length = 0.5
@@ -812,10 +848,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=66]
+[sub_resource type="DynamicFont" id=66]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=67]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=68]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=69]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -827,19 +874,8 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="DynamicFont" id=67]
-size = 20
-font_data = ExtResource( 15 )
-
-[sub_resource type="RichTextEffect" id=68]
-script = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=69]
-size = 20
-font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=70]
 length = 0.5
@@ -853,10 +889,36 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="DynamicFont" id=71]
+size = 20
+font_data = ExtResource( 15 )
+
+[sub_resource type="RichTextEffect" id=72]
+script = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=73]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=74]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=75]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -871,25 +933,25 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="DynamicFont" id=72]
+[sub_resource type="DynamicFont" id=76]
 size = 100
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=73]
+[sub_resource type="DynamicFont" id=77]
 size = 50
 extra_spacing_bottom = 45
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=74]
+[sub_resource type="DynamicFont" id=78]
 size = 148
 extra_spacing_top = 5
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=75]
+[sub_resource type="DynamicFont" id=79]
 size = 148
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=80]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -904,7 +966,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=81]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -927,13 +989,13 @@ slide_number_start = 1
 mouse_hide_timeout = 1.5
 
 [node name="LaserPointer" parent="Slides" index="1"]
-frame = 7
+frame = 5
 
 [node name="LaserPointer2" parent="Slides" index="2"]
-frame = 15
+frame = 14
 
 [node name="LaserPointer3" parent="Slides" index="3"]
-frame = 17
+frame = 16
 
 [node name="Title" type="Node2D" parent="Slides" index="5"]
 script = ExtResource( 2 )
@@ -1948,8 +2010,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent4" index="5"]
-anims/FadeIn = SubResource( 24 )
-anims/FadeOut = SubResource( 25 )
+anims/FadeIn = SubResource( 28 )
+anims/FadeOut = SubResource( 29 )
 
 [node name="Border" parent="Slides/OneContent4" index="6" instance=ExtResource( 12 )]
 margin_left = 1085.0
@@ -1983,9 +2045,9 @@ bbcode_text = "[color=#ffcd0f2d]2[/color]"
 text = "2"
 
 [node name="AnimationPlayer" parent="Slides/Chapter2" index="4"]
-anims/FadeIn = SubResource( 26 )
-anims/FadeOut = SubResource( 27 )
-anims/visible = SubResource( 28 )
+anims/FadeIn = SubResource( 30 )
+anims/FadeOut = SubResource( 31 )
+anims/visible = SubResource( 32 )
 
 [node name="TwoContent2" type="Node2D" parent="Slides" index="15"]
 visible = false
@@ -2027,7 +2089,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 29 )
+custom_fonts/normal_font = SubResource( 33 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2043,7 +2105,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The plan[/color]"
 text = "The plan"
-custom_effects = [ SubResource( 30 ) ]
+custom_effects = [ SubResource( 34 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2125,7 +2187,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 31 )
+custom_fonts/normal_font = SubResource( 35 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2133,8 +2195,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/TwoContent2" index="6"]
-anims/FadeIn = SubResource( 32 )
-anims/FadeOut = SubResource( 33 )
+anims/FadeIn = SubResource( 36 )
+anims/FadeOut = SubResource( 37 )
 
 [node name="Border" parent="Slides/TwoContent2" index="7" instance=ExtResource( 12 )]
 margin_left = 1550.0
@@ -2197,7 +2259,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 34 )
+custom_fonts/normal_font = SubResource( 38 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2213,7 +2275,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Software stack change[/color]"
 text = "Software stack change"
-custom_effects = [ SubResource( 35 ) ]
+custom_effects = [ SubResource( 39 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2278,7 +2340,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 40 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2286,8 +2348,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent5" index="5"]
-anims/FadeIn = SubResource( 37 )
-anims/FadeOut = SubResource( 38 )
+anims/FadeIn = SubResource( 41 )
+anims/FadeOut = SubResource( 42 )
 
 [node name="Border" parent="Slides/OneContent5" index="6" instance=ExtResource( 12 )]
 margin_left = 849.0
@@ -2299,12 +2361,12 @@ img = ExtResource( 26 )
 [node name="ContentLabel2" parent="Slides/OneContent5" index="7" instance=ExtResource( 10 )]
 margin_left = 850.0
 margin_right = 2550.0
-bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color]Editing, simulating, and testing of VHDL designs
-    [color=#ffcd0f2d]> [/color]right in the terminal, no mouse needed
-       [i](viewing waveforms requires a mouse)[/i]	
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color] Editing, simulating, and testing of VHDL designs
+    [color=#ffcd0f2d]> [/color] right in the terminal, no mouse needed
+       (viewing waveforms requires a mouse)	
 [/color]"
-text = "> Editing, simulating, and testing of VHDL designs
-    > right in the terminal, no mouse needed
+text = ">  Editing, simulating, and testing of VHDL designs
+    >  right in the terminal, no mouse needed
        (viewing waveforms requires a mouse)	
 "
 content = "> Editing, simulating, and testing of VHDL designs
@@ -2366,7 +2428,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2382,7 +2444,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The core CPU components[/color]"
 text = "The core CPU components"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2447,7 +2509,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2455,8 +2517,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent6" index="5"]
-anims/FadeIn = SubResource( 42 )
-anims/FadeOut = SubResource( 43 )
+anims/FadeIn = SubResource( 46 )
+anims/FadeOut = SubResource( 47 )
 
 [node name="Border" parent="Slides/OneContent6" index="6" instance=ExtResource( 12 )]
 margin_left = 776.0
@@ -2518,7 +2580,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2534,7 +2596,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 1: combinatorial logic[/color]"
 text = "The CPU inside the CPU -- 1: combinatorial logic"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2596,7 +2658,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2604,8 +2666,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent17" index="5"]
-anims/FadeIn = SubResource( 44 )
-anims/FadeOut = SubResource( 45 )
+anims/FadeIn = SubResource( 48 )
+anims/FadeOut = SubResource( 49 )
 
 [node name="Border" parent="Slides/OneContent17" index="6" instance=ExtResource( 12 )]
 margin_left = 1138.0
@@ -2668,7 +2730,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2684,7 +2746,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 2: adding state[/color]"
 text = "The CPU inside the CPU -- 2: adding state"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2725,7 +2787,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2733,8 +2795,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent18" index="5"]
-anims/FadeIn = SubResource( 46 )
-anims/FadeOut = SubResource( 47 )
+anims/FadeIn = SubResource( 50 )
+anims/FadeOut = SubResource( 51 )
 
 [node name="Border" parent="Slides/OneContent18" index="6" instance=ExtResource( 12 )]
 margin_left = 157.0
@@ -2798,7 +2860,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2814,7 +2876,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 3: Finite State Machines[/color]"
 text = "The CPU inside the CPU -- 3: Finite State Machines"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2858,7 +2920,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2866,8 +2928,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent19" index="5"]
-anims/FadeIn = SubResource( 48 )
-anims/FadeOut = SubResource( 49 )
+anims/FadeIn = SubResource( 52 )
+anims/FadeOut = SubResource( 53 )
 
 [node name="Border" parent="Slides/OneContent19" index="6" instance=ExtResource( 12 )]
 margin_left = 110.0
@@ -2893,7 +2955,6 @@ rect_scale = Vector2( 1.6, 1.6 )
 img = ExtResource( 53 )
 
 [node name="OneContent20" type="Node2D" parent="Slides" index="21"]
-visible = false
 script = ExtResource( 13 )
 title = "The CPU inside the CPU -- 4:  Control Unit"
 text = "In the final control unit of the CPU
@@ -2934,7 +2995,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2950,7 +3011,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The CPU inside the CPU -- 4:  Control Unit[/color]"
 text = "The CPU inside the CPU -- 4:  Control Unit"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2982,7 +3043,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -2990,8 +3051,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent20" index="5"]
-anims/FadeIn = SubResource( 50 )
-anims/FadeOut = SubResource( 51 )
+anims/FadeIn = SubResource( 54 )
+anims/FadeOut = SubResource( 55 )
 
 [node name="Border" parent="Slides/OneContent20" index="6" instance=ExtResource( 12 )]
 margin_left = 110.0
@@ -3002,7 +3063,6 @@ rect_scale = Vector2( 1.6, 1.5 )
 img = ExtResource( 55 )
 
 [node name="OneContent7" type="Node2D" parent="Slides" index="22"]
-visible = false
 script = ExtResource( 13 )
 title = "A minimalistic computer - for testing the CPU"
 text = "
@@ -3048,7 +3108,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3064,7 +3124,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]A minimalistic computer - for testing the CPU[/color]"
 text = "A minimalistic computer - for testing the CPU"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3111,7 +3171,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3119,8 +3179,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent7" index="5"]
-anims/FadeIn = SubResource( 52 )
-anims/FadeOut = SubResource( 53 )
+anims/FadeIn = SubResource( 56 )
+anims/FadeOut = SubResource( 57 )
 
 [node name="Border" parent="Slides/OneContent7" index="6" instance=ExtResource( 12 )]
 margin_left = 405.0
@@ -3130,7 +3190,301 @@ margin_bottom = 725.0
 rect_scale = Vector2( 1.4, 1.4 )
 img = ExtResource( 28 )
 
-[node name="OneContent8" type="Node2D" parent="Slides" index="23"]
+[node name="OneContent21" type="Node2D" parent="Slides" index="23"]
+script = ExtResource( 13 )
+title = "Intermezzo: FPGAs"
+text = "> Consist of a 2-dimensional array of [b]Configurable 
+    Logic Blocks[/b] and interconnections between them
+
+> Both CLBs and interconnections are programmable
+
+> CLBs can be programmed to implement very small
+    functions and are connected by programming the 
+    switch boxes
+
+> Electronic designs are broken down into very small 
+    functions which are then connected
+	
+> FPGAs enable us to \"load\" very complex digital 
+    circuits onto a programmable chip
+
+> FPGAs are also used in prototyping ASICs 
+    (custom chips)
+"
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent21" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent21" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent21" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Intermezzo: FPGAs[/color]"
+text = "Intermezzo: FPGAs"
+custom_effects = [ SubResource( 16 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent21" index="3" instance=ExtResource( 10 )]
+margin_right = 910.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color] Consist of a 2-dimensional array of [b]Configurable 
+    Logic Blocks[/b] and interconnections between them
+
+[color=#ffcd0f2d]> [/color] Both CLBs and interconnections are programmable
+
+[color=#ffcd0f2d]> [/color] CLBs can be programmed to implement very small
+    functions and are connected by programming the 
+    switch boxes
+
+[color=#ffcd0f2d]> [/color] Electronic designs are broken down into very small 
+    functions which are then connected
+	
+[color=#ffcd0f2d]> [/color] FPGAs enable us to \"load\" very complex digital 
+    circuits onto a programmable chip
+
+[color=#ffcd0f2d]> [/color] FPGAs are also used in prototyping ASICs 
+    (custom chips)
+[/color]"
+text = ">  Consist of a 2-dimensional array of Configurable 
+    Logic Blocks and interconnections between them
+
+>  Both CLBs and interconnections are programmable
+
+>  CLBs can be programmed to implement very small
+    functions and are connected by programming the 
+    switch boxes
+
+>  Electronic designs are broken down into very small 
+    functions which are then connected
+	
+>  FPGAs enable us to \"load\" very complex digital 
+    circuits onto a programmable chip
+
+>  FPGAs are also used in prototyping ASICs 
+    (custom chips)
+"
+content = "
+>  Intention: upgrading the implementation to 
+    present times technology
+
+>  The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+> FPGA ... Field Programmable Logic Array
+
+> FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+GOAL: Have the CPU run a demo program here --->"
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent21" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 17 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent21" index="5"]
+anims/FadeIn = SubResource( 24 )
+anims/FadeOut = SubResource( 25 )
+
+[node name="Border" parent="Slides/OneContent21" index="6" instance=ExtResource( 12 )]
+margin_left = 1053.0
+margin_top = 181.0
+margin_right = 1813.0
+margin_bottom = 951.0
+img = ExtResource( 63 )
+
+[node name="OneContent22" type="Node2D" parent="Slides" index="24"]
+script = ExtResource( 13 )
+title = "Configurable Logic Blocks"
+text = "> Consist of a lookup table (LUT) and an optional
+    flipflop (1-bit memory)
+
+> LUTs are typically 4..6 bits wide and can implement
+    any combinatorial logic function
+
+> To enable/disable the flipflop, a multiplexer (MUX)
+    is used that selects either the LUT output or the
+    flipflop output
+
+> During [b]synthesis[/b], the design described by our VHDL code is divided up into CLBs and other FPGA primitives, and 
+    during [b]implementation[/b], actual FPGA ressources are allocated, and the actual [b]bitstream[/b] for programming is created
+	
+> Both the LUT and the MUX selector input are configured via the bitstream sent to the FPGA when programming, 
+    together with the interconnects, I/O pin configurations, etc."
+sources = ""
+page_number = "auto"
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Slides/OneContent22" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/OneContent22" index="1"]
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/OneContent22" index="2"]
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff000000]Configurable Logic Blocks[/color]"
+text = "Configurable Logic Blocks"
+custom_effects = [ SubResource( 16 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" parent="Slides/OneContent22" index="3" instance=ExtResource( 10 )]
+margin_right = 1945.0
+bbcode_text = "[color=#ff000000][color=#ffcd0f2d]> [/color] Consist of a lookup table (LUT) and an optional
+    flipflop (1-bit memory)
+
+[color=#ffcd0f2d]> [/color] LUTs are typically 4..6 bits wide and can implement
+    any combinatorial logic function
+
+[color=#ffcd0f2d]> [/color] To enable/disable the flipflop, a multiplexer (MUX)
+    is used that selects either the LUT output or the
+    flipflop output
+
+[color=#ffcd0f2d]> [/color] During [b]synthesis[/b], the design described by our VHDL code is divided up into CLBs and other FPGA primitives, and 
+    during [b]implementation[/b], actual FPGA ressources are allocated, and the actual [b]bitstream[/b] for programming is created
+	
+[color=#ffcd0f2d]> [/color] Both the LUT and the MUX selector input are configured via the bitstream sent to the FPGA when programming, 
+    together with the interconnects, I/O pin configurations, etc.[/color]"
+text = ">  Consist of a lookup table (LUT) and an optional
+    flipflop (1-bit memory)
+
+>  LUTs are typically 4..6 bits wide and can implement
+    any combinatorial logic function
+
+>  To enable/disable the flipflop, a multiplexer (MUX)
+    is used that selects either the LUT output or the
+    flipflop output
+
+>  During synthesis, the design described by our VHDL code is divided up into CLBs and other FPGA primitives, and 
+    during implementation, actual FPGA ressources are allocated, and the actual bitstream for programming is created
+	
+>  Both the LUT and the MUX selector input are configured via the bitstream sent to the FPGA when programming, 
+    together with the interconnects, I/O pin configurations, etc."
+content = "
+>  Intention: upgrading the implementation to 
+    present times technology
+
+>  The educational requirement of using discrete 
+    logic ICs for the CPU is outdated
+
+> FPGA ... Field Programmable Logic Array
+
+> FPGAs enable us to load very complex digital 
+    circuits onto a programmable chip
+
+GOAL: Have the CPU run a demo program here --->"
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/OneContent22" index="4"]
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 17 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent22" index="5"]
+anims/FadeIn = SubResource( 26 )
+anims/FadeOut = SubResource( 27 )
+
+[node name="Border" parent="Slides/OneContent22" index="6" instance=ExtResource( 12 )]
+margin_left = 1000.0
+margin_top = 181.0
+margin_right = 1620.0
+margin_bottom = 478.0
+rect_scale = Vector2( 1.4, 1.4 )
+img = ExtResource( 64 )
+
+[node name="OneContent8" type="Node2D" parent="Slides" index="25"]
 visible = false
 script = ExtResource( 13 )
 title = "Day 7: Breakthrough!!!!"
@@ -3178,7 +3532,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3194,7 +3548,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Day 7: Breakthrough!!!![/color]"
 text = "Day 7: Breakthrough!!!!"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3244,7 +3598,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3252,8 +3606,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent8" index="5"]
-anims/FadeIn = SubResource( 54 )
-anims/FadeOut = SubResource( 55 )
+anims/FadeIn = SubResource( 58 )
+anims/FadeOut = SubResource( 59 )
 
 [node name="Border" parent="Slides/OneContent8" index="6" instance=ExtResource( 12 )]
 margin_left = 854.0
@@ -3271,7 +3625,7 @@ margin_bottom = 1091.0
 rect_scale = Vector2( 0.8, 0.8 )
 img = ExtResource( 30 )
 
-[node name="OneContent9" type="Node2D" parent="Slides" index="24"]
+[node name="OneContent9" type="Node2D" parent="Slides" index="26"]
 visible = false
 script = ExtResource( 13 )
 title = "The macro assembler"
@@ -3326,7 +3680,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3342,7 +3696,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The macro assembler[/color]"
 text = "The macro assembler"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3416,7 +3770,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3424,8 +3778,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent9" index="5"]
-anims/FadeIn = SubResource( 56 )
-anims/FadeOut = SubResource( 57 )
+anims/FadeIn = SubResource( 60 )
+anims/FadeOut = SubResource( 61 )
 
 [node name="Border" parent="Slides/OneContent9" index="6" instance=ExtResource( 12 )]
 margin_left = 591.0
@@ -3451,7 +3805,7 @@ margin_bottom = 629.0
 rect_scale = Vector2( 1.2, 1 )
 img = ExtResource( 31 )
 
-[node name="OneContent10" type="Node2D" parent="Slides" index="25"]
+[node name="OneContent10" type="Node2D" parent="Slides" index="27"]
 visible = false
 script = ExtResource( 13 )
 title = "The ALU - arithmetic logical unit"
@@ -3504,7 +3858,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3520,7 +3874,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The ALU - arithmetic logical unit[/color]"
 text = "The ALU - arithmetic logical unit"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3583,34 +3937,34 @@ bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 [node name="ContentLabel2" parent="Slides/OneContent10" index="4" instance=ExtResource( 10 )]
 margin_left = 800.0
 margin_right = 1293.0
-bbcode_text = "[color=#ff000000][b][u]Operations:[/u][/b]
-[color=#ffcd0f2d]> [/color]add with carry
-[color=#ffcd0f2d]> [/color]subtract with carry
-[color=#ffcd0f2d]> [/color]shift left, MSB into carry
-[color=#ffcd0f2d]> [/color]shift right, LSB into carry
-[color=#ffcd0f2d]> [/color]bitwise rotate left
-[color=#ffcd0f2d]> [/color]bitwise rotate right
-[color=#ffcd0f2d]> [/color]bitwise or
-[color=#ffcd0f2d]> [/color]bitwise and
-[color=#ffcd0f2d]> [/color]bitwise nand
-[color=#ffcd0f2d]> [/color]bitwise xor
-[color=#ffcd0f2d]> [/color]bitwise compare
-[color=#ffcd0f2d]> [/color]increment by 1
-[color=#ffcd0f2d]> [/color]decrement by 1[/color]"
+bbcode_text = "[color=#ff000000]Operations:
+[color=#ffcd0f2d]> [/color] add with carry
+[color=#ffcd0f2d]> [/color] subtract with carry
+[color=#ffcd0f2d]> [/color] shift left, MSB into carry
+[color=#ffcd0f2d]> [/color] shift right, LSB into carry
+[color=#ffcd0f2d]> [/color] bitwise rotate left
+[color=#ffcd0f2d]> [/color] bitwise rotate right
+[color=#ffcd0f2d]> [/color] bitwise or
+[color=#ffcd0f2d]> [/color] bitwise and
+[color=#ffcd0f2d]> [/color] bitwise nand
+[color=#ffcd0f2d]> [/color] bitwise xor
+[color=#ffcd0f2d]> [/color] bitwise compare
+[color=#ffcd0f2d]> [/color] increment by 1
+[color=#ffcd0f2d]> [/color] decrement by 1[/color]"
 text = "Operations:
-> add with carry
-> subtract with carry
-> shift left, MSB into carry
-> shift right, LSB into carry
-> bitwise rotate left
-> bitwise rotate right
-> bitwise or
-> bitwise and
-> bitwise nand
-> bitwise xor
-> bitwise compare
-> increment by 1
-> decrement by 1"
+>  add with carry
+>  subtract with carry
+>  shift left, MSB into carry
+>  shift right, LSB into carry
+>  bitwise rotate left
+>  bitwise rotate right
+>  bitwise or
+>  bitwise and
+>  bitwise nand
+>  bitwise xor
+>  bitwise compare
+>  increment by 1
+>  decrement by 1"
 content = "Operations:
 > add with carry
 > subtract with carry
@@ -3633,7 +3987,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3641,8 +3995,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent10" index="6"]
-anims/FadeIn = SubResource( 58 )
-anims/FadeOut = SubResource( 59 )
+anims/FadeIn = SubResource( 62 )
+anims/FadeOut = SubResource( 63 )
 
 [node name="Border" parent="Slides/OneContent10" index="7" instance=ExtResource( 12 )]
 margin_left = 1280.0
@@ -3652,7 +4006,7 @@ margin_bottom = 863.0
 rect_scale = Vector2( 1.2, 1.2 )
 img = ExtResource( 36 )
 
-[node name="OneContent15" type="Node2D" parent="Slides" index="26"]
+[node name="OneContent15" type="Node2D" parent="Slides" index="28"]
 visible = false
 script = ExtResource( 13 )
 title = "Preparing for the real-world test"
@@ -3707,7 +4061,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 39 )
+custom_fonts/normal_font = SubResource( 43 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3723,7 +4077,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Preparing for the real-world test[/color]"
 text = "Preparing for the real-world test"
-custom_effects = [ SubResource( 40 ) ]
+custom_effects = [ SubResource( 44 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3794,7 +4148,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 41 )
+custom_fonts/normal_font = SubResource( 45 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3802,8 +4156,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent15" index="5"]
-anims/FadeIn = SubResource( 60 )
-anims/FadeOut = SubResource( 61 )
+anims/FadeIn = SubResource( 64 )
+anims/FadeOut = SubResource( 65 )
 
 [node name="Border" parent="Slides/OneContent15" index="6" instance=ExtResource( 12 )]
 margin_left = 731.0
@@ -3813,7 +4167,7 @@ margin_bottom = 970.0
 rect_scale = Vector2( 1.1, 1.1 )
 img = ExtResource( 46 )
 
-[node name="OneContent14" type="Node2D" parent="Slides" index="27"]
+[node name="OneContent14" type="Node2D" parent="Slides" index="29"]
 visible = false
 script = ExtResource( 13 )
 title = "The running light demo program"
@@ -3850,7 +4204,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 62 )
+custom_fonts/normal_font = SubResource( 66 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3866,7 +4220,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The running light demo program[/color]"
 text = "The running light demo program"
-custom_effects = [ SubResource( 63 ) ]
+custom_effects = [ SubResource( 67 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3885,7 +4239,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 64 )
+custom_fonts/normal_font = SubResource( 68 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3893,8 +4247,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent14" index="5"]
-anims/FadeIn = SubResource( 65 )
-anims/FadeOut = SubResource( 66 )
+anims/FadeIn = SubResource( 69 )
+anims/FadeOut = SubResource( 70 )
 
 [node name="Border" parent="Slides/OneContent14" index="6" instance=ExtResource( 12 )]
 margin_left = 156.0
@@ -3912,7 +4266,7 @@ margin_bottom = 1313.0
 rect_scale = Vector2( 0.8, 0.55 )
 img = ExtResource( 42 )
 
-[node name="OneContent11" type="Node2D" parent="Slides" index="28"]
+[node name="OneContent11" type="Node2D" parent="Slides" index="30"]
 visible = false
 script = ExtResource( 13 )
 title = "Day 11: Breakthrough!!!! RRISC CPU in the real world"
@@ -3951,7 +4305,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 67 )
+custom_fonts/normal_font = SubResource( 71 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3967,7 +4321,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Day 11: Breakthrough!!!! RRISC CPU in the real world[/color]"
 text = "Day 11: Breakthrough!!!! RRISC CPU in the real world"
-custom_effects = [ SubResource( 68 ) ]
+custom_effects = [ SubResource( 72 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3990,7 +4344,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 69 )
+custom_fonts/normal_font = SubResource( 73 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -3998,8 +4352,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent11" index="5"]
-anims/FadeIn = SubResource( 70 )
-anims/FadeOut = SubResource( 71 )
+anims/FadeIn = SubResource( 74 )
+anims/FadeOut = SubResource( 75 )
 
 [node name="Node2D" type="Node2D" parent="Slides/OneContent11" index="6"]
 script = ExtResource( 39 )
@@ -4034,7 +4388,7 @@ normal = ExtResource( 61 )
 shape_visible = false
 visibility_mode = 1
 
-[node name="OneContent12" type="Node2D" parent="Slides" index="29"]
+[node name="OneContent12" type="Node2D" parent="Slides" index="31"]
 visible = false
 script = ExtResource( 13 )
 title = "The website"
@@ -4077,7 +4431,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 67 )
+custom_fonts/normal_font = SubResource( 71 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4093,7 +4447,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]The website[/color]"
 text = "The website"
-custom_effects = [ SubResource( 68 ) ]
+custom_effects = [ SubResource( 72 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4128,7 +4482,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 69 )
+custom_fonts/normal_font = SubResource( 73 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -4136,8 +4490,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent12" index="5"]
-anims/FadeIn = SubResource( 70 )
-anims/FadeOut = SubResource( 71 )
+anims/FadeIn = SubResource( 74 )
+anims/FadeOut = SubResource( 75 )
 
 [node name="Border" parent="Slides/OneContent12" index="6" instance=ExtResource( 12 )]
 margin_left = 650.0
@@ -4147,7 +4501,7 @@ margin_bottom = 1774.0
 rect_scale = Vector2( 0.5, 0.5 )
 img = ExtResource( 37 )
 
-[node name="OneContent13" type="Node2D" parent="Slides" index="30"]
+[node name="OneContent13" type="Node2D" parent="Slides" index="32"]
 visible = false
 script = ExtResource( 13 )
 title = "Reactions on social media"
@@ -4186,7 +4540,7 @@ margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 67 )
+custom_fonts/normal_font = SubResource( 71 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4202,7 +4556,7 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]Reactions on social media[/color]"
 text = "Reactions on social media"
-custom_effects = [ SubResource( 68 ) ]
+custom_effects = [ SubResource( 72 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4225,7 +4579,7 @@ margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 69 )
+custom_fonts/normal_font = SubResource( 73 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 __meta__ = {
@@ -4241,8 +4595,8 @@ rect_scale = Vector2( 0.5, 0.4 )
 img = ExtResource( 43 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/OneContent13" index="6"]
-anims/FadeIn = SubResource( 70 )
-anims/FadeOut = SubResource( 71 )
+anims/FadeIn = SubResource( 74 )
+anims/FadeOut = SubResource( 75 )
 
 [node name="Border" parent="Slides/OneContent13" index="7" instance=ExtResource( 12 )]
 margin_left = 912.0
@@ -4260,7 +4614,7 @@ margin_bottom = 1221.0
 rect_scale = Vector2( 0.6, 0.6 )
 img = ExtResource( 44 )
 
-[node name="OneContent16" parent="Slides" index="31" instance=ExtResource( 47 )]
+[node name="OneContent16" parent="Slides" index="33" instance=ExtResource( 47 )]
 visible = false
 title = "Takeaways"
 text = "-FPGAs are fascinating, extremely powerful chips
@@ -4291,7 +4645,8 @@ bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
 pagenumber_size = 20.0
 pagenumber_color = Color( 0, 0, 0, 1 )
 
-[node name="Thankyou" type="Node2D" parent="Slides" index="32"]
+[node name="Thankyou" type="Node2D" parent="Slides" index="34"]
+visible = false
 script = ExtResource( 45 )
 Title = "RRISC CPU"
 Subtitle = "Building a CPU over Christmas"
@@ -4319,7 +4674,7 @@ margin_top = 200.0
 margin_right = 1819.0
 margin_bottom = 423.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 72 )
+custom_fonts/normal_font = SubResource( 76 )
 custom_constants/line_separation = 15
 bbcode_enabled = true
 bbcode_text = "[color=#cd0f2d]THANK YOU FOR YOUR ATTENTION[/color]"
@@ -4335,7 +4690,7 @@ margin_top = 749.0
 margin_right = 1055.0
 margin_bottom = 995.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 73 )
+custom_fonts/normal_font = SubResource( 77 )
 custom_constants/line_separation = 0
 bbcode_enabled = true
 bbcode_text = "[color=#ffcd0f2d]BUILDING A CPU OVER CHRISTMAS[/color]
@@ -4352,8 +4707,8 @@ margin_top = 560.0
 margin_right = 1137.0
 margin_bottom = 783.0
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 74 )
-custom_fonts/normal_font = SubResource( 75 )
+custom_fonts/bold_font = SubResource( 78 )
+custom_fonts/normal_font = SubResource( 79 )
 bbcode_enabled = true
 bbcode_text = "[color=#ff000000]RRISC CPU[/color]"
 text = "RRISC CPU"
@@ -4392,8 +4747,8 @@ position = Vector2( 377.026, 126.278 )
 texture = ExtResource( 34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou" index="5"]
-anims/FadeIn = SubResource( 76 )
-anims/FadeOut = SubResource( 77 )
+anims/FadeIn = SubResource( 80 )
+anims/FadeOut = SubResource( 81 )
 [connection signal="pressed" from="Slides/OneContent11/Node2D/Button" to="Slides/OneContent11/Node2D" method="_on_Button_pressed"]
 [connection signal="pressed" from="Slides/OneContent11/Node2D/TouchScreenButton" to="Slides/OneContent11/Node2D" method="_on_TouchScreenButton_pressed"]
 

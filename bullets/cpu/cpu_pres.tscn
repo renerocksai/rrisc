@@ -1051,13 +1051,13 @@ slide_number_start = 1
 mouse_hide_timeout = 1.5
 
 [node name="LaserPointer" parent="Slides" index="1"]
-frame = 0
+frame = 10
 
 [node name="LaserPointer2" parent="Slides" index="2"]
-frame = 5
+frame = 22
 
 [node name="LaserPointer3" parent="Slides" index="3"]
-frame = 7
+frame = 24
 
 [node name="Title" type="Node2D" parent="Slides" index="5"]
 script = ExtResource( 2 )
@@ -5152,6 +5152,9 @@ texture = ExtResource( 34 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou" index="5"]
 anims/FadeIn = SubResource( 82 )
 anims/FadeOut = SubResource( 83 )
+
+[node name="TouchControls" parent="." index="2"]
+visible = true
 [connection signal="pressed" from="Slides/OneContent11/Node2D/Button" to="Slides/OneContent11/Node2D" method="_on_Button_pressed"]
 [connection signal="pressed" from="Slides/OneContent11/Node2D/TouchScreenButton" to="Slides/OneContent11/Node2D" method="_on_TouchScreenButton_pressed"]
 

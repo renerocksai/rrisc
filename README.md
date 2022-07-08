@@ -1,13 +1,11 @@
-# rrisc
-VHDL implementation of my [RRISC](https://renerocksai.github.io/rrisc/rrisc.html) CPU
+# Give Up GitHub
 
-### **>>> Read all about it here: [https://renerocksai.github.io/rrisc](https://renerocksai.github.io/rrisc) <<<**
+This project has given up GitHub.  ([See Software Freedom Conservancy's *Give Up  GitHub* site for details](https://GiveUpGitHub.org).)
 
-![](docs/cpudemo.png)
+You can now find this project at [SourceHut](https://git.sr.ht/~renerocksai/rrisc) instead.
 
-The code is organized as follows:
+Any use of this project's code by GitHub Copilot, past or present, is done without our permission.  We do not consent to GitHub's use of this project's code in Copilot.
 
-- [asm](https://github.com/renerocksai/rrisc/tree/main/asm) - contains the assembler and both [simtest.asm](https://github.com/renerocksai/rrisc/blob/main/asm/simtest.asm) and [testalu.asm](https://github.com/renerocksai/rrisc/blob/main/asm/testalu.asm) which are used for first tests of the CPU
-- [ghdl](https://github.com/renerocksai/rrisc/tree/main/ghdl) - contains the [-> ghdl](https://github.com/ghdl/ghdl) testbench scripts: make and run tests
-- [project_2.srcs](https://github.com/renerocksai/rrisc/tree/main/project_2.srcs) - contains the VHDL CPU and testbench sources. It's in Vivado style folders. But free [ghdl](https://github.com/ghdl/ghdl) can be used for simulations, Vivado is only required for programming your FPGA.
+Join us; you can [give up GitHub](https://GiveUpGitHub.org) too!
 
+![Logo of the GiveUpGitHub campaign](https://sfconservancy.org/img/GiveUpGitHub.png)
